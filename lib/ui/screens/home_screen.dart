@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:get/get.dart';
-import 'package:threattraining/ui/routers/my_router.dart';
-
+import '../../ui/routers/my_router.dart';
 import '../../ui/widgets/button/dark_blue_button.dart';
 import 'package:flutter/material.dart';
 
@@ -35,12 +34,21 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 20),
                 child: InkWell(
-                  onTap: () => Get.toNamed(MyRouter.expandableScreen),
+                  onTap: () => Get.toNamed(MyRouter.officePhishing),
                   child: DarkBlueButton(
                     buttonText: "Office 365 phishing",
                   ),
                 ),
-              )
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 20),
+              //   child: InkWell(
+              //     onTap: () => Get.toNamed(MyRouter.gettingStartedScreen),
+              //     child: DarkBlueButton(
+              //       buttonText: "Office 365 phishing",
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ),

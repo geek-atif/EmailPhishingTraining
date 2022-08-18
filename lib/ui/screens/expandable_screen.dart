@@ -1,6 +1,8 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import 'package:pinch_zoom_image_last/pinch_zoom_image_last.dart';
+
 import 'package:threattraining/ui/styles/my_app_theme.dart';
 import 'package:threattraining/ui/widgets/text/light_text_body.dart';
 import '../../ui/styles/images.dart';
@@ -65,7 +67,17 @@ class Card1 extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: Column(
             children: <Widget>[
-              Image.asset(Images.office1),
+              PinchZoomImage(
+                image: Image.asset(Images.office1),
+                zoomedBackgroundColor: Color.fromRGBO(240, 240, 240, 1.0),
+                hideStatusBarWhileZooming: true,
+                onZoomStart: () {
+                  print('Zoom started');
+                },
+                onZoomEnd: () {
+                  print('Zoom finished');
+                },
+              ),
               ScrollOnExpand(
                 scrollOnExpand: true,
                 scrollOnCollapse: false,
@@ -143,7 +155,17 @@ class Card2 extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: Column(
             children: <Widget>[
-              Image.asset(Images.office2),
+              PinchZoomImage(
+                image: Image.asset(Images.office2),
+                zoomedBackgroundColor: Color.fromRGBO(240, 240, 240, 1.0),
+                hideStatusBarWhileZooming: true,
+                onZoomStart: () {
+                  print('Zoom started');
+                },
+                onZoomEnd: () {
+                  print('Zoom finished');
+                },
+              ),
               ScrollOnExpand(
                 scrollOnExpand: true,
                 scrollOnCollapse: false,
