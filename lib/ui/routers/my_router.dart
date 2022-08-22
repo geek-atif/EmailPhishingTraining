@@ -1,18 +1,31 @@
 import '../screens/office_phishing.dart';
 import '../screens/getting_started_screen.dart';
-import '../screens/expandable_screen.dart';
 import '../screens/home_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import '../screens/phishingsteps/phishing_step_one.dart';
+import '../screens/phishingsteps/phishing_step_three.dart';
+import '../screens/phishingsteps/phishing_step_two.dart';
+import '../screens/quiz_screen.dart';
+import '../screens/score_screen.dart';
 
 class MyRouter {
   static var expandableScreen = "/expandableScreen";
   static var gettingStartedScreen = "/gettingStartedScreen";
   static var officePhishing = "/officePhishing";
+  static var scoreScreen = "/scoreScreen";
+  static var quizScreen = "/quizScreen";
+  static var phishingStepOne = "/phishingStepOne";
+  static var phishingStepTwo = "/phishingStepTwo";
+  static var phishingStepThree = "/phishingStepThree";
 
   static var route = [
     GetPage(name: '/', page: () => HomeScreen()),
-    GetPage(name: expandableScreen, page: () => const ExpandableScreen()),
     GetPage(name: gettingStartedScreen, page: () => GettingStartedScreen()),
     GetPage(name: officePhishing, page: () => const OfficePhishing()),
+    GetPage(name: scoreScreen, page: () => ScoreScreen()),
+    GetPage(name: quizScreen, page: () => QuizScreen()),
+    GetPage(name: phishingStepOne, page: () => const PhishingStepOne()),
+    GetPage(name: phishingStepTwo, page: () => const PhishingStepTwo()),
+    GetPage(name: phishingStepThree, page: () => const PhishingStepThree()),
   ];
 }

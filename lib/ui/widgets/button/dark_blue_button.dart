@@ -11,10 +11,10 @@ class DarkBlueButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 45,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: MyAppTheme.primaryColor,
+        color: MyAppTheme.whitehaxButtonColor,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Center(

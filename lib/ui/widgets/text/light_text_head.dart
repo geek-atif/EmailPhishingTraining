@@ -1,9 +1,9 @@
 import '../../styles/fonts.dart';
 import 'package:flutter/material.dart';
 
-class LightTextSubHead extends StatelessWidget {
+class LightTextHead extends StatelessWidget {
   final String data;
-  const LightTextSubHead({required this.data}) : super();
+  const LightTextHead({required this.data}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +11,10 @@ class LightTextSubHead extends StatelessWidget {
       data,
       style: const TextStyle(
           fontStyle: FontStyle.normal,
-          fontSize: 20,
+          fontSize: 22,
           color: Colors.white,
           fontFamily: Fonts.poppins,
-          fontWeight: FontWeight.w400),
+          fontWeight: FontWeight.w600),
     );
   }
 }

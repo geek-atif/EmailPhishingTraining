@@ -31,10 +31,12 @@ dependencies:
     sdk: flutter
   get: ^4.3.8
   introduction_screen: ^3.0.2
-  expandable: ^5.0.1
-  pinch_zoom_image_last: ^0.3.2
+  auto_size_text: ^3.0.0
+  zoom_pinch_overlay: ^1.2.0
   im_stepper: ^1.0.1+1
   liquid_swipe: ^3.0.0
+  flutter_slider_drawer: ^2.1.1
+  flutter_svg: ^0.21.0+1
   #introduction_slider: ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
@@ -66,6 +68,16 @@ flutter:
   assets:
     - assets/images/office1.jpg
     - assets/images/office2.jpg
+    - assets/images/bg.svg
+    - assets/images/phisingemail.jpg
+    - assets/images/pr1.jpg
+    - assets/images/twitter.png
+    - assets/images/ebay.png
+    - assets/images/americanair.png
+    - assets/images/hsbc.png
+    - assets/images/phisingone.jpg
+    - assets/images/phisingtwo.jpg
+    - assets/images/phisingthree.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

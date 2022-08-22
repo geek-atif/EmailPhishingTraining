@@ -31,6 +31,17 @@ class LocaleString extends Translations {
           'microsoftSubHeadThree': '3. Run regular phishing exercises:',
           'microsoftSubBodyThree':
               'Regular, mandated phishing exercises across the entire organization will help to train employees to recognize phishing emails, so that they don’t click on malicious URLs, or enter their credentials into malicious websites. For instance, Duo offers a free phishing simulation tool, called Duo Insight.',
+          'phishingOne':
+              'Subject and email body the first give-away of a malicious email is the subject line which typically tries to convey urgency, importance and attention. Any UNSOLICITED email that has subject with words such as “you have won”, “account expired”, “credit card declined”, “your UPS/Fedex order #”, “note to self” and others that look to have suspicious subject line should not be opened. Another give away to look for is Unsolicited emails with email body which contain poor grammatically structured sentences.',
+          'phishingOneNote':
+              'No legitimate company sends emails to solicit account, password or any other personal information.',
+          'phishingTwo':
+              'Sender’s email address If the email Subject or body seems suspicious then, next thing is to look at the Sender’s email address. Click on the Sender’s emails once or on some devices, twice and a pop-up will show the details of the sender’s email. Invariably, the email address will not have domain name that reflects the email’s subject or message.',
+          'phishingTwoNote': 'No legit email will have unrecognizable domain.',
+          'phishingThree':
+              'Attachments or URL links in the email body Another common characteristic of malicious emails is either having an attachment (pdf, word or other common formats) OR a URL Link that the email prods you to click.',
+          'phishingThreeNote':
+              'Unless you initiated or requested something back, no legit company will send you an email with an attachment or URL Link for you to click. Do not click the URL link or attachment in such emails. If you accidently do, close browser and delete any downloaded files from your device.'
         },
         //sp LANGUAGE
         'es_ES': {},

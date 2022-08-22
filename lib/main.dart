@@ -11,7 +11,7 @@ void main() async {
   BindingController().dependencies();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(statusBarColor: MyAppTheme.primaryColorSecond),
+    const SystemUiOverlayStyle(statusBarColor: MyAppTheme.whitehaxdialog),
   );
 
   //await GetStorage.init();
