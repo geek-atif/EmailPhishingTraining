@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/ui/routers/my_router.dart';
+import '../../../../ui/routers/my_router.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 import '../../../styles/images.dart';
+import '../../../styles/my_app_theme.dart';
 import '../../button/dark_blue_button.dart';
 
 class PhishingTwoDialog {
@@ -15,9 +16,11 @@ class PhishingTwoDialog {
           return WillPopScope(
             onWillPop: () async => true,
             child: SimpleDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
               key: key,
-              backgroundColor: Colors.transparent,
-              //backgroundColor: MyAppTheme.grey100,
+              backgroundColor: MyAppTheme.whitehaxdialog,
               children: <Widget>[
                 Center(
                   child: Padding(
@@ -26,12 +29,14 @@ class PhishingTwoDialog {
                       minScale: 0.5, // Optional
                       maxScale: 3.0, // Optional
                       twoTouchOnly: true, // Defaults to false
-                      child: Image.asset(Images.phisingtwo),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(Images.phisingtwo)),
                     ),
                   ),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 25,
                 ),
                 InkWell(
                   onTap: () => Get.toNamed(MyRouter.phishingStepThree),

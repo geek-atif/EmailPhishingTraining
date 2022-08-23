@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../ui/styles/my_app_theme.dart';
 import '../../controller/question_controller.dart';
+import '../widgets/my_app_bar.dart';
 import '../widgets/quiz/body.dart';
 
 class QuizScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _QuizScreenState extends State<QuizScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,
+        appBar: const MyAppBar(),
         body: Body(questionController: _questionController),
       ),
     );

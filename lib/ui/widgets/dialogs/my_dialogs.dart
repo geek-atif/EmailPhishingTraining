@@ -16,6 +16,9 @@ class Dialogs {
           return WillPopScope(
             onWillPop: () async => true,
             child: SimpleDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
               key: key,
               backgroundColor: Colors.transparent,
               //backgroundColor: MyAppTheme.grey100,

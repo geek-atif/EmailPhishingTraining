@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/ui/widgets/text/light_text_sub_head.dart';
+import '../../../../ui/widgets/text/light_text_sub_head.dart';
 import '../../../ui/widgets/button/dark_blue_button.dart';
 import '../../../ui/widgets/text/light_text_body.dart';
 import '../../../ui/styles/my_app_theme.dart';
 import '../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
+import '../../widgets/my_app_bar.dart';
 import '../../widgets/text/light_text_head.dart';
 
 class PhishingStepOne extends StatefulWidget {
@@ -35,6 +36,7 @@ class _PhishingStepOneState extends State<PhishingStepOne>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: const MyAppBar(),
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,
         body: SingleChildScrollView(
           child: Padding(

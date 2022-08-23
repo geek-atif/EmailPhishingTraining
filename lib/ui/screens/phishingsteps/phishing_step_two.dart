@@ -6,6 +6,7 @@ import '../../../ui/styles/my_app_theme.dart';
 import '../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
 import '../../widgets/dialogs/phishingsteps/phishing_three_dialog.dart';
 import '../../widgets/dialogs/phishingsteps/phishing_two_dialog.dart';
+import '../../widgets/my_app_bar.dart';
 import '../../widgets/text/light_text_head.dart';
 import '../../widgets/text/light_text_sub_head.dart';
 
@@ -38,6 +39,7 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
     return SafeArea(
       child: Scaffold(
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,
+        appBar: const MyAppBar(),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
