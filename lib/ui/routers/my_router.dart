@@ -1,3 +1,4 @@
+import '../screens/games/word_game_screen.dart';
 import '../screens/office_phishing.dart';
 import '../screens/getting_started_screen.dart';
 import '../screens/home_screen.dart';
@@ -17,6 +18,7 @@ class MyRouter {
   static var phishingStepOne = "/phishingStepOne";
   static var phishingStepTwo = "/phishingStepTwo";
   static var phishingStepThree = "/phishingStepThree";
+  static var wordGameScreen = "/wordGameScreen";
 
   static var route = [
     GetPage(name: '/', page: () => HomeScreen()),
@@ -27,5 +29,6 @@ class MyRouter {
     GetPage(name: phishingStepOne, page: () => const PhishingStepOne()),
     GetPage(name: phishingStepTwo, page: () => const PhishingStepTwo()),
     GetPage(name: phishingStepThree, page: () => const PhishingStepThree()),
+    GetPage(name: wordGameScreen, page: () => const WordGameScreen()),
   ];
 }

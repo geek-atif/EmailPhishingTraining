@@ -1,9 +1,7 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
-import 'package:get/get.dart';
 import '../styles/my_app_theme.dart';
 import '../widgets/navigationmenu/my_navigation_menu.dart';
-import '../../ui/routers/my_router.dart';
-import '../../ui/widgets/button/dark_blue_button.dart';
 import 'package:flutter/material.dart';
 import '../widgets/text/light_text_sub_head.dart';
 
@@ -16,7 +14,14 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<SliderDrawerState> keyLoader = GlobalKey<SliderDrawerState>();
   @override
   void initState() {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    super.didChangeDependencies();
   }
 
   @override
@@ -45,17 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
       color: MyAppTheme.whitehaxBackgroundColor,
       alignment: Alignment.center,
       child: Column(
-        children: [
-          // Padding(
-          //   padding: const EdgeInsets.only(left: 25.0, right: 25.0, top: 30),
-          //   child: InkWell(
-          //     onTap: () => Get.toNamed(MyRouter.officePhishing),
-          //     child: DarkBlueButton(
-          //       buttonText: "Office 365 phishing",
-          //     ),
-          //   ),
-          // ),
-        ],
+        children: [],
       ),
     );
   }

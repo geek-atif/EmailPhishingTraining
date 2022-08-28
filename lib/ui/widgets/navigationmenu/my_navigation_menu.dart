@@ -71,8 +71,11 @@ class MyNavigationMenu extends StatelessWidget {
               title: const LightTextSubHead(
                 data: "Game",
               ),
-              children: const <Widget>[
-                //LightTextBody(data: "Phishing"),
+              children: <Widget>[
+                InkWell(
+                  onTap: () => Get.toNamed(MyRouter.wordGameScreen),
+                  child: const LightTextBody(data: "Word Game"),
+                ),
               ],
               iconColor: Colors.white,
               leading: const Icon(

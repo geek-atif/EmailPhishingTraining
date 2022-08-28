@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/ui/routers/my_router.dart';
 import '../model/questions.dart';
 
 // We use get package for our state management
