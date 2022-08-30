@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:threattraining/controller/word_game_controller.dart';
 import 'package:threattraining/ui/widgets/my_app_bar.dart';
+import '../../../utiles/constant.dart';
+import '../../styles/fonts.dart';
 import '../../styles/my_app_theme.dart';
 import '../../widgets/games/wordgame/word_draggable_card.dart';
 import '../../widgets/games/wordgame/word_game_list.dart';
@@ -22,7 +24,7 @@ class _WordGameScreenState extends State<WordGameScreen>
   @override
   void initState() {
     super.initState();
-    SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     _controller = AnimationController(vsync: this);
     _wordGameController.setWordGames("");
   }
@@ -41,9 +43,37 @@ class _WordGameScreenState extends State<WordGameScreen>
         appBar: const MyAppBar(),
         body: Padding(
           padding: const EdgeInsets.all(8),
-          child: Row(
-            children: <Widget>[
-              const SizedBox(height: 20),
+          child: Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Obx(
+                  () => Text.rich(
+                    TextSpan(
+                      text:
+                          "Question ${_wordGameController.questionNumber.value}",
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontFamily: Fonts.poppins,
+                          fontWeight: FontWeight.w600),
+                      children: [
+                        TextSpan(
+                          text: "/${_wordGameController.wordGames.length}",
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontFamily: Fonts.poppins,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              const Divider(thickness: 1, color: Colors.white),
+              const SizedBox(height: 5),
               WordGameList(
                 wordGameController: _wordGameController,
               ),

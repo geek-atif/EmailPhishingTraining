@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as services;
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'controller/binding_controller.dart';
 import 'ui/routers/my_router.dart';
 import 'ui/styles/locale_string.dart';
@@ -14,7 +15,7 @@ void main() async {
     const SystemUiOverlayStyle(statusBarColor: MyAppTheme.whitehaxdialog),
   );
 
-  //await GetStorage.init();
+  await GetStorage.init();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {

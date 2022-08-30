@@ -12,3 +12,7 @@ const kPrimaryGradient = LinearGradient(
 );
 
 const double kDefaultPadding = 20.0;
+
+const String USER_LOGIN_STATUS = "userLoginStatus";
+const String USER_NAME = "userName";
+const String USER_EMAIL_ADDRESS = "userEmailAddress";

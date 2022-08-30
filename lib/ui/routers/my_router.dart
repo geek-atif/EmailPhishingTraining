@@ -1,3 +1,5 @@
+import '../../../ui/screens/auth/login_screen.dart';
+import '../../ui/screens/splash_screen.dart';
 import '../screens/games/word_game_screen.dart';
 import '../screens/office_phishing.dart';
 import '../screens/getting_started_screen.dart';
@@ -19,9 +21,14 @@ class MyRouter {
   static var phishingStepTwo = "/phishingStepTwo";
   static var phishingStepThree = "/phishingStepThree";
   static var wordGameScreen = "/wordGameScreen";
+  static var homeScreen = "/homeScreen";
+  static var splashScreen = "/";
+  static var loginScreen = "/loginScreen";
 
   static var route = [
-    GetPage(name: '/', page: () => HomeScreen()),
+    GetPage(name: splashScreen, page: () => const SplashScreen()),
+    GetPage(name: loginScreen, page: () => const LoginScreen()),
+    GetPage(name: homeScreen, page: () => HomeScreen()),
     GetPage(name: gettingStartedScreen, page: () => GettingStartedScreen()),
     GetPage(name: officePhishing, page: () => const OfficePhishing()),
     GetPage(name: scoreScreen, page: () => ScoreScreen()),

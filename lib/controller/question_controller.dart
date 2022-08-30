@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../model/questions.dart';
+import '../ui/routers/my_router.dart';
 
 // We use get package for our state management
 
@@ -122,7 +123,7 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.offAndToNamed("/");
+      Get.offAndToNamed(MyRouter.homeScreen);
     }
   }
 

@@ -49,19 +49,7 @@ class _OfficePhishingState extends State<OfficePhishing>
                   ),
                 ),
                 const SizedBox(
-                  height: 15,
-                ),
-                LightTextBody(
-                  data: "theattackchainOne".tr,
-                ),
-                const SizedBox(
                   height: 30,
-                ),
-                LightTextSubHead(
-                  data: "theattackchainTwo".tr,
-                ),
-                const SizedBox(
-                  height: 5,
                 ),
                 LightTextBody(
                   data: "theattackchainSubOne".tr,
@@ -71,6 +59,9 @@ class _OfficePhishingState extends State<OfficePhishing>
                 ),
                 LightTextBody(
                   data: "theattackchainSubThree".tr,
+                ),
+                LightTextBody(
+                  data: "theattackchainSubFour".tr,
                 ),
                 const SizedBox(
                   height: 40,

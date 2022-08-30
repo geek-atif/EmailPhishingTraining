@@ -6,17 +6,20 @@ class LocaleString extends Translations {
   Map<String, Map<String, String>> get keys => {
         //ENGLISH LANGUAGE
         'en_US': {
-          'theattackchain': 'The attack chain',
+          'theattackchain':
+              'Subject contains Account Related Error : Account Deactivated, Expired or other errors',
           'theattackchainOne':
               'The methods used by attackers to gain access to an Office 365 account are fairly straightforward. The phishing campaigns usually take the form of an email from Microsoft. The email contains a request to log in, claiming the user needs to reset their password, hasn’t logged in recently, or that there’s a problem with the account that needs their attention. A URL is included, enticing the reader to click to remedy the issue.',
           'theattackchainTwo':
               'The chain of events usually plays out like this:',
           'theattackchainSubOne':
-              '1. Attacker sends a phishing email that appears to come from Microsoft or another trusted source.',
+              '(i) Typically this type of phishing scam will have a Subject line that will point to account deactivation, account expiry, too many login attempt detected or such account related error.',
           'theattackchainSubTwo':
-              '2. User clicks on link in the email, which brings them to a page mimicking the Office 365 login page.',
+              '(ii) See an example of such email in the image on the side',
           'theattackchainSubThree':
-              '3. User enters login credentials, which are scooped up by the attackers.',
+              "(iii) Steps to detect this type of Phishing Scam Click on the Sender’s Email address or hover over it. While it may contain Microsoft or Microsoft Office – the domain name will not end in microsoft.com Hover over the Login Link provided in the email and you will notice again that the URL will not be a Microsoft url that ends with “microsoft.com” Most likely the URL will also not begin with https:// ",
+          'theattackchainSubFour':
+              "(iv) Tip: When in doubt, contact your IT system administrator to verify if your account indeed has been expired, deactivated or in jeopardy of deactivation. You can also forward a copy of the scam email to them for further review and filtering of such messages from other users mailboxes.",
           'microsoftHead':
               'Microsoft has number of security technologies into its Office 365 offerings',
           'microsoftSubHead':

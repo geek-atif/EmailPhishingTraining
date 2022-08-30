@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:threattraining/utiles/utility.dart';
 import '../../routers/my_router.dart';
 import '../../styles/my_app_theme.dart';
 import '../text/light_text_body.dart';
@@ -12,12 +13,27 @@ class MyNavigationMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Container(
       color: MyAppTheme.whitehaxdialog,
       child: Padding(
-        padding: const EdgeInsets.only(left: 10, top: 10),
-        child: ListView(
+        padding: const EdgeInsets.only(left: 10, top: 25),
+        child: Column(
           children: <Widget>[
+            Icon(
+              Icons.person,
+              size: screenSize.height * 0.15,
+              color: Colors.white,
+            ),
+            Center(
+              child: LightTextSubHead(data: "${Utility.getUserName()}"),
+            ),
+            Center(
+              child: LightTextBody(data: "${Utility.getEmailAddress()}"),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.05,
+            ),
             ExpansionTile(
               collapsedIconColor: Colors.white,
               expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -84,6 +100,27 @@ class MyNavigationMenu extends StatelessWidget {
                 size: 25,
               ),
             ),
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 30, left: 30),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.logout,
+                        size: screenSize.height * 0.035,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: screenSize.width * 0.035,
+                      ),
+                      const LightTextSubHead(data: "Logout"),
+                    ],
+                  ),
+                ),
+              ),
+            )
           ],
         ),
 

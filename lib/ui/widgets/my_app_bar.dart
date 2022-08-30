@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:threattraining/ui/routers/my_router.dart';
 
 import '../styles/my_app_theme.dart';
 
@@ -16,7 +17,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
       actions: [
         InkWell(
           onTap: () {
-            Get.offAndToNamed("/");
+            Get.offAndToNamed(MyRouter.homeScreen);
             SystemChrome.setPreferredOrientations(
                 [DeviceOrientation.portraitUp]);
           },
