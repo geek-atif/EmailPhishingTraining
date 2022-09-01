@@ -20,171 +20,136 @@ class MyNavigationMenu extends StatelessWidget {
         padding: const EdgeInsets.only(left: 10, top: 25),
         child: Column(
           children: <Widget>[
-            Icon(
-              Icons.person,
-              size: screenSize.height * 0.15,
-              color: Colors.white,
-            ),
-            Center(
-              child: LightTextSubHead(data: "${Utility.getUserName()}"),
-            ),
-            Center(
-              child: LightTextBody(data: "${Utility.getEmailAddress()}"),
-            ),
+            _head(screenSize),
             SizedBox(
               height: screenSize.height * 0.05,
             ),
-            ExpansionTile(
-              collapsedIconColor: Colors.white,
-              expandedCrossAxisAlignment: CrossAxisAlignment.start,
-              childrenPadding: const EdgeInsets.only(bottom: 10),
-              title: const LightTextSubHead(
-                data: "Tutorial",
-              ),
-              children: <Widget>[
-                InkWell(
-                    onTap: () => Get.toNamed(MyRouter.officePhishing),
-                    child: const LightTextBody(data: "Office 365")),
-                const SizedBox(
-                  height: 10,
-                ),
-                InkWell(
-                    onTap: () => Get.toNamed(MyRouter.phishingStepOne),
-                    child: const LightTextBody(data: "3 Step Phishing")),
-              ],
-              iconColor: Colors.white,
-              leading: const Icon(
-                Icons.read_more,
-                color: Colors.white,
-                size: 25,
-              ),
-            ),
-            ExpansionTile(
-              collapsedIconColor: Colors.white,
-              expandedCrossAxisAlignment: CrossAxisAlignment.start,
-              childrenPadding: const EdgeInsets.only(bottom: 10),
-              title: const LightTextSubHead(
-                data: "Quiz",
-              ),
-              children: <Widget>[
-                InkWell(
-                  onTap: () => Get.toNamed(MyRouter.quizScreen,
-                      arguments: "phishingQuiz"),
-                  child: const LightTextBody(data: "Phishing"),
-                ),
-              ],
-              iconColor: Colors.white,
-              leading: const Icon(
-                Icons.quiz_outlined,
-                color: Colors.white,
-                size: 25,
-              ),
-            ),
-            ExpansionTile(
-              collapsedIconColor: Colors.white,
-              expandedCrossAxisAlignment: CrossAxisAlignment.start,
-              childrenPadding: const EdgeInsets.only(bottom: 10),
-              title: const LightTextSubHead(
-                data: "Game",
-              ),
-              children: <Widget>[
-                InkWell(
-                  onTap: () => Get.toNamed(MyRouter.wordGameScreen),
-                  child: const LightTextBody(data: "Word Game"),
-                ),
-              ],
-              iconColor: Colors.white,
-              leading: const Icon(
-                Icons.games,
-                color: Colors.white,
-                size: 25,
-              ),
-            ),
-            Expanded(
-              child: Align(
-                alignment: FractionalOffset.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 30, left: 30),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.logout,
-                        size: screenSize.height * 0.035,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: screenSize.width * 0.035,
-                      ),
-                      const LightTextSubHead(data: "Logout"),
-                    ],
-                  ),
-                ),
-              ),
-            )
+            tutorialWidg(),
+            quizWidg(),
+            gameWidg(),
+            logoutWidg(screenSize)
           ],
         ),
+      ),
+    );
+  }
 
-        //     Column(
-        //       crossAxisAlignment: CrossAxisAlignment.start,
-        //       children: [
-        //         const SizedBox(
-        //           height: 30,
-        //         ),
-        //         Row(
-        //           children: const [
-        //             Icon(
-        //               Icons.read_more,
-        //               color: Colors.white,
-        //               size: 25,
-        //             ),
-        //             SizedBox(
-        //               width: 10,
-        //             ),
-        //             LightTextSubHead(
-        //               data: "Tutorial",
-        //             ),
-        //           ],
-        //         ),
-        //         const SizedBox(
-        //           height: 15,
-        //         ),
-        //         Row(
-        //           children: const [
-        //             Icon(
-        //               Icons.quiz_outlined,
-        //               color: Colors.white,
-        //               size: 25,
-        //             ),
-        //             SizedBox(
-        //               width: 10,
-        //             ),
-        //             LightTextSubHead(
-        //               data: "Quiz",
-        //             ),
-        //           ],
-        //         ),
-        //         const SizedBox(
-        //           height: 15,
-        //         ),
-        //         Row(
-        //           children: const [
-        //             Icon(
-        //               Icons.games,
-        //               color: Colors.white,
-        //               size: 25,
-        //             ),
-        //             SizedBox(
-        //               width: 10,
-        //             ),
-        //             LightTextSubHead(
-        //               data: "Game",
-        //             ),
-        //           ],
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // )
+  Column _head(Size screenSize) {
+    return Column(
+      children: [
+        Icon(
+          Icons.person,
+          size: screenSize.height * 0.1,
+          color: Colors.white,
+        ),
+        Center(
+          child: LightTextSubHead(data: Utility.getUserName()),
+        ),
+        Center(
+          child: LightTextBody(data: Utility.getEmailAddress()),
+        ),
+      ],
+    );
+  }
+
+  Expanded logoutWidg(Size screenSize) {
+    return Expanded(
+      child: Align(
+        alignment: FractionalOffset.bottomCenter,
+        child: InkWell(
+          onTap: () => Utility.logout(),
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 30, left: 30),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.logout,
+                  size: screenSize.height * 0.035,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  width: screenSize.width * 0.035,
+                ),
+                const LightTextSubHead(data: "Logout"),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  ExpansionTile gameWidg() {
+    return ExpansionTile(
+      collapsedIconColor: Colors.white,
+      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+      childrenPadding: const EdgeInsets.only(bottom: 10),
+      title: const LightTextSubHead(
+        data: "Game",
+      ),
+      children: <Widget>[
+        InkWell(
+          onTap: () => Get.toNamed(MyRouter.wordGameScreen),
+          child: const LightTextBody(data: "Word Game"),
+        ),
+      ],
+      iconColor: Colors.white,
+      leading: const Icon(
+        Icons.games,
+        color: Colors.white,
+        size: 25,
+      ),
+    );
+  }
+
+  ExpansionTile quizWidg() {
+    return ExpansionTile(
+      collapsedIconColor: Colors.white,
+      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+      childrenPadding: const EdgeInsets.only(bottom: 10),
+      title: const LightTextSubHead(
+        data: "Quiz",
+      ),
+      children: <Widget>[
+        InkWell(
+          onTap: () =>
+              Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz"),
+          child: const LightTextBody(data: "Phishing"),
+        ),
+      ],
+      iconColor: Colors.white,
+      leading: const Icon(
+        Icons.quiz_outlined,
+        color: Colors.white,
+        size: 25,
+      ),
+    );
+  }
+
+  ExpansionTile tutorialWidg() {
+    return ExpansionTile(
+      collapsedIconColor: Colors.white,
+      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+      childrenPadding: const EdgeInsets.only(bottom: 10),
+      title: const LightTextSubHead(
+        data: "Tutorial",
+      ),
+      children: <Widget>[
+        InkWell(
+            onTap: () => Get.toNamed(MyRouter.officePhishing),
+            child: const LightTextBody(data: "Office 365")),
+        const SizedBox(
+          height: 10,
+        ),
+        InkWell(
+            onTap: () => Get.toNamed(MyRouter.phishingStepOne),
+            child: const LightTextBody(data: "3 Step Phishing")),
+      ],
+      iconColor: Colors.white,
+      leading: const Icon(
+        Icons.read_more,
+        color: Colors.white,
+        size: 25,
       ),
     );
   }

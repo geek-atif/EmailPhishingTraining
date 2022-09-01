@@ -39,6 +39,8 @@ dependencies:
   flutter_svg: ^0.21.0+1
   get_storage: ^2.0.3
   #introduction_slider: ^1.0.0
+  syncfusion_flutter_charts: ^20.2.46
+  expandable: ^5.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

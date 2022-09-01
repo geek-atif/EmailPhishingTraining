@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:threattraining/ui/routers/my_router.dart';
+import 'package:threattraining/utiles/utility.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
+import '../../../../utiles/constant.dart';
 import '../../../styles/images.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../button/dark_blue_button.dart';
@@ -38,7 +41,10 @@ class PhishingThreeDialog {
                   height: 25,
                 ),
                 InkWell(
-                  onTap: () => Get.offAndToNamed("/"),
+                  onTap: () {
+                    Get.offAndToNamed(MyRouter.homeScreen);
+                    Utility.saveBolValue(TUTORIAL_STEP_ATTEMPT_Done, true);
+                  },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: DarkBlueButton(buttonText: "Done"),

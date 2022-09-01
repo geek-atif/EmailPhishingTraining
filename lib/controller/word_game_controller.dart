@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:threattraining/utiles/utility.dart';
 import '../model/word_game.dart';
 import '../ui/routers/my_router.dart';
+import '../utiles/constant.dart';
 
 class WordGameController extends GetxController
     with SingleGetTickerProviderMixin {
@@ -64,6 +66,7 @@ class WordGameController extends GetxController
               answer: wordGame['answer']),
         )
         .toList();
+    Utility.updateGameWordTotal(_wordGames.length);
   }
 
   void checkAns(String correctAns, String enterAns, int index) {
@@ -76,6 +79,7 @@ class WordGameController extends GetxController
     if (correctAns == enterAns) {
       _numOfCorrectAns++;
       ansStatus.value = 1;
+      Utility.updateGameWordAttempt(_numOfCorrectAns);
     } else {
       ansStatus.value = 2;
     }
@@ -107,7 +111,9 @@ class WordGameController extends GetxController
     } else {
       print("nextQuestion() else  ");
       // Get package provide us simple way to naviigate another page
-      Get.offAndToNamed(MyRouter.homeScreen);
+      var data = {"Total": _wordGames.length, "Ans": _numOfCorrectAns};
+      Get.offAndToNamed(MyRouter.scoreScreen, arguments: data);
+      Utility.saveBolValue(GAME_WORD_DONE, true);
     }
   }
 

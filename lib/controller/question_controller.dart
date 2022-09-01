@@ -2,6 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../model/questions.dart';
 import '../ui/routers/my_router.dart';
+import '../utiles/constant.dart';
+import '../utiles/utility.dart';
 
 // We use get package for our state management
 
@@ -88,6 +90,8 @@ class QuestionController extends GetxController
                 answer: question['answer_index']),
           )
           .toList();
+
+      Utility.updateQuizPhishingTotal(_questions.length);
     }
   }
 
@@ -97,7 +101,10 @@ class QuestionController extends GetxController
     _correctAns = question.answer;
     _selectedAns = selectedIndex;
 
-    if (_correctAns == _selectedAns) _numOfCorrectAns++;
+    if (_correctAns == _selectedAns) {
+      _numOfCorrectAns++;
+      Utility.updateQuizPhishingAttempt(_numOfCorrectAns);
+    }
 
     // It will stop the counter
     _animationController.stop();
@@ -123,7 +130,11 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
-      Get.offAndToNamed(MyRouter.homeScreen);
+      //Get.offAndToNamed(MyRouter.homeScreen);
+
+      var data = {"Total": _questions.length, "Ans": _numOfCorrectAns};
+      Get.offAndToNamed(MyRouter.scoreScreen, arguments: data);
+      Utility.saveBolValue(Quiz_PHISHING_DONE, true);
     }
   }
 

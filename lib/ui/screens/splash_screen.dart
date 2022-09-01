@@ -58,9 +58,49 @@ class _SplashScreenState extends State<SplashScreen> {
               height: screenSize.height * 0.01,
             ),
             Container(
-              alignment: Alignment.center,
-              child: const LightTextHead(data: "WhiteHax"),
-            ),
+                alignment: Alignment.center,
+                child: RichText(
+                  text: TextSpan(
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'WH ',
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.red[700],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                        text: 'P',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 32),
+                      ),
+                      TextSpan(
+                        text: 'hish',
+                        style: TextStyle(
+                            fontFamily: "Roboto",
+                            fontSize: 30,
+                            color: Colors.white),
+                      ),
+                      TextSpan(
+                        text: 'S',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontSize: 32),
+                      ),
+                      TextSpan(
+                        text: 'im',
+                        style: TextStyle(
+                            fontFamily: "Roboto",
+                            fontSize: 30,
+                            color: Colors.white),
+                      ),
+                    ],
+                  ),
+                )),
             SizedBox(
               height: screenSize.height * 0.01,
             ),

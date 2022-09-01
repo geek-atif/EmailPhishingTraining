@@ -24,7 +24,6 @@ class _WordGameScreenState extends State<WordGameScreen>
   @override
   void initState() {
     super.initState();
-    // SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft]);
     _controller = AnimationController(vsync: this);
     _wordGameController.setWordGames("");
   }

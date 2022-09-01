@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../controller/word_game_controller.dart';
-
+import 'word_draggable_card.dart';
 import 'word_edit_card.dart';
 
 class WordGameList extends StatelessWidget {
@@ -16,11 +16,17 @@ class WordGameList extends StatelessWidget {
         controller: wordGameController.pageController,
         onPageChanged: wordGameController.updateTheQnNum,
         itemCount: wordGameController.wordGames.length,
-        itemBuilder: (context, index) => WordEditCard(
+        itemBuilder: (context, index) => 
+        WordEditCard(
           index: index,
           wordGame: wordGameController.wordGames[index],
           wordGameController: wordGameController,
         ),
+        // WordDraggableCard(
+        //   index: index,
+        //   wordGame: wordGameController.wordGames[index],
+        //   wordGameController: wordGameController,
+        // ),
       ),
     );
   }

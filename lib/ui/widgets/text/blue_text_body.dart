@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../../styles/fonts.dart';
 import '../../styles/my_app_theme.dart';
 
-class DarkTextBody extends StatelessWidget {
+class BlueTextBody extends StatelessWidget {
   final String data;
-  const DarkTextBody({required this.data}) : super();
+  const BlueTextBody({required this.data}) : super();
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class DarkTextBody extends StatelessWidget {
       style: const TextStyle(
         fontStyle: FontStyle.normal,
         fontSize: 15,
-        color: Colors.black,
+        color: MyAppTheme.whitehaxButtonColor,
         fontFamily: Fonts.poppins,
       ),
     );
