@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         body: SliderDrawer(
           appBar: const SliderAppBar(
-            appBarColor: MyAppTheme.whitehaxdialog,
+            appBarColor: MyAppTheme.whitehaxBackgroundColor,
             title: LightTextSubHead(
               data: "Whitehax Phishsim",
             ),
@@ -87,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Container homeContiner(Size screenSize) {
     return Container(
-      color: MyAppTheme.whitehaxBackgroundColor,
       child: Padding(
         padding: const EdgeInsets.only(
           left: 5.0,
@@ -126,60 +125,47 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const Padding(
                       padding: EdgeInsets.only(left: 2),
-                      child: LightTextSubHead(data: "Tutorial"),
+                      child: LightTextSubHead(data: "Tutorial , Quiz , Game"),
+                    ),
+                    SizedBox(
+                      height: screenSize.height * 0.01,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         myCard(
                             screenSize, false, "office 365", Icons.read_more),
-                        SizedBox(
-                          width: screenSize.width * 0.01,
-                        ),
                         InkWell(
                           onTap: () => Get.toNamed(MyRouter.phishingStepOne),
                           child: myCard(screenSize, isPhishingScore,
                               "3 Step\nPhishing", Icons.read_more),
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: screenSize.height * 0.012,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 2),
-                      child: LightTextSubHead(data: "Quiz"),
-                    ),
-                    Row(
-                      children: [
                         InkWell(
                           onTap: () => Get.toNamed(MyRouter.quizScreen,
                               arguments: "phishingQuiz"),
                           child: myCard(screenSize, isQuizScore, "Phishing",
                               Icons.quiz_outlined),
                         ),
-                        SizedBox(
-                          width: screenSize.width * 0.01,
-                        ),
                       ],
                     ),
                     SizedBox(
-                      height: screenSize.height * 0.012,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 2),
-                      child: LightTextSubHead(data: "Game"),
+                      height: screenSize.height * 0.01,
                     ),
                     Row(
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        InkWell(
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: InkWell(
                             onTap: () => Get.toNamed(MyRouter.wordGameScreen),
                             child: myCard(
-                                screenSize, isGameScore, "Word", Icons.games)),
-                        SizedBox(
-                          width: screenSize.width * 0.01,
+                                screenSize, isGameScore, "Word", Icons.games),
+                          ),
                         ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -333,3 +319,64 @@ class ChartData {
   final String x;
   final double y;
 }
+
+
+ // SizedBox(
+                    //   height: screenSize.height * 0.01,
+                    // ),
+                    // const Padding(
+                    //   padding: EdgeInsets.only(left: 2),
+                    //   child: LightTextSubHead(data: "Tutorial"),
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     myCard(
+                    //         screenSize, false, "office 365", Icons.read_more),
+                    //     SizedBox(
+                    //       width: screenSize.width * 0.01,
+                    //     ),
+                    //     InkWell(
+                    //       onTap: () => Get.toNamed(MyRouter.phishingStepOne),
+                    //       child: myCard(screenSize, isPhishingScore,
+                    //           "3 Step\nPhishing", Icons.read_more),
+                    //     ),
+                    //   ],
+                    // ),
+                    // SizedBox(
+                    //   height: screenSize.height * 0.012,
+                    // ),
+                    // const Padding(
+                    //   padding: EdgeInsets.only(left: 2),
+                    //   child: LightTextSubHead(data: "Quiz"),
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     InkWell(
+                    //       onTap: () => Get.toNamed(MyRouter.quizScreen,
+                    //           arguments: "phishingQuiz"),
+                    //       child: myCard(screenSize, isQuizScore, "Phishing",
+                    //           Icons.quiz_outlined),
+                    //     ),
+                    //     SizedBox(
+                    //       width: screenSize.width * 0.01,
+                    //     ),
+                    //   ],
+                    // ),
+                    // SizedBox(
+                    //   height: screenSize.height * 0.012,
+                    // ),
+                    // const Padding(
+                    //   padding: EdgeInsets.only(left: 2),
+                    //   child: LightTextSubHead(data: "Game"),
+                    // ),
+                    // Row(
+                    //   children: [
+                    //     InkWell(
+                    //         onTap: () => Get.toNamed(MyRouter.wordGameScreen),
+                    //         child: myCard(
+                    //             screenSize, isGameScore, "Word", Icons.games)),
+                    //     SizedBox(
+                    //       width: screenSize.width * 0.01,
+                    //     ),
+                    //   ],
+                    // )
