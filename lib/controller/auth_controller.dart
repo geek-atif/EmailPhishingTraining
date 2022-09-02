@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/utiles/utility.dart';
+import '../../../utiles/utility.dart';
 import '../model/questions.dart';
 import '../ui/routers/my_router.dart';
 

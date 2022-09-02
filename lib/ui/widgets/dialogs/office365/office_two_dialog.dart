@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../ui/routers/my_router.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
-import '../../../model/questions.dart';
-import '../../styles/images.dart';
-import '../button/dark_blue_button.dart';
+import '../../../styles/images.dart';
+import '../../../styles/my_app_theme.dart';
+import '../../button/dark_blue_button.dart';
 
-class Dialogs {
+class OfficeTwoDialog {
   static Future<void> showLoadingDialog(
       BuildContext context, GlobalKey key) async {
     return showDialog<void>(
@@ -20,8 +20,8 @@ class Dialogs {
                 borderRadius: BorderRadius.circular(15),
               ),
               key: key,
-              backgroundColor: Colors.transparent,
-              //backgroundColor: MyAppTheme.grey100,
+              //backgroundColor: Colors.transparent,
+              backgroundColor: MyAppTheme.whitehaxdialog,
               children: <Widget>[
                 Center(
                   child: Padding(
@@ -30,19 +30,20 @@ class Dialogs {
                       minScale: 0.5, // Optional
                       maxScale: 3.0, // Optional
                       twoTouchOnly: true, // Defaults to false
-                      child: Image.asset(Images.office1),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(Images.office2_)),
                     ),
                   ),
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 25,
                 ),
                 InkWell(
-                  onTap: () => Get.offAndToNamed(MyRouter.quizScreen,
-                      arguments: "office365Qus"),
+                  onTap: () => Get.toNamed(MyRouter.officePhishingThreeScreen),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
-                    child: DarkBlueButton(buttonText: "Quiz Time"),
+                    child: DarkBlueButton(buttonText: "Step 3"),
                   ),
                 )
               ],

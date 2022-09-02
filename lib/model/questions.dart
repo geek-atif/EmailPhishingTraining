@@ -1,4 +1,4 @@
-import 'package:threattraining/ui/styles/images.dart';
+import '../../../ui/styles/images.dart';
 
 class Question {
   final int id, answer;
@@ -187,6 +187,63 @@ const List phishingQuiz = [
   },
   {
     "id": 13,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.americanair,
+    "options": [
+      'Yes',
+      'No',
+    ],
+    "answer_index": 2,
+  },
+];
+
+const List phishingEmailGame = [
+  {
+    "id": 1,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.phisingemail,
+    "options": ['Phishing Email', 'Real Email'],
+    "answer_index": 2,
+  },
+  {
+    "id": 2,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.phisingemail,
+    "options": ['Phishing Email', 'Real Email'],
+    "answer_index": 2,
+  },
+  {
+    "id": 3,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.ebay,
+    "options": [
+      'Yes',
+      'No',
+    ],
+    "answer_index": 2,
+  },
+  {
+    "id": 4,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.hsbc,
+    "options": [
+      'Yes',
+      'No',
+    ],
+    "answer_index": 2,
+  },
+  {
+    "id": 5,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.twitter,
+    "options": [
+      'Yes',
+      'No',
+    ],
+    "answer_index": 2,
+  },
+  {
+    "id": 6,
     "question": "Is this a Phishing Email ?",
     "image": Images.americanair,
     "options": [

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../ui/styles/my_app_theme.dart';
-import '../../controller/question_controller.dart';
-import '../widgets/my_app_bar.dart';
-import '../widgets/quiz/body.dart';
+import '../../styles/my_app_theme.dart';
+import '../../../controller/question_controller.dart';
+import '../../widgets/my_app_bar.dart';
+import '../../widgets/quiz/body.dart';
 
 class QuizScreen extends StatefulWidget {
   @override

@@ -44,7 +44,36 @@ class LocaleString extends Translations {
           'phishingThree':
               'Attachments or URL links in the email body Another common characteristic of malicious emails is either having an attachment (pdf, word or other common formats) OR a URL Link that the email prods you to click.',
           'phishingThreeNote':
-              'Unless you initiated or requested something back, no legit company will send you an email with an attachment or URL Link for you to click. Do not click the URL link or attachment in such emails. If you accidently do, close browser and delete any downloaded files from your device.'
+              'Unless you initiated or requested something back, no legit company will send you an email with an attachment or URL Link for you to click. Do not click the URL link or attachment in such emails. If you accidently do, close browser and delete any downloaded files from your device.',
+          'nondeliveredEmailsOne':
+              "(i) These types of scams will have Subject that says “Your messages have not been delivered” or “Last email message was not delivered",
+          'nondeliveredEmailsTwo':
+              "(ii) In the body of the email you will find something like “Microsoft Office found several undelivered messages”. It will then have “Send Again” or “Resend Message” button",
+          'nondeliveredEmailsThree':
+              "(iii) Steps to detect this type of Phishing Scam are the same as above",
+          'nondeliveredEmailsFour':
+              "Note the Sender’s Email address. While it may contain Microsoft or Microsoft Office – the domain name will not end in “microsoft.com”",
+          'nondeliveredEmailsFive':
+              "Hover over the “Send Again” or “Resend Message” button in the email and you will notice again that the URL will not be a Microsoft url that ends with “microsoft.com”",
+          'office365One':
+              "(i) A common Microsoft SharePoint scam is related to email message that indicates SharePoint quota exceeded or File Size too large or other File related errors.",
+          'office365Two':
+              "(ii) Similar to Account deactivated or account expired type of scam above, in this scam the scammer uses SharePoint Support as the sender name to try to entice you to take action. There typically would be a button in the email to “Request Quota Increase” or “Resend File”",
+          'office365Three':
+              "(iii) Steps to detect this type of Phishing Scam are the same as above two scams",
+          'sharepointOne':
+              "(i) In this scam, the email will indicate either coming from Microsoft Office365 or Microsoft SharePoint with a subject line indicating that someone has shared a document with you.",
+          'sharepointTwo':
+              "(ii) It will have a SharePoint link or a pdf of a document that the email sender asks you to review and edit or collaborate on.",
+          'sharepointThree':
+              "(iii)If there is a shared document link, it’ll look like a Microsoft OneDrive shared document",
+          'sharepointFour':
+              "(iv) If there is a pdf attachment, it most likely points to a malware",
+          'sharepointFive': "(v)Steps to detect this type of Phishing Scam",
+          'sharepointSix':
+              "You should note the sender’s email address. However, unlike the other scams above, the email may come from a compromised company account or a known sender account. Therefore, do not rely only on verifying sender’s email Hover over the Login Link provided in the email and you will notice again that the URL will not be a Microsoft url that ends with “microsoft.com” or “onedrive.com”",
+          'sharepointSeven':
+              "If it has a pdf attachment, the sender email address looks legit and you are not expecting a shared document from that sender, it is strongly recommended that you contact the sender directly to ask if they have shared the document with you. Only open such attachment after confirming with the sender.",
         },
         //sp LANGUAGE
         'es_ES': {},

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/utiles/utility.dart';
+import '../../../utiles/utility.dart';
 import '../model/word_game.dart';
 import '../ui/routers/my_router.dart';
 import '../utiles/constant.dart';

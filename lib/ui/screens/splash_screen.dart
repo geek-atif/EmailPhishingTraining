@@ -70,7 +70,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      TextSpan(
+                      const TextSpan(
                         text: 'P',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,

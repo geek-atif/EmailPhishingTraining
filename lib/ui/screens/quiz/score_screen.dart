@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/ui/widgets/button/dark_blue_button.dart';
-import 'package:threattraining/ui/widgets/text/light_text_body.dart';
-import 'package:threattraining/ui/widgets/text/light_text_head.dart';
-import '../../../ui/widgets/text/light_text_sub_head.dart';
-import '../../../ui/styles/my_app_theme.dart';
-import '../routers/my_router.dart';
+import '../../../ui/widgets/button/dark_blue_button.dart';
+import '../../../ui/widgets/text/light_text_body.dart';
+import '../../../ui/widgets/text/light_text_head.dart';
+import '../../../../ui/widgets/text/light_text_sub_head.dart';
+import '../../../../ui/styles/my_app_theme.dart';
+import '../../routers/my_router.dart';
 
 class ScoreScreen extends StatefulWidget {
   @override

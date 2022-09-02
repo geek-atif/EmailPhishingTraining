@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../ui/widgets/text/light_text_sub_head.dart';
-import '../../../ui/widgets/button/dark_blue_button.dart';
-import '../../../ui/widgets/text/light_text_body.dart';
-import '../../../ui/styles/my_app_theme.dart';
-import '../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
-import '../../widgets/my_app_bar.dart';
-import '../../widgets/text/light_text_head.dart';
+import '../../../../../ui/widgets/text/light_text_sub_head.dart';
+import '../../../widgets/button/dark_blue_button.dart';
+import '../../../widgets/text/light_text_body.dart';
+import '../../../styles/my_app_theme.dart';
+import '../../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
+import '../../../widgets/my_app_bar.dart';
+import '../../../widgets/text/light_text_head.dart';
 
 class PhishingStepOne extends StatefulWidget {
   const PhishingStepOne({Key? key}) : super(key: key);

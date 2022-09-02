@@ -93,82 +93,91 @@ class _HomeScreenState extends State<HomeScreen> {
           right: 5.0,
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: screenSize.height * 0.02,
             ),
-            LightTextSubHead(data: "Your Score"),
+            const LightTextSubHead(data: "Your Score"),
+            scoreCard(screenSize),
+            actionCard(screenSize),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Card actionCard(Size screenSize) {
+    return Card(
+      elevation: 7,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      margin: const EdgeInsets.all(10.0),
+      color: MyAppTheme.whitehaxdialog,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: screenSize.height * 0.01,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 2),
+              child: LightTextSubHead(data: "Tutorial , Quiz , Game"),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.01,
+            ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                displayGraphScore(screenSize, "Game", gameScoreChart,
-                    gameScore["GAME_WORD_TOTAL"]),
-                displayGraphScore(screenSize, "Quiz", quizScoreChart,
-                    quizScore["QUIZ_PHISHING_TOTAL"]),
+                InkWell(
+                  onTap: () => Get.toNamed(MyRouter.officePhishingOne),
+                  child:
+                      myCard(screenSize, false, "office 365", Icons.read_more),
+                ),
+                InkWell(
+                  onTap: () => Get.toNamed(MyRouter.phishingStepOne),
+                  child: myCard(screenSize, isPhishingScore, "3 Step\nPhishing",
+                      Icons.read_more),
+                ),
+                InkWell(
+                  onTap: () => Get.toNamed(MyRouter.quizScreen,
+                      arguments: "phishingQuiz"),
+                  child: myCard(
+                      screenSize, isQuizScore, "Phishing", Icons.quiz_outlined),
+                ),
               ],
             ),
-            Card(
-              elevation: 7,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              margin: const EdgeInsets.all(10.0),
-              color: MyAppTheme.whitehaxdialog,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 10, right: 10, top: 8, bottom: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: screenSize.height * 0.01,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 2),
-                      child: LightTextSubHead(data: "Tutorial , Quiz , Game"),
-                    ),
-                    SizedBox(
-                      height: screenSize.height * 0.01,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        myCard(
-                            screenSize, false, "office 365", Icons.read_more),
-                        InkWell(
-                          onTap: () => Get.toNamed(MyRouter.phishingStepOne),
-                          child: myCard(screenSize, isPhishingScore,
-                              "3 Step\nPhishing", Icons.read_more),
-                        ),
-                        InkWell(
-                          onTap: () => Get.toNamed(MyRouter.quizScreen,
-                              arguments: "phishingQuiz"),
-                          child: myCard(screenSize, isQuizScore, "Phishing",
-                              Icons.quiz_outlined),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: screenSize.height * 0.01,
-                    ),
-                    Row(
-                      //mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: InkWell(
-                            onTap: () => Get.toNamed(MyRouter.wordGameScreen),
-                            child: myCard(
-                                screenSize, isGameScore, "Word", Icons.games),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+            SizedBox(
+              height: screenSize.height * 0.01,
+            ),
+            Row(
+              //mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: () => Get.toNamed(MyRouter.wordGameScreen),
+                    child: myCard(screenSize, isGameScore, "Word", Icons.games),
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
+                        arguments: "phishingEmailGame"),
+                    child:
+                        myCard(screenSize, isGameScore, "Email", Icons.games),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -176,10 +185,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Row scoreCard(Size screenSize) {
+    return Row(
+      children: [
+        displayGraphScore(
+            screenSize, "Game", gameScoreChart, gameScore["GAME_WORD_TOTAL"]),
+        displayGraphScore(screenSize, "Quiz", quizScoreChart,
+            quizScore["QUIZ_PHISHING_TOTAL"]),
+      ],
+    );
+  }
+
   SizedBox myCard(
       Size screenSize, bool isDone, String title, IconData iconDat) {
     return SizedBox(
-      height: screenSize.height * 0.15,
+      height: screenSize.height * 0.125,
       width: screenSize.width * 0.25,
       child: Card(
         elevation: 7,
@@ -192,30 +212,34 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              height: screenSize.height * 0.015,
+              height: screenSize.height * 0.011,
             ),
             isDone
                 ? Icon(
                     iconDat,
-                    size: 40,
+                    size: 30,
                     color: MyAppTheme.whitehaxButtonColor,
                   )
                 : Icon(
                     iconDat,
-                    size: 40,
+                    size: 30,
                     color: Colors.black,
                   ),
             isDone
                 ? Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.all(2.0),
-                      child: BlueTextBody(data: title),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: BlueTextBody(data: title),
+                      ),
                     ),
                   )
                 : Flexible(
-                    child: Padding(
-                      padding: EdgeInsets.all(2.0),
-                      child: DarkTextBody(data: title),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: DarkTextBody(data: title),
+                      ),
                     ),
                   ),
             SizedBox(
@@ -266,7 +290,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //   borderRadius: BorderRadius.circular(8), // radius of 10
           //   color: MyAppTheme.whitehaxSubColor, // green as background color
           // ),
-          padding: const EdgeInsets.all(6),
+          // padding: const EdgeInsets.all(6),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -291,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         trackOpacity: 0.3,
                         xValueMapper: (ChartData data, _) => data.x,
                         yValueMapper: (ChartData data, _) => data.y,
-                        radius: '90%',
+                        radius: '80%',
                         innerRadius: '80%',
                         cornerStyle: CornerStyle.endCurve,
                         gap: '3%',

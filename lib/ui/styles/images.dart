@@ -13,4 +13,8 @@ class Images {
   static const String phisingone = "assets/images/phisingone.jpg";
   static const String phisingtwo = "assets/images/phisingtwo.jpg";
   static const String phisingthree = "assets/images/phisingthree.jpg";
+  static const String office2_ = "assets/images/office2_.jpg";
+
+  static const String sharept = "assets/images/sharept.png";
+  static const String sharedoc = "assets/images/sharedoc.png";
 }

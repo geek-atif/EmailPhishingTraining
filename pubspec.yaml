@@ -1,4 +1,4 @@
-name: threattraining
+name: PhishSim
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -81,6 +81,9 @@ flutter:
     - assets/images/phisingone.jpg
     - assets/images/phisingtwo.jpg
     - assets/images/phisingthree.jpg
+    - assets/images/office2_.jpg
+    - assets/images/sharept.png
+    - assets/images/sharedoc.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

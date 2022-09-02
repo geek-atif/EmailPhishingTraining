@@ -1,5 +1,5 @@
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
-import 'package:threattraining/ui/styles/images.dart';
+import '../../../ui/styles/images.dart';
 
 class Slide {
   final String imageUrl;

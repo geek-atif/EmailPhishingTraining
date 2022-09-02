@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/ui/routers/my_router.dart';
+import '../../../ui/routers/my_router.dart';
 
 import '../styles/my_app_theme.dart';
 

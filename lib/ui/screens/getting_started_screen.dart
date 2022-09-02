@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:threattraining/ui/styles/my_app_theme.dart';
+import '../../../ui/styles/my_app_theme.dart';
 import '../../model/slide.dart';
 import '../widgets/slide_item.dart';
 import '../widgets/slide_dots.dart';

@@ -12,7 +12,7 @@ class BlueTextBody extends StatelessWidget {
       data,
       style: const TextStyle(
         fontStyle: FontStyle.normal,
-        fontSize: 15,
+        fontSize: 14,
         color: MyAppTheme.whitehaxButtonColor,
         fontFamily: Fonts.poppins,
       ),

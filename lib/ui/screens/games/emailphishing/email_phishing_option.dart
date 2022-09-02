@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import '../../../../controller/email_phishing_controller.dart';
 import '../../../../ui/widgets/text/light_text_body.dart';
-import '../../../controller/question_controller.dart';
-import '../../../utiles/constant.dart';
-import '../text/light_text_body_auto_size.dart';
+import '../../../../utiles/constant.dart';
 
-class Option extends StatelessWidget {
-  const Option({
+class EmailPhishingOption extends StatelessWidget {
+  const EmailPhishingOption({
     required this.text,
     required this.index,
     required this.press,
@@ -17,8 +16,8 @@ class Option extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<QuestionController>(
-        init: QuestionController(),
+    return GetBuilder<EmailPhishingController>(
+        init: EmailPhishingController(),
         builder: (qnController) {
           Color getTheRightColor() {
             if (qnController.isAnswered) {

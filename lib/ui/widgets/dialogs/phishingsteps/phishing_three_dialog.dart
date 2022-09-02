@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/ui/routers/my_router.dart';
-import 'package:threattraining/utiles/utility.dart';
+import '../../../../ui/routers/my_router.dart';
+import '../../../../utiles/utility.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 import '../../../../utiles/constant.dart';
 import '../../../styles/images.dart';
@@ -49,7 +49,19 @@ class PhishingThreeDialog {
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: DarkBlueButton(buttonText: "Done"),
                   ),
-                )
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                InkWell(
+                  onTap: () => Get.toNamed(
+                    MyRouter.phishingStepOne,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 50, right: 50),
+                    child: DarkBlueButton(buttonText: "Start Again !"),
+                  ),
+                ),
               ],
             ),
           );

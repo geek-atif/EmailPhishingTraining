@@ -12,7 +12,7 @@ class DarkTextBody extends StatelessWidget {
       data,
       style: const TextStyle(
         fontStyle: FontStyle.normal,
-        fontSize: 15,
+        fontSize: 14,
         color: Colors.black,
         fontFamily: Fonts.poppins,
       ),

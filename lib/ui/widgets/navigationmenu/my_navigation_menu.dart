@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:threattraining/utiles/utility.dart';
+import '../../../../utiles/utility.dart';
 import '../../routers/my_router.dart';
 import '../../styles/my_app_theme.dart';
 import '../text/light_text_body.dart';
@@ -26,7 +26,7 @@ class MyNavigationMenu extends StatelessWidget {
             ),
             tutorialWidg(),
             quizWidg(),
-            gameWidg(),
+            gameWidg(screenSize),
             logoutWidg(screenSize)
           ],
         ),
@@ -79,7 +79,7 @@ class MyNavigationMenu extends StatelessWidget {
     );
   }
 
-  ExpansionTile gameWidg() {
+  ExpansionTile gameWidg(Size screenSize) {
     return ExpansionTile(
       collapsedIconColor: Colors.white,
       expandedCrossAxisAlignment: CrossAxisAlignment.start,
@@ -91,6 +91,14 @@ class MyNavigationMenu extends StatelessWidget {
         InkWell(
           onTap: () => Get.toNamed(MyRouter.wordGameScreen),
           child: const LightTextBody(data: "Word Game"),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        InkWell(
+          onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
+              arguments: "phishingEmailGame"),
+          child: const LightTextBody(data: "Email Phishing"),
         ),
       ],
       iconColor: Colors.white,
@@ -136,7 +144,7 @@ class MyNavigationMenu extends StatelessWidget {
       ),
       children: <Widget>[
         InkWell(
-            onTap: () => Get.toNamed(MyRouter.officePhishing),
+            onTap: () => Get.toNamed(MyRouter.officePhishingOne),
             child: const LightTextBody(data: "Office 365")),
         const SizedBox(
           height: 10,

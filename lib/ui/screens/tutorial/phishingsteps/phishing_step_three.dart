@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../ui/widgets/button/dark_blue_button.dart';
-import '../../../ui/widgets/text/light_text_body.dart';
-import '../../../ui/styles/my_app_theme.dart';
-import '../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
-import '../../widgets/dialogs/phishingsteps/phishing_three_dialog.dart';
-import '../../widgets/dialogs/phishingsteps/phishing_two_dialog.dart';
-import '../../widgets/my_app_bar.dart';
-import '../../widgets/text/light_text_head.dart';
-import '../../widgets/text/light_text_sub_head.dart';
+import '../../../widgets/button/dark_blue_button.dart';
+import '../../../widgets/text/light_text_body.dart';
+import '../../../styles/my_app_theme.dart';
+import '../../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
+import '../../../widgets/dialogs/phishingsteps/phishing_three_dialog.dart';
+import '../../../widgets/my_app_bar.dart';
+import '../../../widgets/text/light_text_head.dart';
+import '../../../widgets/text/light_text_sub_head.dart';
 
-class PhishingStepTwo extends StatefulWidget {
-  const PhishingStepTwo({Key? key}) : super(key: key);
+class PhishingStepThree extends StatefulWidget {
+  const PhishingStepThree({Key? key}) : super(key: key);
 
   @override
-  State<PhishingStepTwo> createState() => _PhishingStepTwoState();
+  State<PhishingStepThree> createState() => _PhishingStepThreeState();
 }
 
-class _PhishingStepTwoState extends State<PhishingStepTwo>
+class _PhishingStepThreeState extends State<PhishingStepThree>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   final GlobalKey<State> keyLoader = GlobalKey<State>();
@@ -38,8 +37,8 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: MyAppTheme.whitehaxBackgroundColor,
         appBar: const MyAppBar(),
+        backgroundColor: MyAppTheme.whitehaxBackgroundColor,
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(12.0),
@@ -50,7 +49,7 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "STEP 2",
+                    data: "STEP 3",
                   ),
                 ),
                 const SizedBox(
@@ -58,7 +57,7 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: LightTextBody(data: 'phishingTwo'.tr),
+                  child: LightTextBody(data: 'phishingThree'.tr),
                 ),
                 const SizedBox(
                   height: 8,
@@ -69,7 +68,7 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
                     SizedBox(
                       width: 5,
                     ),
-                    Flexible(child: LightTextBody(data: "phishingTwoNote".tr))
+                    Flexible(child: LightTextBody(data: "phishingThreeNote".tr))
                   ],
                 ),
                 const SizedBox(
@@ -77,7 +76,7 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
                 ),
                 InkWell(
                   onTap: () =>
-                      PhishingTwoDialog.showLoadingDialog(context, keyLoader),
+                      PhishingThreeDialog.showLoadingDialog(context, keyLoader),
                   child: Padding(
                     padding:
                         const EdgeInsets.only(left: 15, right: 15, top: 20),
