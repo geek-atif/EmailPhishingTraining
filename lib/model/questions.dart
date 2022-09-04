@@ -203,14 +203,14 @@ const List phishingEmailGame = [
     "question": "Is this a Phishing Email ?",
     "image": Images.phisingemail,
     "options": ['Phishing Email', 'Real Email'],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 2,
     "question": "Is this a Phishing Email ?",
     "image": Images.phisingemail,
     "options": ['Phishing Email', 'Real Email'],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 3,
@@ -220,7 +220,7 @@ const List phishingEmailGame = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 0,
   },
   {
     "id": 4,
@@ -230,7 +230,7 @@ const List phishingEmailGame = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 5,
@@ -240,7 +240,7 @@ const List phishingEmailGame = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 6,
@@ -250,6 +250,6 @@ const List phishingEmailGame = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 0,
   },
 ];

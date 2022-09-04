@@ -1,3 +1,4 @@
+import 'package:PhishSim/ui/widgets/text/light_text_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
           },
           child: const Padding(
             padding: EdgeInsets.only(right: 12),
-            child: Icon(Icons.exit_to_app_rounded),
+            child: Icon(Icons.exit_to_app),
           ),
         ),
       ],

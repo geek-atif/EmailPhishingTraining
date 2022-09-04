@@ -5,14 +5,16 @@ import '../../../../ui/widgets/text/light_text_body.dart';
 import '../../../../utiles/constant.dart';
 
 class EmailPhishingOption extends StatelessWidget {
-  const EmailPhishingOption({
-    required this.text,
-    required this.index,
-    required this.press,
-  }) : super();
+  const EmailPhishingOption(
+      {required this.text,
+      required this.index,
+      required this.press,
+      required this.tooltipkey})
+      : super();
   final String text;
   final int index;
   final VoidCallback press;
+  final GlobalKey<TooltipState> tooltipkey;
 
   @override
   Widget build(BuildContext context) {

@@ -7,9 +7,12 @@ import '../../../widgets/quiz/progress_bar.dart';
 import 'email_phishing_question_card.dart';
 
 class EmailPhishingBody extends StatelessWidget {
-  EmailPhishingBody({required this.questionController}) : super();
+  EmailPhishingBody(
+      {required this.questionController, required this.tooltipkey})
+      : super();
 
   EmailPhishingController questionController;
+  final GlobalKey<TooltipState> tooltipkey;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +66,8 @@ class EmailPhishingBody extends StatelessWidget {
                   onPageChanged: questionController.updateTheQnNum,
                   itemCount: questionController.questions.length,
                   itemBuilder: (context, index) => EmailPhishingQuestionCard(
-                      question: questionController.questions[index]),
+                      question: questionController.questions[index],
+                      tooltipkey: tooltipkey),
                 ),
               ),
             ],

@@ -14,6 +14,7 @@ class EmailPhishingScreen extends StatefulWidget {
 class _EmailPhishingState extends State<EmailPhishingScreen> {
   final EmailPhishingController _questionController =
       Get.put(EmailPhishingController());
+  final GlobalKey<TooltipState> tooltipkey = GlobalKey<TooltipState>();
 
   @override
   void initState() {
@@ -28,7 +29,8 @@ class _EmailPhishingState extends State<EmailPhishingScreen> {
       child: Scaffold(
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,
         appBar: const MyAppBar(),
-        body: EmailPhishingBody(questionController: _questionController),
+        body: EmailPhishingBody(
+            questionController: _questionController, tooltipkey: tooltipkey),
       ),
     );
   }
