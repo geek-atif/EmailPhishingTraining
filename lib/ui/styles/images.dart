@@ -17,4 +17,5 @@ class Images {
 
   static const String sharept = "assets/images/sharept.png";
   static const String sharedoc = "assets/images/sharedoc.png";
+  static const String laptop = "assets/images/laptop.png";
 }

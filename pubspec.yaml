@@ -88,6 +88,7 @@ flutter:
     - assets/images/sharedoc.png
     - assets/sound/correct.mp3
     - assets/sound/incorrect.mp3
+    - assets/images/laptop.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

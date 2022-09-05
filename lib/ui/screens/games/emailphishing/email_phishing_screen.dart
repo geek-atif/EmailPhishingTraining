@@ -1,6 +1,8 @@
+import 'package:PhishSim/ui/widgets/customPaint/laptop_paint.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controller/email_phishing_controller.dart';
+import '../../../styles/images.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../../widgets/my_app_bar.dart';
 import '../../../widgets/quiz/body.dart';
@@ -25,6 +27,7 @@ class _EmailPhishingState extends State<EmailPhishingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,

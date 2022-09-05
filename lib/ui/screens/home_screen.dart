@@ -131,68 +131,99 @@ class _HomeScreenState extends State<HomeScreen> {
       margin: const EdgeInsets.all(10.0),
       color: MyAppTheme.whitehaxdialog,
       child: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 10),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Expanded(
-              flex: 1,
-              child: LightTextSubHead(data: "Tutorial , Quiz , Game"),
-            ),
-            Expanded(
-              flex: 2,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  InkWell(
-                    onTap: () => Get.toNamed(MyRouter.officePhishingOne),
-                    child: myCard(
-                        screenSize, false, "office 365", Icons.read_more),
-                  ),
-                  InkWell(
-                    onTap: () => Get.toNamed(MyRouter.phishingStepOne),
-                    child: myCard(screenSize, isPhishingScore,
-                        "3 Step\nPhishing", Icons.read_more),
-                  ),
-                  InkWell(
-                    onTap: () => Get.toNamed(MyRouter.quizScreen,
-                        arguments: "phishingQuiz"),
-                    child: myCard(screenSize, isQuizScore, "Phishing",
-                        Icons.quiz_outlined),
-                  ),
-                ],
+              flex: 0,
+              child: Padding(
+                padding: EdgeInsets.all(4.0),
+                child: LightTextSubHead(data: "Tutorial , Quiz , Game"),
               ),
             ),
             Expanded(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: actionOne(screenSize),
+                )),
+            Expanded(
               flex: 2,
-              child: Row(
-                //mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: InkWell(
-                      onTap: () => Get.toNamed(MyRouter.wordGameScreen),
-                      child:
-                          myCard(screenSize, isGameScore, "Word", Icons.games),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: InkWell(
-                      onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
-                          arguments: "phishingEmailGame"),
-                      child:
-                          myCard(screenSize, isGameScore, "Email", Icons.games),
-                    ),
-                  ),
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: actionTwo(screenSize),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  SizedBox actionOne(Size screenSize) {
+    return SizedBox(
+      height: Get.size.height * 0.05,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: InkWell(
+              onTap: () => Get.toNamed(MyRouter.officePhishingOne),
+              child: myCard(screenSize, false, "office 365", Icons.read_more),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: InkWell(
+              onTap: () => Get.toNamed(MyRouter.phishingStepOne),
+              child: myCard(screenSize, isPhishingScore, "3 Step\nPhishing",
+                  Icons.read_more),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: InkWell(
+              onTap: () =>
+                  Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz"),
+              child: myCard(
+                  screenSize, isQuizScore, "Phishing", Icons.quiz_outlined),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  SizedBox actionTwo(Size screenSize) {
+    return SizedBox(
+      height: Get.size.height * 0.05,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: InkWell(
+              onTap: () => Get.toNamed(MyRouter.wordGameScreen),
+              child: myCard(screenSize, isGameScore, "Word", Icons.games),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: InkWell(
+              onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
+                  arguments: "phishingEmailGame"),
+              child: myCard(screenSize, isGameScore, "Email", Icons.games),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(""),
+          ),
+        ],
       ),
     );
   }
@@ -208,57 +239,52 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Expanded myCard(
-      Size screenSize, bool isDone, String title, IconData iconDat) {
-    return Expanded(
-      //height: screenSize.height * 0.125,
-      //width: screenSize.width * 0.25,
-      child: Card(
-        elevation: 7,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.0),
-        ),
-        color: MyAppTheme.whitehaxBoxSmall,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: screenSize.height * 0.011,
-            ),
-            isDone
-                ? Icon(
-                    iconDat,
-                    size: 30,
-                    color: MyAppTheme.whitehaxButtonColor,
-                  )
-                : Icon(
-                    iconDat,
-                    size: 30,
-                    color: Colors.black,
-                  ),
-            isDone
-                ? Flexible(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: BlueTextBody(data: title),
-                      ),
-                    ),
-                  )
-                : Flexible(
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: DarkTextBody(data: title),
-                      ),
+  Card myCard(Size screenSize, bool isDone, String title, IconData iconDat) {
+    return Card(
+      elevation: 7,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(6.0),
+      ),
+      color: MyAppTheme.whitehaxBoxSmall,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            height: screenSize.height * 0.011,
+          ),
+          isDone
+              ? Icon(
+                  iconDat,
+                  size: 30,
+                  color: MyAppTheme.whitehaxButtonColor,
+                )
+              : Icon(
+                  iconDat,
+                  size: 30,
+                  color: Colors.black,
+                ),
+          isDone
+              ? Flexible(
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: BlueTextBody(data: title),
                     ),
                   ),
-            SizedBox(
-              height: screenSize.height * 0.01,
-            ),
-          ],
-        ),
+                )
+              : Flexible(
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: DarkTextBody(data: title),
+                    ),
+                  ),
+                ),
+          SizedBox(
+            height: screenSize.height * 0.01,
+          ),
+        ],
       ),
     );
   }

@@ -8,6 +8,7 @@ import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 import '../../../../controller/email_phishing_controller.dart';
 import '../../../../model/questions.dart';
 import '../../../../utiles/constant.dart';
+import '../../../styles/images.dart';
 import '../../../widgets/dialogs/dialogs_confetti.dart';
 import '../../../widgets/text/light_text_sub_head.dart';
 import 'email_phishing_option.dart';
@@ -64,7 +65,6 @@ class _EmailPhishingQuestionCardState extends State<EmailPhishingQuestionCard> {
             // ),
             LightTextSubHead(data: widget.question.question),
 
-            const SizedBox(height: 10),
             widget.question.image.isEmpty
                 ? Text("")
                 : Tooltip(
@@ -72,11 +72,38 @@ class _EmailPhishingQuestionCardState extends State<EmailPhishingQuestionCard> {
                     triggerMode: TooltipTriggerMode.manual,
                     showDuration: const Duration(seconds: 20),
                     message: 'Eamil Address',
-                    child: ZoomOverlay(
-                      minScale: 0.5, // Optional
-                      maxScale: 3.0, // Optional
-                      twoTouchOnly: true, // Defaults to false
-                      child: Image.asset(widget.question.image),
+                    child: SizedBox(
+                      height: Get.height * 0.4,
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: Alignment.center,
+                            child:
+                                //Image.asset(Images.laptop)
+                                Icon(
+                              Icons.laptop_mac,
+                              size: Get.height * 0.45,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: ZoomOverlay(
+                              minScale: 0.5, // Optional
+                              maxScale: 3.0, // Optional
+                              twoTouchOnly: true, // Defaults to false
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  widget.question.image,
+                                  height: Get.height * 0.248,
+                                  //fit: BoxFit.fitHeight,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
             const SizedBox(height: kDefaultPadding / 2),
