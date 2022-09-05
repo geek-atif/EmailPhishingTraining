@@ -1,6 +1,7 @@
 import 'package:PhishSim/ui/widgets/dialogs/office365/office_two_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import '../../../styles/fonts.dart';
 import '../../../widgets/dialogs/office365/office_one_dialog.dart';
 import '../../../widgets/my_app_bar.dart';
 import '../../../widgets/text/light_text_sub_head.dart';
@@ -46,30 +47,81 @@ class _OfficePhishingTwoScreenState extends State<OfficePhishingTwoScreen>
             child: Column(
               children: [
                 const SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "Non-delivered Emails",
+                    data: "2. Non-delivered Emails",
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 15,
                 ),
-                LightTextBody(
-                  data: "nondeliveredEmailsOne".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "nondeliveredEmailsOne".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "nondeliveredEmailsTwo".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "nondeliveredEmailsTwo".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "nondeliveredEmailsThree".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "nondeliveredEmailsThree".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "nondeliveredEmailsFour".tr,
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0, top: 10),
+                  child: RichText(
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        const TextSpan(
+                          text: "\u2022",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 22,
+                              fontFamily: Fonts.poppins,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        TextSpan(
+                          text: "nondeliveredEmailsFour".tr,
+                          style: const TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 14,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                LightTextBody(
-                  data: "nondeliveredEmailsFive".tr,
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0, top: 5),
+                  child: RichText(
+                    text: TextSpan(
+                      children: <TextSpan>[
+                        const TextSpan(
+                          text: "\u2022",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 22,
+                              fontFamily: Fonts.poppins,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        TextSpan(
+                          text: "nondeliveredEmailsFive".tr,
+                          style: const TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 14,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 40,

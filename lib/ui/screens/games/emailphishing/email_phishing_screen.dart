@@ -1,4 +1,3 @@
-import 'package:PhishSim/ui/widgets/customPaint/laptop_paint.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controller/email_phishing_controller.dart';

@@ -52,7 +52,7 @@ class LocaleString extends Translations {
           'nondeliveredEmailsThree':
               "(iii) Steps to detect this type of Phishing Scam are the same as above",
           'nondeliveredEmailsFour':
-              "Note the Sender’s Email address. While it may contain Microsoft or Microsoft Office – the domain name will not end in “microsoft.com”",
+              " Note the Sender’s Email address. While it may contain Microsoft or Microsoft Office – the domain name will not end in “microsoft.com”",
           'nondeliveredEmailsFive':
               "Hover over the “Send Again” or “Resend Message” button in the email and you will notice again that the URL will not be a Microsoft url that ends with “microsoft.com”",
           'office365One':

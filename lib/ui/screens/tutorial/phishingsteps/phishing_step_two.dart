@@ -44,13 +44,14 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 20,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "STEP 2",
+                    data: "Step 2 : Sender’s email address ",
                   ),
                 ),
                 const SizedBox(
@@ -63,15 +64,11 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
                 const SizedBox(
                   height: 8,
                 ),
-                Row(
-                  children: [
-                    const LightTextSubHead(data: "NOTE :"),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Flexible(child: LightTextBody(data: "phishingTwoNote".tr))
-                  ],
+                const LightTextSubHead(data: "NOTE :"),
+                SizedBox(
+                  height: 5,
                 ),
+                LightTextBody(data: "phishingTwoNote".tr),
                 const SizedBox(
                   height: 20,
                 ),

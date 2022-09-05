@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../ui/widgets/text/light_text_sub_head.dart';
 import '../../../widgets/button/dark_blue_button.dart';
+import '../../../widgets/dialogs/phishingsteps/phishing_main_dialog.dart';
 import '../../../widgets/text/light_text_body.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
 import '../../../widgets/my_app_bar.dart';
+import '../../../widgets/text/light_text_body_sub.dart';
 import '../../../widgets/text/light_text_head.dart';
 
 class PhishingStepOne extends StatefulWidget {
@@ -24,6 +26,9 @@ class _PhishingStepOneState extends State<PhishingStepOne>
   void initState() {
     super.initState();
     _controller = AnimationController(vsync: this);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      PhishingMainDialog.showLoadingDialog(context, keyLoader);
+    });
   }
 
   @override
@@ -42,17 +47,18 @@ class _PhishingStepOneState extends State<PhishingStepOne>
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 20,
+                  height: 8,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "STEP 1",
+                    data: "Step 1 : Subject and email body",
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -61,15 +67,11 @@ class _PhishingStepOneState extends State<PhishingStepOne>
                 const SizedBox(
                   height: 10,
                 ),
-                Row(
-                  children: [
-                    LightTextSubHead(data: "NOTE :"),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Flexible(child: LightTextBody(data: "phishingOneNote".tr))
-                  ],
+                const LightTextSubHead(data: "NOTE :"),
+                SizedBox(
+                  width: 5,
                 ),
+                LightTextBody(data: "phishingOneNote".tr),
                 const SizedBox(
                   height: 20,
                 ),

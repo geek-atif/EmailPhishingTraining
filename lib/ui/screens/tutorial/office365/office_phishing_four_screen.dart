@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import '../../../styles/fonts.dart';
 import '../../../widgets/dialogs/office365/office_four_dialog.dart';
 import '../../../widgets/dialogs/office365/office_one_dialog.dart';
 import '../../../widgets/my_app_bar.dart';
@@ -44,46 +45,134 @@ class _OfficePhishingFourScreenState extends State<OfficePhishingFourScreen>
           child: Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "Shared documents scams",
+                    data: "4. Shared documents scams",
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 15,
                 ),
-                LightTextBody(
-                  data: "sharepointOne".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "sharepointOne".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "sharepointTwo".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "sharepointTwo".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "sharepointThree".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "sharepointThree".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "sharepointFour".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "sharepointFour".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "sharepointFive".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "sharepointFive".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "sharepointSix".tr,
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0, top: 8),
+                  child: RichText(
+                    text: const TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "\u2022",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 22,
+                              fontFamily: Fonts.poppins,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        TextSpan(
+                          text:
+                              " You should note the sender’s email address. However, unlike the other scams above, the email may come from a compromised company account or a known sender account. Therefore, do not rely only on verifying sender’s email",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 14,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                LightTextBody(
-                  data: "sharepointSeven".tr,
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0, top: 5),
+                  child: RichText(
+                    text: const TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "\u2022",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 22,
+                              fontFamily: Fonts.poppins,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        TextSpan(
+                          text:
+                              " Hover over the Login Link provided in the email and you will notice again that the URL will not be a Microsoft url that ends with “microsoft.com” or “onedrive.com”",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 14,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0, top: 5),
+                  child: RichText(
+                    text: const TextSpan(
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: "\u2022",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 22,
+                              fontFamily: Fonts.poppins,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        TextSpan(
+                          text:
+                              " If it has a pdf attachment, the sender email address looks legit and you are not expecting a shared document from that sender, it is strongly recommended that you contact the sender directly to ask if they have shared the document with you. Only open such attachment after confirming with the sender.",
+                          style: TextStyle(
+                              fontStyle: FontStyle.normal,
+                              fontSize: 14,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 LightTextSubHead(data: "Best Practice"),
-                LightTextBody(
-                  data:
-                      "Do not click the URL link or attachment in any email before verifying the sender and URL Link. If the sender appears legit but you do not know of any documents that are supposed to be shared with you, do not open the attachment until you verify the identity of the sender. If you accidently do click the link, close your browser and delete any downloaded files from your device.",
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data:
+                        "Do not click the URL link or attachment in any email before verifying the sender and URL Link. If the sender appears legit but you do not know of any documents that are supposed to be shared with you, do not open the attachment until you verify the identity of the sender. If you accidently do click the link, close your browser and delete any downloaded files from your device.",
+                  ),
                 ),
                 const SizedBox(
                   height: 40,

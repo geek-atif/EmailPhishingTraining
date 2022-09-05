@@ -46,24 +46,33 @@ class _OfficePhishingThreeScreenState extends State<OfficePhishingThreeScreen>
             child: Column(
               children: [
                 const SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "SharePoint Phishing Scams",
+                    data: "3. SharePoint Phishing Scams",
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 15,
                 ),
-                LightTextBody(
-                  data: "office365One".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "office365One".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "office365Two".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "office365Two".tr,
+                  ),
                 ),
-                LightTextBody(
-                  data: "office365Three".tr,
+                Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: LightTextBody(
+                    data: "office365Three".tr,
+                  ),
                 ),
                 const SizedBox(
                   height: 40,
