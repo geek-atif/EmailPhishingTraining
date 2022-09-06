@@ -9,6 +9,7 @@ class DarkTextBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: TextAlign.center,
       data,
       style: const TextStyle(
         fontStyle: FontStyle.normal,

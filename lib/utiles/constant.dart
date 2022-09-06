@@ -31,6 +31,9 @@ const String GAME_ROLE_PLAY_ATTEMPT = "gameRolePlayAttempt";
 const String GAME_ROLE_PLAY_DONE = "gameRolePlayDone";
 
 //Quiz Details
+const String QUIZ_TOTAL_PRE = "quizTotalPre";
+const String QUIZ_TOTAL = "quizTotal";
+
 const String QUIZ_PHISHING_TOTAL = "quizPhishingTotal";
 const String QUIZ_PHISHING_ATTEMPT = "quizPhishingAttempt";
 const String Quiz_PHISHING_DONE = "quizPhishingDone";

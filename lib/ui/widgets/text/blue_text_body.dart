@@ -10,6 +10,7 @@ class BlueTextBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       data,
+      textAlign: TextAlign.center,
       style: const TextStyle(
         fontStyle: FontStyle.normal,
         fontSize: 14,

@@ -184,12 +184,23 @@ class Utility {
     final Map<String, double> result = {};
     final getStorage = GetStorage();
 
-    result["QUIZ_PHISHING_TOTAL"] = getStorage.hasData(QUIZ_PHISHING_TOTAL)
+    result[QUIZ_PHISHING_TOTAL] = getStorage.hasData(QUIZ_PHISHING_TOTAL)
         ? getStorage.read(QUIZ_PHISHING_TOTAL).toDouble()
         : 0.0;
-    result["QUIZ_PHISHING_ATTEMPT"] = getStorage.hasData(QUIZ_PHISHING_ATTEMPT)
+    result[QUIZ_PHISHING_ATTEMPT] = getStorage.hasData(QUIZ_PHISHING_ATTEMPT)
         ? getStorage.read(QUIZ_PHISHING_ATTEMPT).toDouble()
         : 0.0;
+
+    var quizTotalPhising =
+        (result[QUIZ_PHISHING_ATTEMPT]! / result[QUIZ_PHISHING_TOTAL]!) * 100;
+
+    if (quizTotalPhising.isNaN) {
+      result[QUIZ_TOTAL_PRE] = 0.0;
+    } else {
+      result[QUIZ_TOTAL_PRE] = quizTotalPhising.toPrecision(2);
+    }
+
+    result[QUIZ_TOTAL] = result[QUIZ_PHISHING_TOTAL]!;
     return result;
   }
 }
