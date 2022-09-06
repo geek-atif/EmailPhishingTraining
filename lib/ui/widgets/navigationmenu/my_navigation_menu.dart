@@ -85,12 +85,12 @@ class MyNavigationMenu extends StatelessWidget {
       expandedCrossAxisAlignment: CrossAxisAlignment.start,
       childrenPadding: const EdgeInsets.only(bottom: 10),
       title: const LightTextSubHead(
-        data: "Game",
+        data: "Games",
       ),
       children: <Widget>[
         InkWell(
           onTap: () => Get.toNamed(MyRouter.wordGameScreen),
-          child: const LightTextBody(data: "Word Game"),
+          child: const LightTextBody(data: "Word Scrabble"),
         ),
         const SizedBox(
           height: 10,
@@ -98,7 +98,7 @@ class MyNavigationMenu extends StatelessWidget {
         InkWell(
           onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
               arguments: "phishingEmailGame"),
-          child: const LightTextBody(data: "Email Phishing"),
+          child: const LightTextBody(data: "Role Play"),
         ),
       ],
       iconColor: Colors.white,
@@ -116,13 +116,14 @@ class MyNavigationMenu extends StatelessWidget {
       expandedCrossAxisAlignment: CrossAxisAlignment.start,
       childrenPadding: const EdgeInsets.only(bottom: 10),
       title: const LightTextSubHead(
-        data: "Quiz",
+        data: "Quizzes",
       ),
       children: <Widget>[
         InkWell(
           onTap: () =>
               Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz"),
-          child: const LightTextBody(data: "Phishing"),
+          child: const LightTextBody(data: "Quiz"),
+          //Phishing
         ),
       ],
       iconColor: Colors.white,
@@ -140,18 +141,18 @@ class MyNavigationMenu extends StatelessWidget {
       expandedCrossAxisAlignment: CrossAxisAlignment.start,
       childrenPadding: const EdgeInsets.only(bottom: 10),
       title: const LightTextSubHead(
-        data: "Tutorial",
+        data: "Tutorials",
       ),
       children: <Widget>[
         InkWell(
-            onTap: () => Get.toNamed(MyRouter.officePhishingOne),
-            child: const LightTextBody(data: "Office 365")),
+            onTap: () => Get.toNamed(MyRouter.phishingStepOne),
+            child: const LightTextBody(data: "3-Steps Detect")),
         const SizedBox(
           height: 10,
         ),
         InkWell(
-            onTap: () => Get.toNamed(MyRouter.phishingStepOne),
-            child: const LightTextBody(data: "3 Step Phishing")),
+            onTap: () => Get.toNamed(MyRouter.officePhishingOne),
+            child: const LightTextBody(data: "Office365 Risks")),
       ],
       iconColor: Colors.white,
       leading: const Icon(

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 
-import '../../../../controller/email_phishing_controller.dart';
+import '../../../../controller/role_play_game_controller.dart';
 import '../../../../model/questions.dart';
 import '../../../../utiles/constant.dart';
 import '../../../styles/images.dart';
@@ -45,7 +45,7 @@ class _EmailPhishingQuestionCardState extends State<EmailPhishingQuestionCard> {
 
   @override
   Widget build(BuildContext context) {
-    EmailPhishingController _controller = Get.put(EmailPhishingController());
+    RolePlayGameController _controller = Get.put(RolePlayGameController());
     return SingleChildScrollView(
       // margin: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       // padding: const EdgeInsets.all(10),

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../controller/email_phishing_controller.dart';
-import '../../../styles/images.dart';
+import '../../../../controller/role_play_game_controller.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../../widgets/my_app_bar.dart';
-import '../../../widgets/quiz/body.dart';
 import 'email_phishing_body.dart';
 
 class EmailPhishingScreen extends StatefulWidget {
@@ -13,8 +11,8 @@ class EmailPhishingScreen extends StatefulWidget {
 }
 
 class _EmailPhishingState extends State<EmailPhishingScreen> {
-  final EmailPhishingController _questionController =
-      Get.put(EmailPhishingController());
+  final RolePlayGameController _questionController =
+      Get.put(RolePlayGameController());
   final GlobalKey<TooltipState> tooltipkey = GlobalKey<TooltipState>();
 
   @override

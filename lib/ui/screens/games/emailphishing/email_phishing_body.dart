@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../controller/email_phishing_controller.dart';
+import '../../../../controller/role_play_game_controller.dart';
 import '../../../../utiles/constant.dart';
 import '../../../styles/fonts.dart';
 import '../../../widgets/quiz/progress_bar.dart';
@@ -11,7 +11,7 @@ class EmailPhishingBody extends StatelessWidget {
       {required this.questionController, required this.tooltipkey})
       : super();
 
-  EmailPhishingController questionController;
+  RolePlayGameController questionController;
   final GlobalKey<TooltipState> tooltipkey;
 
   @override

@@ -2,10 +2,12 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../model/questions.dart';
 import '../ui/routers/my_router.dart';
+import '../utiles/constant.dart';
+import '../utiles/utility.dart';
 
 // We use get package for our state management
 
-class EmailPhishingController extends GetxController
+class RolePlayGameController extends GetxController
     with SingleGetTickerProviderMixin {
   // Lets animated our progress bar
 
@@ -78,7 +80,7 @@ class EmailPhishingController extends GetxController
           )
           .toList();
 
-      // Utility.updateQuizPhishingTotal(_questions.length);
+      Utility.updateGameRolePlayTotal(_questions.length);
     }
   }
 
@@ -90,7 +92,7 @@ class EmailPhishingController extends GetxController
 
     if (_correctAns == _selectedAns) {
       _numOfCorrectAns++;
-      //Utility.updateQuizPhishingAttempt(_numOfCorrectAns);
+      Utility.updateGameRolePlayAttempt(_numOfCorrectAns);
     }
 
     // It will stop the counter
@@ -121,7 +123,7 @@ class EmailPhishingController extends GetxController
 
       var data = {"Total": _questions.length, "Ans": _numOfCorrectAns};
       Get.offAndToNamed(MyRouter.scoreScreen, arguments: data);
-      //Utility.saveBolValue(Quiz_PHISHING_DONE, true);
+      Utility.saveBolValue(GAME_ROLE_PLAY_DONE, true);
     }
   }
 

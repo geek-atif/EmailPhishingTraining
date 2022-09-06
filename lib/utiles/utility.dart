@@ -48,6 +48,7 @@ class Utility {
     Get.offAndToNamed(MyRouter.loginScreen);
   }
 
+// #################### GAME ##############################
   static updateGameWordTotal(int total) {
     print("updateGameWordTotal() total ${total}");
     final getStorage = GetStorage();
@@ -71,6 +72,32 @@ class Utility {
     final getStorage = GetStorage();
     return getStorage.hasData(GAME_WORD_TOTAL)
         ? getStorage.read(GAME_WORD_TOTAL)
+        : 0;
+  }
+
+  static updateGameRolePlayTotal(int total) {
+    print("updateGameRolePlayTotal() total ${total}");
+    final getStorage = GetStorage();
+    getStorage.write(GAME_ROLE_PLAY_TOTAL, total);
+  }
+
+  static int getGameRolePlayTotal() {
+    final getStorage = GetStorage();
+    return getStorage.hasData(GAME_ROLE_PLAY_TOTAL)
+        ? getStorage.read(GAME_ROLE_PLAY_TOTAL)
+        : 0;
+  }
+
+  static updateGameRolePlayAttempt(int total) {
+    print("updateGameRolePlayAttempt() total ${total}");
+    final getStorage = GetStorage();
+    getStorage.write(GAME_ROLE_PLAY_ATTEMPT, total);
+  }
+
+  static int getGameRolePlayAttempt() {
+    final getStorage = GetStorage();
+    return getStorage.hasData(GAME_ROLE_PLAY_ATTEMPT)
+        ? getStorage.read(GAME_ROLE_PLAY_ATTEMPT)
         : 0;
   }
 
@@ -103,12 +130,52 @@ class Utility {
   static Map<String, double> getGameScore() {
     final Map<String, double> result = {};
     final getStorage = GetStorage();
-    result["GAME_WORD_TOTAL"] = getStorage.hasData(GAME_WORD_TOTAL)
+    result[GAME_WORD_TOTAL] = getStorage.hasData(GAME_WORD_TOTAL)
         ? getStorage.read(GAME_WORD_TOTAL).toDouble()
         : 0.0;
-    result["GAME_WORD_ATTEMPT"] = getStorage.hasData(GAME_WORD_ATTEMPT)
+    result[GAME_WORD_ATTEMPT] = getStorage.hasData(GAME_WORD_ATTEMPT)
         ? getStorage.read(GAME_WORD_ATTEMPT).toDouble()
         : 0.0;
+
+    result[GAME_ROLE_PLAY_TOTAL] = getStorage.hasData(GAME_ROLE_PLAY_TOTAL)
+        ? getStorage.read(GAME_ROLE_PLAY_TOTAL).toDouble()
+        : 0.0;
+    result[GAME_ROLE_PLAY_ATTEMPT] = getStorage.hasData(GAME_ROLE_PLAY_ATTEMPT)
+        ? getStorage.read(GAME_ROLE_PLAY_ATTEMPT).toDouble()
+        : 0.0;
+
+    var wordGame =
+        (result[GAME_WORD_ATTEMPT]! / result[GAME_WORD_TOTAL]!) * 100;
+
+    print("getGameScore() wordGame ${wordGame}");
+
+    var rolePlayGame =
+        (result[GAME_ROLE_PLAY_ATTEMPT]! / result[GAME_ROLE_PLAY_TOTAL]!) * 100;
+    print("getGameScore() rolePlayGame ${rolePlayGame}");
+    var tt = 0.0;
+    if (rolePlayGame.isNaN && wordGame.isNaN) {
+      tt = 0.0;
+    } else if (rolePlayGame.isNaN && !wordGame.isNaN) {
+      tt = wordGame;
+    } else if (!rolePlayGame.isNaN && wordGame.isNaN) {
+      tt = rolePlayGame;
+    } else {
+      tt = (wordGame + rolePlayGame) / 2;
+    }
+    result[GAME_TOTAL_PRE] = tt.toPrecision(2);
+
+    if (result[GAME_WORD_TOTAL]!.isNaN && result[GAME_ROLE_PLAY_TOTAL]!.isNaN) {
+      result[GAME_TOTAL] = 0.0;
+    } else if (result[GAME_WORD_TOTAL]!.isNaN &&
+        !result[GAME_ROLE_PLAY_TOTAL]!.isNaN) {
+      result[GAME_TOTAL] = result[GAME_WORD_TOTAL]!;
+    } else if (!result[GAME_WORD_TOTAL]!.isNaN &&
+        result[GAME_ROLE_PLAY_TOTAL]!.isNaN) {
+      result[GAME_TOTAL] = result[GAME_WORD_TOTAL]!;
+    } else {
+      result[GAME_TOTAL] =
+          result[GAME_WORD_TOTAL]! + result[GAME_ROLE_PLAY_TOTAL]!;
+    }
 
     return result;
   }

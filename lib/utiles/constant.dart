@@ -19,9 +19,16 @@ const String USER_NAME = "userName";
 const String USER_EMAIL_ADDRESS = "userEmailAddress";
 
 // Game Details
+const String GAME_TOTAL_PRE = "gameTotalPre";
+const String GAME_TOTAL = "gameTotal";
+
 const String GAME_WORD_TOTAL = "gameWordTotal";
 const String GAME_WORD_ATTEMPT = "gameWordAttempt";
 const String GAME_WORD_DONE = "gameWordDone";
+
+const String GAME_ROLE_PLAY_TOTAL = "gameRolePlayTotal";
+const String GAME_ROLE_PLAY_ATTEMPT = "gameRolePlayAttempt";
+const String GAME_ROLE_PLAY_DONE = "gameRolePlayDone";
 
 //Quiz Details
 const String QUIZ_PHISHING_TOTAL = "quizPhishingTotal";

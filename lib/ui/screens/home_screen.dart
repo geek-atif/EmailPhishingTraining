@@ -24,7 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
   var quizScore;
 
   var isQuizScore = false;
-  var isGameScore = false;
+  var isWordGameDone = false;
+  var isRolePlayGameDone = false;
   var isPhishingScore = false;
 
   late List<ChartData> gameScoreChart = List.empty(growable: true);
@@ -38,17 +39,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void loadScore() {
     print("loadScore()");
-    gameScore = Utility.getGameScore();
+    loadGameScore();
     quizScore = Utility.getQuizScore();
-    gameScoreChart.add(ChartData("Word Game", gameScore["GAME_WORD_ATTEMPT"]));
-    print("loadScore() gameScoreChart ${gameScoreChart.length}");
     quizScoreChart
         .add(ChartData("Quiz Game", quizScore["QUIZ_PHISHING_ATTEMPT"]));
     print("loadScore() quizScoreChart ${quizScoreChart.length}");
 
     isQuizScore = Utility.getBolValue(Quiz_PHISHING_DONE);
-    isGameScore = Utility.getBolValue(GAME_WORD_DONE);
     isPhishingScore = Utility.getBolValue(TUTORIAL_STEP_ATTEMPT_Done);
+  }
+
+  void loadGameScore() {
+    gameScore = Utility.getGameScore();
+    gameScoreChart.add(ChartData("Game", gameScore[GAME_TOTAL_PRE]));
+    print("loadGameScore() gameScoreChart ${gameScoreChart.length}");
+    isWordGameDone = Utility.getBolValue(GAME_WORD_DONE);
+    isRolePlayGameDone = Utility.getBolValue(GAME_ROLE_PLAY_DONE);
+    print(
+        "loadGameScore() isWordGameDone ${isWordGameDone}  isRolePlayGameDone ${isRolePlayGameDone}");
   }
 
   @override
@@ -139,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
               flex: 0,
               child: Padding(
                 padding: EdgeInsets.all(4.0),
-                child: LightTextSubHead(data: "Tutorial , Quiz , Game"),
+                child: LightTextSubHead(data: "Tutorials, Quizzes, Games"),
               ),
             ),
             Expanded(
@@ -171,16 +179,17 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: () => Get.toNamed(MyRouter.officePhishingOne),
-              child: myCard(screenSize, false, "office 365", Icons.read_more),
+              onTap: () => Get.toNamed(MyRouter.phishingStepOne),
+              child: myCard(screenSize, isPhishingScore, "3-Steps Detect",
+                  Icons.read_more),
             ),
           ),
           Expanded(
             flex: 2,
             child: InkWell(
-              onTap: () => Get.toNamed(MyRouter.phishingStepOne),
-              child: myCard(screenSize, isPhishingScore, "3 Step\nPhishing",
-                  Icons.read_more),
+              onTap: () => Get.toNamed(MyRouter.officePhishingOne),
+              child:
+                  myCard(screenSize, false, "Office365 Risks", Icons.read_more),
             ),
           ),
           Expanded(
@@ -188,8 +197,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: InkWell(
               onTap: () =>
                   Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz"),
-              child: myCard(
-                  screenSize, isQuizScore, "Phishing", Icons.quiz_outlined),
+              child:
+                  myCard(screenSize, isQuizScore, "Quizz", Icons.quiz_outlined),
             ),
           ),
         ],
@@ -208,7 +217,8 @@ class _HomeScreenState extends State<HomeScreen> {
             flex: 2,
             child: InkWell(
               onTap: () => Get.toNamed(MyRouter.wordGameScreen),
-              child: myCard(screenSize, isGameScore, "Word", Icons.games),
+              child: myCard(
+                  screenSize, isWordGameDone, "Word Scrabble", Icons.games),
             ),
           ),
           Expanded(
@@ -216,7 +226,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: InkWell(
               onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
                   arguments: "phishingEmailGame"),
-              child: myCard(screenSize, isGameScore, "Email", Icons.games),
+              child: myCard(
+                  screenSize, isRolePlayGameDone, "Role Play", Icons.games),
             ),
           ),
           Expanded(
@@ -232,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Row(
       children: [
         displayGraphScore(
-            screenSize, "Game", gameScoreChart, gameScore["GAME_WORD_TOTAL"]),
+            screenSize, "Game", gameScoreChart, gameScore[GAME_TOTAL]),
         displayGraphScore(screenSize, "Quiz", quizScoreChart,
             quizScore["QUIZ_PHISHING_TOTAL"]),
       ],
@@ -266,19 +277,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
           isDone
               ? Flexible(
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: BlueTextBody(data: title),
-                    ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: BlueTextBody(data: title),
                   ),
                 )
               : Flexible(
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: DarkTextBody(data: title),
-                    ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(2.0),
+                    child: DarkTextBody(data: title),
                   ),
                 ),
           SizedBox(
@@ -302,7 +309,7 @@ class _HomeScreenState extends State<HomeScreen> {
               annotations: <CircularChartAnnotation>[
                 CircularChartAnnotation(
                   widget: LightTextSubHead(
-                    data: "${totalScore.first.y.abs()}",
+                    data: "${totalScore.first.y.abs()} %",
                   ),
                 ),
               ],
@@ -319,7 +326,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     innerRadius: '80%',
                     cornerStyle: CornerStyle.endCurve,
                     gap: '3%',
-                    maximumValue: maxValue,
+                    maximumValue: 100,
                     // dataLabelSettings: const DataLabelSettings(
                     //     // Renders the data label
                     //     isVisible: true),

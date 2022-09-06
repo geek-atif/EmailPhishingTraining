@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import '../../../../controller/email_phishing_controller.dart';
+import '../../../../controller/role_play_game_controller.dart';
 import '../../../../ui/widgets/text/light_text_body.dart';
 import '../../../../utiles/constant.dart';
 
@@ -18,8 +18,8 @@ class EmailPhishingOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<EmailPhishingController>(
-        init: EmailPhishingController(),
+    return GetBuilder<RolePlayGameController>(
+        init: RolePlayGameController(),
         builder: (qnController) {
           Color getTheRightColor() {
             if (qnController.isAnswered) {
