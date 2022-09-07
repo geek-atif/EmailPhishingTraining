@@ -1,3 +1,4 @@
+import '../../../../ui/widgets/text/light_text_body_sub.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../ui/styles/my_app_theme.dart';
@@ -9,15 +10,17 @@ import '../../text/light_text_body_green.dart';
 import '../../text/light_text_body_red.dart';
 
 class WordEditCard extends StatefulWidget {
-  const WordEditCard(
-      {Key? key,
-      required this.wordGame,
-      required this.index,
-      required this.wordGameController})
-      : super(key: key);
+  const WordEditCard({
+    Key? key,
+    required this.wordGame,
+    required this.index,
+    required this.wordGameController,
+    required this.wordHint,
+  }) : super(key: key);
   final WordGame wordGame;
   final int index;
   final WordGameController wordGameController;
+  final String wordHint;
 
   @override
   State<WordEditCard> createState() => _WordEditCardState();
@@ -29,12 +32,15 @@ class _WordEditCardState extends State<WordEditCard> {
   late List<String> questions;
   final _formKey = GlobalKey<FormState>();
   TextEditingController textController = TextEditingController();
+  final GlobalKey<TooltipState> tooltipkey = GlobalKey<TooltipState>();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     words = widget.wordGame.answer.split("");
-    questions = widget.wordGame.question.split("");
+    questions = widget.wordGame.answer.split("");
+    questions.shuffle();
   }
 
   _submit(String words) {
@@ -58,7 +64,7 @@ class _WordEditCardState extends State<WordEditCard> {
           child: Row(
             children: [
               ...List.generate(
-                words.length,
+                questions.length,
                 (index) => questionCard(questions[index]),
               ),
             ],
@@ -109,8 +115,27 @@ class _WordEditCardState extends State<WordEditCard> {
             ),
           ),
         ),
-        const SizedBox(
-          height: 5,
+        Row(
+          children: [
+            Spacer(),
+            Spacer(),
+            Spacer(),
+            InkWell(
+              child: Tooltip(
+                key: tooltipkey,
+                triggerMode: TooltipTriggerMode.manual,
+                showDuration: const Duration(seconds: 2),
+                message: widget.wordHint,
+                textAlign: TextAlign.justify,
+                preferBelow: false,
+                child: InkWell(
+                    onTap: () =>
+                        tooltipkey.currentState?.ensureTooltipVisible(),
+                    child: const LightTextSub(data: "Hint")),
+              ),
+            ),
+            Spacer(),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.only(top: 5, bottom: 5),

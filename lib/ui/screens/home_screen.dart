@@ -51,7 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: SliderDrawer(
@@ -67,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           key: keyLoader,
           slider: const MyNavigationMenu(),
           child: SingleChildScrollView(
-            child: homeContiner(screenSize),
+            child: homeContiner(),
           ),
 
           //homeContiner(screenSize),
@@ -77,10 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  SizedBox homeContiner(Size screenSize) {
+  SizedBox homeContiner() {
     return SizedBox(
-      width: screenSize.width,
-      height: screenSize.height,
+      width: Get.width,
+      height: Get.height,
       child: Padding(
         padding: const EdgeInsets.only(
           left: 5.0,
@@ -95,17 +94,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               flex: 2,
-              child: scoreCard(screenSize),
+              child: scoreCard(),
             ),
             Expanded(
               flex: 0,
               child: SizedBox(
-                height: screenSize.height * 0.02,
+                height: Get.height * 0.02,
               ),
             ),
             Expanded(
               flex: 3,
-              child: actionCard(screenSize),
+              child: actionCard(),
             ),
             Spacer(flex: 2),
           ],
@@ -114,19 +113,17 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Row scoreCard(Size screenSize) {
+  Row scoreCard() {
     return Row(
       children: [
-        displayGraphScore(
-            screenSize, "Game", gameScoreChart, gameScore[GAME_TOTAL]),
-        displayGraphScore(
-            screenSize, "Quiz", quizScoreChart, quizScore[QUIZ_TOTAL]),
+        displayGraphScore("Game", gameScoreChart, gameScore[GAME_TOTAL]),
+        displayGraphScore("Quiz", quizScoreChart, quizScore[QUIZ_TOTAL]),
       ],
     );
   }
 
-  Expanded displayGraphScore(Size screenSize, String title,
-      List<ChartData> totalScore, double maxValue) {
+  Expanded displayGraphScore(
+      String title, List<ChartData> totalScore, double maxValue) {
     print("displayGraphScore title ${title} maxValue ${maxValue} ");
     return Expanded(
       child: Column(
@@ -171,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Card actionCard(Size screenSize) {
+  Card actionCard() {
     return Card(
       elevation: 7,
       shape: RoundedRectangleBorder(
@@ -195,14 +192,14 @@ class _HomeScreenState extends State<HomeScreen> {
               flex: 2,
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: actionOne(screenSize),
+                child: actionOne(),
               ),
             ),
             Expanded(
               flex: 2,
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
-                child: actionTwo(screenSize),
+                child: actionTwo(),
               ),
             ),
           ],
@@ -211,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Row actionOne(Size screenSize) {
+  Row actionOne() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -220,16 +217,14 @@ class _HomeScreenState extends State<HomeScreen> {
           flex: 2,
           child: InkWell(
             onTap: () => Get.toNamed(MyRouter.phishingStepOne),
-            child: myCard(
-                screenSize, isPhishingScore, "3-Steps Detect", Icons.read_more),
+            child: myCard(isPhishingScore, "3-Steps Detect", Icons.read_more),
           ),
         ),
         Expanded(
           flex: 2,
           child: InkWell(
             onTap: () => Get.toNamed(MyRouter.officePhishingOne),
-            child:
-                myCard(screenSize, false, "Office365 Risks", Icons.read_more),
+            child: myCard(false, "Office365 Risks", Icons.read_more),
           ),
         ),
         Expanded(
@@ -237,15 +232,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: InkWell(
             onTap: () =>
                 Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz"),
-            child:
-                myCard(screenSize, isQuizScore, "Quizz", Icons.quiz_outlined),
+            child: myCard(isQuizScore, "Quizz", Icons.quiz_outlined),
           ),
         ),
       ],
     );
   }
 
-  Row actionTwo(Size screenSize) {
+  Row actionTwo() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -254,8 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
           flex: 2,
           child: InkWell(
             onTap: () => Get.toNamed(MyRouter.wordGameScreen),
-            child: myCard(
-                screenSize, isWordGameDone, "Word Scrabble", Icons.games),
+            child: myCard(isWordGameDone, "Word Scrabble", Icons.games),
           ),
         ),
         Expanded(
@@ -263,8 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: InkWell(
             onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
                 arguments: "phishingEmailGame"),
-            child: myCard(
-                screenSize, isRolePlayGameDone, "Role Play", Icons.games),
+            child: myCard(isRolePlayGameDone, "Role Play", Icons.games),
           ),
         ),
         Expanded(
@@ -275,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Card myCard(Size screenSize, bool isDone, String title, IconData iconDat) {
+  Card myCard(bool isDone, String title, IconData iconDat) {
     return Card(
       elevation: 7,
       shape: RoundedRectangleBorder(

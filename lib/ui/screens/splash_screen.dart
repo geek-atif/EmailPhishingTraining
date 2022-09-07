@@ -46,7 +46,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,
@@ -55,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             SizedBox(
-              height: screenSize.height * 0.01,
+              height: Get.height * 0.01,
             ),
             Container(
                 alignment: Alignment.center,
@@ -102,7 +101,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 )),
             SizedBox(
-              height: screenSize.height * 0.01,
+              height: Get.height * 0.01,
             ),
           ],
         ),

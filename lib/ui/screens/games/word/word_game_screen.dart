@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../../../controller/word_game_controller.dart';
 import '../../../../ui/widgets/my_app_bar.dart';
 import '../../../../utiles/constant.dart';
 import '../../../styles/fonts.dart';
 import '../../../styles/my_app_theme.dart';
-import '../../../widgets/games/wordgame/word_draggable_card.dart';
 import '../../../widgets/games/wordgame/word_game_list.dart';
 
 class WordGameScreen extends StatefulWidget {

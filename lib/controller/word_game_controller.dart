@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../utiles/utility.dart';
@@ -57,15 +59,20 @@ class WordGameController extends GetxController
 
   void setWordGames(typeOfQuiz) {
     print("setQuestion typeOfQuiz ${typeOfQuiz}");
+    final _random = Random();
 
     _wordGames = WordGame.wordGameOne
         .map(
           (wordGame) => WordGame(
-              id: wordGame['id'],
-              question: wordGame['question'],
-              answer: wordGame['answer']),
+            id: wordGame['id'],
+            question: wordGame['question'],
+            answer: wordGame['answer'],
+            hint: wordGame['hint'],
+          ),
         )
         .toList();
+    // _wordGames.shuffle();
+
     Utility.updateGameWordTotal(_wordGames.length);
   }
 

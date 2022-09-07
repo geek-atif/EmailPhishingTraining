@@ -1,10 +1,8 @@
-import 'package:PhishSim/utiles/sound_constant.dart';
-
+import '../../../../utiles/sound_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
-
 import '../../../../controller/role_play_game_controller.dart';
 import '../../../../model/questions.dart';
 import '../../../../utiles/constant.dart';
@@ -59,74 +57,65 @@ class _EmailPhishingQuestionCardState extends State<EmailPhishingQuestionCard> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Text(
-            //   question.question,
-            //   style: Theme.of(context).textTheme.headline6,
-            // ),
             LightTextSubHead(data: widget.question.question),
-
             widget.question.image.isEmpty
                 ? Text("")
-                : Tooltip(
-                    key: widget.tooltipkey,
-                    triggerMode: TooltipTriggerMode.manual,
-                    showDuration: const Duration(seconds: 20),
-                    message: 'Eamil Address',
-                    child: SizedBox(
-                      height: Get.height * 0.4,
-                      child: Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment.center,
-                            child:
-                                //Image.asset(Images.laptop)
-                                Icon(
-                              Icons.laptop_mac,
-                              size: Get.height * 0.45,
-                              color: Colors.white,
-                            ),
+                : SizedBox(
+                    height: Get.height * 0.4,
+                    width: double.infinity,
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Icon(
+                            Icons.laptop_mac,
+                            size: Get.height * 0.45,
+                            color: Colors.white,
                           ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: ZoomOverlay(
-                              minScale: 0.5, // Optional
-                              maxScale: 3.0, // Optional
-                              twoTouchOnly: true, // Defaults to false
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  widget.question.image,
-                                  height: Get.height * 0.248,
-                                  //fit: BoxFit.fitHeight,
-                                ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: ZoomOverlay(
+                            minScale: 0.5, // Optional
+                            maxScale: 3.0, // Optional
+                            twoTouchOnly: true, // Defaults to false
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                widget.question.image,
+                                height: Get.height * 0.248,
+                                //fit: BoxFit.fitHeight,
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
             const SizedBox(height: kDefaultPadding / 2),
             ...List.generate(
               widget.question.options.length,
               (index) => EmailPhishingOption(
-                  index: index,
-                  text: widget.question.options[index],
-                  press: () async {
-                    _controller.checkAns(widget.question, index);
-                    var _correctAns = widget.question.answer;
-                    var _selectedAns = index;
-                    //widget.tooltipkey.currentState?.ensureTooltipVisible();
-                    if (_correctAns == _selectedAns) {
+                index: index,
+                text: widget.question.options[index],
+                press: () async {
+                  _controller.checkAns(widget.question, index);
+                  var _correctAns = widget.question.answer;
+                  var _selectedAns = index;
+                  if (_correctAns == _selectedAns) {
+                    if (!GetPlatform.isWindows) {
                       await player.setAsset(SoundConstant.correct);
                       player.play();
-                      MyDialogsConfetti.showLoadingDialog(context, keyLoader);
-                    } else {
+                    }
+                    MyDialogsConfetti.showLoadingDialog(context, keyLoader);
+                  } else {
+                    if (!GetPlatform.isWindows) {
                       await player.setAsset(SoundConstant.incorrect);
                       player.play();
                     }
-                  },
-                  tooltipkey: widget.tooltipkey),
+                  }
+                },
+              ),
             ),
           ],
         ),
