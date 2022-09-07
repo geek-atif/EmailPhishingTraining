@@ -1,1 +1,1 @@
-# EmailPhishingTraining
+# whitehax_phishsim
