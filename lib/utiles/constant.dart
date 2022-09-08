@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const baseUrl = "https://demo.whitehax.com/whlite/";
 const kSecondaryColor = Color(0xFF8B94BC);
 const kGreenColor = Color(0xFF6AC259);
 const kRedColor = Color(0xFFE92E30);
@@ -17,6 +18,8 @@ const double kDefaultPadding = 20.0;
 const String USER_LOGIN_STATUS = "userLoginStatus";
 const String USER_NAME = "userName";
 const String USER_EMAIL_ADDRESS = "userEmailAddress";
+const String USER_ID = "userId";
+const String USER_ADMIN_ID = "adminId";
 
 // Game Details
 const String GAME_TOTAL_PRE = "gameTotalPre";

@@ -153,7 +153,7 @@ const List phishingQuiz = [
       'Unknown sender, sense of urgency, unexpected link or attachment',
       'Personal information in the email'
     ],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 11,

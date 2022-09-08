@@ -4,6 +4,7 @@ import '../../../controller/auth_controller.dart';
 import '../../../ui/widgets/button/dark_blue_button.dart';
 import '../../../ui/widgets/text/light_text_head.dart';
 import '../../styles/my_app_theme.dart';
+import '../../widgets/loading.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -71,9 +72,15 @@ class _LoginScreenState extends State<LoginScreen>
                   SizedBox(
                     height: screenSize.height * 0.06,
                   ),
-                  InkWell(
-                    onTap: () => _login(),
-                    child: DarkBlueButton(buttonText: "Login"),
+                  Obx(
+                    () => _authController.isLoading.value
+                        ? const Loading(
+                            loadingMessage: '',
+                          )
+                        : InkWell(
+                            onTap: () => _login(),
+                            child: DarkBlueButton(buttonText: "Login"),
+                          ),
                   )
                 ],
               ),

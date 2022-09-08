@@ -5,5 +5,12 @@ class BindingController extends Bindings {
   @override
   void dependencies() {
     //Get.put<AuthController>(AuthController());
+
+    Get.lazyPut<AuthController>(
+      () => AuthController(),
+    );
+    Get.lazyPut<AuthController>(
+      () => AuthController(),
+    );
   }
 }

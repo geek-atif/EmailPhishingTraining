@@ -1,10 +1,12 @@
-import 'package:flutter/widgets.dart';
+import 'dart:developer';
 import 'package:get/get.dart';
 import '../../../utiles/utility.dart';
-import '../model/questions.dart';
-import '../ui/routers/my_router.dart';
+import '../api_base_helper/api_base_helper.dart';
+import '../model/login_response.dart';
 
 class AuthController extends GetxController {
+  var isLoading = false.obs;
+  final ApiBaseHelper _helper = ApiBaseHelper();
   // called immediately after the widget is allocated memory
   @override
   void onInit() {
@@ -17,9 +19,27 @@ class AuthController extends GetxController {
     super.onClose();
   }
 
-  login(String userName, String emailAddress) {
+  login(String userName, String emailAddress) async {
     print("login  userName ${userName}  emailAddress ${emailAddress}");
-    Utility.saveLoginDetail(userName, emailAddress);
-    Get.offAndToNamed(MyRouter.homeScreen);
+    isLoading.value = true;
+    dynamic body = {
+      'user_mail': emailAddress,
+    };
+
+    try {
+      final response = await _helper.post("getuserid", body);
+      log("response ${response}");
+      LoginResponse userLogin = LoginResponse.fromJson(response);
+      isLoading.value = false;
+      if (!userLogin.errorStatus) {
+        Utility.saveloginData(userLogin, userName, emailAddress);
+      } else {
+        Utility.showError(userLogin.errorMessage);
+      }
+    } catch (e) {
+      Utility.showError("Login Failed");
+      e.printError();
+      isLoading.value = false;
+    }
   }
 }

@@ -1,7 +1,9 @@
+import 'package:PhishSim/model/login_response.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../ui/routers/my_router.dart';
-import '../ui/screens/auth/login_screen.dart';
+import 'package:intl/intl.dart';
 import 'constant.dart';
 
 class Utility {
@@ -10,6 +12,52 @@ class Utility {
     return getStorage.hasData(USER_LOGIN_STATUS)
         ? getStorage.read(USER_LOGIN_STATUS)
         : false;
+  }
+
+  static showError(String content) {
+    Get.snackbar(
+      "Error",
+      content,
+      colorText: Colors.red,
+    );
+  }
+
+  static String getCurrentTime() {
+    final DateTime now = DateTime.now();
+    final DateFormat formatter = DateFormat('yyyy-MM-dd hh:mm:ss');
+    final String formatted = formatter.format(now);
+    return (formatted);
+  }
+
+  static saveloginData(
+      LoginResponse userLogin, String userName, String emailAddress) {
+    final getStorage = GetStorage();
+    getStorage.write(USER_LOGIN_STATUS, true);
+    getStorage.write(USER_EMAIL_ADDRESS, emailAddress);
+    getStorage.write(USER_NAME, userName);
+    getStorage.write(USER_ID, userLogin.userId);
+    getStorage.write(USER_ADMIN_ID, userLogin.adminId);
+    Get.offAndToNamed(MyRouter.homeScreen);
+  }
+
+  static saveIntValue(String keyName, int value) {
+    final getStorage = GetStorage();
+    getStorage.write(keyName, value);
+  }
+
+  static getIntValue(String keyName) {
+    final getStorage = GetStorage();
+    return getStorage.hasData(keyName) ? getStorage.read(keyName) : 0;
+  }
+
+  static saveStringValue(String keyName, bool value) {
+    final getStorage = GetStorage();
+    getStorage.write(keyName, value);
+  }
+
+  static getStringValue(String keyName) {
+    final getStorage = GetStorage();
+    return getStorage.hasData(keyName) ? getStorage.read(keyName) : "";
   }
 
   static saveBolValue(String keyName, bool value) {
@@ -22,12 +70,12 @@ class Utility {
     return getStorage.hasData(keyName) ? getStorage.read(keyName) : false;
   }
 
-  static saveLoginDetail(String userName, String emailAddress) {
-    final getStorage = GetStorage();
-    getStorage.write(USER_LOGIN_STATUS, true);
-    getStorage.write(USER_EMAIL_ADDRESS, emailAddress);
-    getStorage.write(USER_NAME, userName);
-  }
+  // static saveLoginDetail(String userName, String emailAddress) {
+  //   final getStorage = GetStorage();
+  //   getStorage.write(USER_LOGIN_STATUS, true);
+  //   getStorage.write(USER_EMAIL_ADDRESS, emailAddress);
+  //   getStorage.write(USER_NAME, userName);
+  // }
 
   static String getUserName() {
     final getStorage = GetStorage();
