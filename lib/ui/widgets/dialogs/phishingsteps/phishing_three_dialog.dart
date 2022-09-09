@@ -1,3 +1,4 @@
+import '../../../../controller/server_update_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../ui/routers/my_router.dart';
@@ -7,10 +8,11 @@ import '../../../../utiles/constant.dart';
 import '../../../styles/images.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../button/dark_blue_button.dart';
+import '../../loading.dart';
 
 class PhishingThreeDialog {
-  static Future<void> showLoadingDialog(
-      BuildContext context, GlobalKey key) async {
+  static Future<void> showLoadingDialog(BuildContext context, GlobalKey key,
+      ServerUpdateController serverUpdateController) async {
     return showDialog<void>(
         context: context,
         barrierDismissible: true,
@@ -40,15 +42,22 @@ class PhishingThreeDialog {
                 const SizedBox(
                   height: 25,
                 ),
-                InkWell(
-                  onTap: () {
-                    Get.offAndToNamed(MyRouter.homeScreen);
-                    Utility.saveBolValue(TUTORIAL_STEP_ATTEMPT_Done, true);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 50, right: 50),
-                    child: DarkBlueButton(buttonText: "Done"),
-                  ),
+                Obx(
+                  () => serverUpdateController.isLoading.value
+                      ? const Loading(
+                          loadingMessage: '',
+                        )
+                      : InkWell(
+                          onTap: () {
+                            Utility.saveBolValue(
+                                TUTORIAL_STEP_ATTEMPT_Done, true);
+                            serverUpdateController.updateTutorial("3StepsDoc");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 50, right: 50),
+                            child: DarkBlueButton(buttonText: "Done"),
+                          ),
+                        ),
                 ),
                 const SizedBox(
                   height: 15,

@@ -1,3 +1,4 @@
+import '../../../../controller/server_update_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../ui/routers/my_router.dart';
@@ -5,10 +6,11 @@ import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
 import '../../../styles/images.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../button/dark_blue_button.dart';
+import '../../loading.dart';
 
 class OfficeFourDialog {
-  static Future<void> showLoadingDialog(
-      BuildContext context, GlobalKey key) async {
+  static Future<void> showLoadingDialog(BuildContext context, GlobalKey key,
+      ServerUpdateController serverUpdateController) async {
     return showDialog<void>(
         context: context,
         barrierDismissible: true,
@@ -39,13 +41,19 @@ class OfficeFourDialog {
                 const SizedBox(
                   height: 25,
                 ),
-                InkWell(
-                  onTap: () => Get.toNamed(MyRouter.quizScreen,
-                      arguments: "phishingQuiz"),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 50, right: 50),
-                    child: DarkBlueButton(buttonText: "Quiz Time !"),
-                  ),
+                Obx(
+                  () => serverUpdateController.isLoading.value
+                      ? const Loading(
+                          loadingMessage: '',
+                        )
+                      : InkWell(
+                          onTap: () =>
+                              serverUpdateController.updateTutorial("365Doc"),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 50, right: 50),
+                            child: DarkBlueButton(buttonText: "Quiz Time !"),
+                          ),
+                        ),
                 ),
                 const SizedBox(
                   height: 15,

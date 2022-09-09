@@ -1,6 +1,9 @@
+import 'dart:developer';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import '../api_base_helper/api_base_helper.dart';
 import '../model/questions.dart';
+import '../model/tutorial_response.dart';
 import '../ui/routers/my_router.dart';
 import '../utiles/constant.dart';
 import '../utiles/utility.dart';
@@ -38,6 +41,12 @@ class QuestionController extends GetxController
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => _numOfCorrectAns;
 
+  final RxString _quizType = "".obs;
+  RxString get quizType => _quizType;
+
+  var isLoading = false.obs;
+  final ApiBaseHelper _helper = ApiBaseHelper();
+
   // called immediately after the widget is allocated memory
   @override
   void onInit() {
@@ -68,6 +77,7 @@ class QuestionController extends GetxController
 
   void setQuestion(typeOfQuiz) {
     print("setQuestion typeOfQuiz ${typeOfQuiz}");
+    _quizType.value = typeOfQuiz;
     if (typeOfQuiz == "office365Qus") {
       _questions = office365Qus
           .map(
@@ -131,8 +141,18 @@ class QuestionController extends GetxController
     } else {
       // Get package provide us simple way to naviigate another page
       //Get.offAndToNamed(MyRouter.homeScreen);
+      log("${_quizType.value}");
 
-      var data = {"Total": _questions.length, "Ans": _numOfCorrectAns};
+      var data = {
+        "Total": _questions.length,
+        "Ans": _numOfCorrectAns,
+        "quizName": ""
+      };
+
+      if (_quizType.value == "phishingQuiz") {
+        data["quizName"] = "quiz1";
+      }
+
       Get.offAndToNamed(MyRouter.scoreScreen, arguments: data);
       Utility.saveBolValue(Quiz_PHISHING_DONE, true);
     }

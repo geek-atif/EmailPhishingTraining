@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
+import '../../../../controller/server_update_controller.dart';
 import '../../../styles/fonts.dart';
 import '../../../widgets/dialogs/office365/office_four_dialog.dart';
 import '../../../widgets/dialogs/office365/office_one_dialog.dart';
@@ -23,6 +25,8 @@ class _OfficePhishingFourScreenState extends State<OfficePhishingFourScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   final GlobalKey<State> keyLoader = GlobalKey<State>();
+  final ServerUpdateController _serverUpdateController =
+      Get.put(ServerUpdateController());
   @override
   void initState() {
     super.initState();
@@ -178,8 +182,8 @@ class _OfficePhishingFourScreenState extends State<OfficePhishingFourScreen>
                   height: 40,
                 ),
                 InkWell(
-                  onTap: () =>
-                      OfficeFourDialog.showLoadingDialog(context, keyLoader),
+                  onTap: () => OfficeFourDialog.showLoadingDialog(
+                      context, keyLoader, _serverUpdateController),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
                     child: DarkBlueButton(buttonText: "Done"),

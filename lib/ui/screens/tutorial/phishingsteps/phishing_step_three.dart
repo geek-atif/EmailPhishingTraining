@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../controller/server_update_controller.dart';
 import '../../../widgets/button/dark_blue_button.dart';
 import '../../../widgets/text/light_text_body.dart';
 import '../../../styles/my_app_theme.dart';
@@ -19,6 +20,8 @@ class _PhishingStepThreeState extends State<PhishingStepThree>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   final GlobalKey<State> keyLoader = GlobalKey<State>();
+  final ServerUpdateController _serverUpdateController =
+      Get.put(ServerUpdateController());
 
   @override
   void initState() {
@@ -112,8 +115,8 @@ class _PhishingStepThreeState extends State<PhishingStepThree>
                   height: 20,
                 ),
                 InkWell(
-                  onTap: () =>
-                      PhishingThreeDialog.showLoadingDialog(context, keyLoader),
+                  onTap: () => PhishingThreeDialog.showLoadingDialog(
+                      context, keyLoader, _serverUpdateController),
                   child: Padding(
                     padding:
                         const EdgeInsets.only(left: 15, right: 15, top: 20),

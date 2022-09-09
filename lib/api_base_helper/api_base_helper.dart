@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'dart:io';
+import 'package:http/http.dart';
 import '../api_base_helper/app_exceptions.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -10,6 +11,26 @@ import 'package:http_parser/http_parser.dart';
 
 class ApiBaseHelper {
   final String _baseUrl = baseUrl;
+
+  Future<dynamic> postMultipartRequest(String url, dynamic body) async {
+    var responseJson;
+    try {
+      log('ApiBaseHelper postMultipartRequest url : ${_baseUrl + url}  body : ${body}');
+
+      var urlURi = Uri.parse(_baseUrl + url);
+      var request = MultipartRequest("POST", urlURi);
+      request.fields.addAll(body);
+      final response = await request.send();
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        responseJson = json.decode(response.stream.toString());
+      }
+    } on SocketException {
+      print('No net');
+      throw FetchDataException('Please check your Internet Connection');
+    }
+    return responseJson;
+  }
 
   Future<dynamic> getGoogle(String url) async {
     var responseJson;
@@ -54,6 +75,7 @@ class ApiBaseHelper {
     var responseJson;
     try {
       log('ApiBaseHelper post url : ${_baseUrl + url}  body : ${body}');
+      print("body : ${body}");
       //var token = await Utility.jwtOrEmpty;
       var urlURi = Uri.parse(_baseUrl + url);
       final response = await http.post(urlURi, body: body, headers: {

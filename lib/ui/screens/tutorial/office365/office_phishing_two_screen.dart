@@ -1,4 +1,4 @@
-import 'package:PhishSim/ui/widgets/dialogs/office365/office_two_dialog.dart';
+import '../../../../ui/widgets/dialogs/office365/office_two_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import '../../../styles/fonts.dart';

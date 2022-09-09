@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../controller/server_update_controller.dart';
 import '../../../ui/widgets/button/dark_blue_button.dart';
-import '../../../ui/widgets/text/light_text_body.dart';
 import '../../../ui/widgets/text/light_text_head.dart';
-import '../../../../ui/widgets/text/light_text_sub_head.dart';
 import '../../../../ui/styles/my_app_theme.dart';
 import '../../routers/my_router.dart';
+import '../../widgets/loading.dart';
 
 class ScoreScreen extends StatefulWidget {
   @override
@@ -14,10 +14,20 @@ class ScoreScreen extends StatefulWidget {
 
 class _ScoreScreenState extends State<ScoreScreen> {
   late var data;
+  final ServerUpdateController _serverUpdateController =
+      Get.put(ServerUpdateController());
   @override
   void initState() {
     data = Get.arguments as Map;
     super.initState();
+  }
+
+  onClick() {
+    if (data["quizName"] == "quiz1") {
+      _serverUpdateController.updateQuiz(data["quizName"], data['Ans']);
+    } else {
+      Get.offAndToNamed(MyRouter.homeScreen);
+    }
   }
 
   @override
@@ -32,7 +42,7 @@ class _ScoreScreenState extends State<ScoreScreen> {
               SizedBox(
                 height: screenSize.height * 0.1,
               ),
-              LightTextHead(data: "Total Score "),
+              const LightTextHead(data: "Total Score "),
               SizedBox(
                 height: screenSize.height * 0.05,
               ),
@@ -40,12 +50,19 @@ class _ScoreScreenState extends State<ScoreScreen> {
               SizedBox(
                 height: screenSize.height * 0.05,
               ),
-              InkWell(
-                onTap: () => Get.offAndToNamed(MyRouter.homeScreen),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 30.0, right: 30.0),
-                  child: DarkBlueButton(buttonText: "Home"),
-                ),
+              Obx(
+                () => _serverUpdateController.isLoading.value
+                    ? const Loading(
+                        loadingMessage: '',
+                      )
+                    : InkWell(
+                        onTap: () => onClick(),
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.only(left: 30.0, right: 30.0),
+                          child: DarkBlueButton(buttonText: "Home"),
+                        ),
+                      ),
               ),
             ],
           ),

@@ -1,4 +1,4 @@
-import 'package:PhishSim/model/login_response.dart';
+import '../../../../model/login_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -12,6 +12,14 @@ class Utility {
     return getStorage.hasData(USER_LOGIN_STATUS)
         ? getStorage.read(USER_LOGIN_STATUS)
         : false;
+  }
+
+  static showInfo(String content) {
+    Get.snackbar(
+      "Info",
+      content,
+      colorText: Colors.white,
+    );
   }
 
   static showError(String content) {

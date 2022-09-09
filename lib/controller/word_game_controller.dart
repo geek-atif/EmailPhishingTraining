@@ -118,7 +118,11 @@ class WordGameController extends GetxController
     } else {
       print("nextQuestion() else  ");
       // Get package provide us simple way to naviigate another page
-      var data = {"Total": _wordGames.length, "Ans": _numOfCorrectAns};
+      var data = {
+        "Total": _wordGames.length,
+        "Ans": _numOfCorrectAns,
+        "quizName": ""
+      };
       Get.offAndToNamed(MyRouter.scoreScreen, arguments: data);
       Utility.saveBolValue(GAME_WORD_DONE, true);
     }

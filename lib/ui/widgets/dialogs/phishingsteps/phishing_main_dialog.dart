@@ -1,4 +1,4 @@
-import 'package:PhishSim/ui/widgets/text/light_text_sub_head.dart';
+import '../../../../ui/widgets/text/light_text_sub_head.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routers/my_router.dart';

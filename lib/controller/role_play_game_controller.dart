@@ -121,7 +121,11 @@ class RolePlayGameController extends GetxController
       // Get package provide us simple way to naviigate another page
       //Get.offAndToNamed(MyRouter.homeScreen);
 
-      var data = {"Total": _questions.length, "Ans": _numOfCorrectAns};
+      var data = {
+        "Total": _questions.length,
+        "Ans": _numOfCorrectAns,
+        "quizName": ""
+      };
       Get.offAndToNamed(MyRouter.scoreScreen, arguments: data);
       Utility.saveBolValue(GAME_ROLE_PLAY_DONE, true);
     }
