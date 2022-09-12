@@ -261,7 +261,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Expanded(
           flex: 2,
-          child: Text(""),
+          child: InkWell(
+            onTap: () => Get.toNamed(
+              MyRouter.crossPuzzleScreen,
+            ),
+            child: myCard(isRolePlayGameDone, "Puzzle", Icons.games),
+          ),
         ),
       ],
     );

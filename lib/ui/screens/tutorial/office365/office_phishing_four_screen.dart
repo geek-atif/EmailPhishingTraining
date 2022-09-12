@@ -1,3 +1,4 @@
+import 'package:PhishSim/ui/widgets/text/bullet_light_text_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
@@ -62,120 +63,76 @@ class _OfficePhishingFourScreenState extends State<OfficePhishingFourScreen>
                 const SizedBox(
                   height: 15,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "sharepointOne".tr,
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "Email sender is either Microsoft Office365 or Microsoft SharePoint with a subject line that someone “has shared a file or document with you”.",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "sharepointTwo".tr,
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "Email body will have SharePoint link or a pdf of a document",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "sharepointThree".tr,
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "The shared document link may look like a Microsoft OneDrive shared document",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "sharepointFour".tr,
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data: "Steps to detect Scam",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "sharepointFive".tr,
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "Check the sender’s email address. However, unlike the other scams, the email may come from a compromised company account or a known sender account. Therefore, do not click link or doc",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12.0, top: 8),
-                  child: RichText(
-                    text: const TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: "\u2022",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 22,
-                              fontFamily: Fonts.poppins,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        TextSpan(
-                          text:
-                              " You should note the sender’s email address. However, unlike the other scams above, the email may come from a compromised company account or a known sender account. Therefore, do not rely only on verifying sender’s email",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Colors.white),
-                        ),
-                      ],
-                    ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 5),
+                  child: BulletLightTextBody(
+                    data:
+                        "Check the Login Link or Shared Document button URL to end in “microsoft.com” or “onedrive.com”",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12.0, top: 5),
-                  child: RichText(
-                    text: const TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: "\u2022",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 22,
-                              fontFamily: Fonts.poppins,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        TextSpan(
-                          text:
-                              " Hover over the Login Link provided in the email and you will notice again that the URL will not be a Microsoft url that ends with “microsoft.com” or “onedrive.com”",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12.0, top: 5),
-                  child: RichText(
-                    text: const TextSpan(
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: "\u2022",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 22,
-                              fontFamily: Fonts.poppins,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        TextSpan(
-                          text:
-                              " If it has a pdf attachment, the sender email address looks legit and you are not expecting a shared document from that sender, it is strongly recommended that you contact the sender directly to ask if they have shared the document with you. Only open such attachment after confirming with the sender.",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Colors.white),
-                        ),
-                      ],
-                    ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 5),
+                  child: BulletLightTextBody(
+                    data:
+                        "If there is doc attached, the sender email address looks legit but you are not expecting a shared document from that sender, contact the sender directly first to verify. Only open such after confirmation.",
                   ),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                LightTextSubHead(data: "Best Practice"),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
+                const LightTextSubHead(data: "Best Practice"),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 5),
+                  child: BulletLightTextBody(
                     data:
-                        "Do not click the URL link or attachment in any email before verifying the sender and URL Link. If the sender appears legit but you do not know of any documents that are supposed to be shared with you, do not open the attachment until you verify the identity of the sender. If you accidently do click the link, close your browser and delete any downloaded files from your device.",
+                        "Do not click the URL link or attachment in any email before verifying the sender address and URL Link.",
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 2),
+                  child: BulletLightTextBody(
+                    data: "Verify with the sender if a document is shared.",
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 2),
+                  child: BulletLightTextBody(
+                    data:
+                        "If you accidently do click the link, close the browser and delete any downloaded files from your device.",
                   ),
                 ),
                 const SizedBox(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../widgets/button/dark_blue_button.dart';
+import '../../../widgets/text/bullet_light_text_body.dart';
+import '../../../widgets/text/bullet_note_light_text_body.dart';
 import '../../../widgets/text/light_text_body.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../../widgets/dialogs/phishingsteps/phishing_one_dialog.dart';
@@ -47,28 +49,33 @@ class _PhishingStepTwoState extends State<PhishingStepTwo>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 20,
+                  height: 8,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "Step 2 : Sender’s email address ",
+                    data: "Step-2: Sender’s Email Address",
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: LightTextBody(data: 'phishingTwo'.tr),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: BulletLightTextBody(
+                      data:
+                          'If Subject looks suspicious, check the Sender’s email address.'),
                 ),
-                const SizedBox(
-                  height: 8,
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: BulletLightTextBody(
+                      data:
+                          'Click on the Sender’s emails or hover over it to see full sender’s email. Likely, the email address will not match domain name that reflects the email’s subject or message.'),
                 ),
-                const LightTextSubHead(data: "NOTE :"),
-                SizedBox(
-                  height: 5,
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: BulletNoteLightTextBody(
+                      data: 'No legit email will have unrecognizable domain.'),
                 ),
-                LightTextBody(data: "phishingTwoNote".tr),
                 const SizedBox(
                   height: 20,
                 ),

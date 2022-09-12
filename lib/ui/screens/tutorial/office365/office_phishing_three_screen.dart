@@ -1,3 +1,4 @@
+import '../../../../ui/widgets/text/bullet_light_text_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
 import '../../../widgets/dialogs/office365/office_one_dialog.dart';
@@ -44,6 +45,7 @@ class _OfficePhishingThreeScreenState extends State<OfficePhishingThreeScreen>
           child: Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 10,
@@ -56,22 +58,24 @@ class _OfficePhishingThreeScreenState extends State<OfficePhishingThreeScreen>
                 const SizedBox(
                   height: 15,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "office365One".tr,
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "Common SharePoint scam with Subject “SharePoint quota exceeded” or “File Size too large” or other File related errors.",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "office365Two".tr,
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data: "Check Sender’s email for “microsoft.com” at the end",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "office365Three".tr,
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "Check “Request Quota Increase” or “Resend File” button URL for “microsoft.com” at the end",
                   ),
                 ),
                 const SizedBox(

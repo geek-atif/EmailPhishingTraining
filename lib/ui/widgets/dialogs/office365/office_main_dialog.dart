@@ -24,23 +24,23 @@ class OfficeMainDialog {
               //backgroundColor: Colors.transparent,
               backgroundColor: MyAppTheme.whitehaxdialog,
               children: <Widget>[
-                const Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                  child: Center(
-                    child: LightTextSubHead(
-                      data:
-                          "Learn steps to detect and stop Office 365 phishing",
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
+                // const Padding(
+                //   padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                //   child: Center(
+                //     child: LightTextSubHead(
+                //       data:
+                //           "Learn steps to detect and stop Office 365 phishing",
+                //     ),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 8,
+                // ),
                 const Padding(
                   padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                   child: LightTextSub(
                       data:
-                          "Cloud-based email hosting services like Microsoft Office 365 makes accessing one’s emails much simpler. Users can go directly to the Office 365 web page, enter their company credentials and log right into their email accounts from anywhere they like. This simplicity of a single login-step however makes it easier for Phishing scammers and hackers to obtain login credentials by simply faking the Microsoft office login page. The methods used by attackers to gain access to an Office 365 account are fairly straightforward. The phishing campaigns usually take the form of an email from Microsoft with a URL link which appears to point to Microsoft Office 365 or SharePoint login page. This tutorial explains how to detect some of the most common Office 365 phishing scams and how to detect them in few easy steps. Here are some of the most common Office 365 email scams"),
+                          "Learn the most common Office365 phishing scams and how to detect them in few easy steps."),
                 ),
                 const SizedBox(
                   height: 25,

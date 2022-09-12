@@ -24,18 +24,18 @@ class PhishingMainDialog {
               //backgroundColor: Colors.transparent,
               backgroundColor: MyAppTheme.whitehaxdialog,
               children: <Widget>[
-                const Padding(
-                  padding: EdgeInsets.only(left: 20, right: 20, top: 10),
-                  child: Center(
-                    child: LightTextSubHead(
-                      data:
-                          "In 3 easy-steps learn to detect and stop email phishing.",
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
+                // const Padding(
+                //   padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                //   child: Center(
+                //     child: LightTextSubHead(
+                //       data:
+                //           "In 3 easy-steps learn to detect and stop email phishing.",
+                //     ),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 8,
+                // ),
                 const Padding(
                   padding: EdgeInsets.only(left: 20, right: 20, top: 10),
                   child: LightTextSub(

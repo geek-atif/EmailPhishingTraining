@@ -1,5 +1,6 @@
 import '../../../ui/screens/auth/login_screen.dart';
 import '../../ui/screens/splash_screen.dart';
+import '../screens/games/crossword/cross_puzzle_screen.dart';
 import '../screens/games/emailphishing/email_phishing_screen.dart';
 import '../screens/games/word/word_game_screen.dart';
 import '../screens/tutorial/office365/office_phishing_four_screen.dart';
@@ -33,6 +34,8 @@ class MyRouter {
   static var officePhishingFourScreen = "/officePhishingFourScreen";
   static var emailPhishingScreen = "/emailPhishingScreen";
 
+  static var crossPuzzleScreen = "/crossPuzzleScreen";
+
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
     GetPage(name: loginScreen, page: () => const LoginScreen()),
@@ -55,5 +58,6 @@ class MyRouter {
         name: officePhishingFourScreen,
         page: () => const OfficePhishingFourScreen()),
     GetPage(name: emailPhishingScreen, page: () => EmailPhishingScreen()),
+    GetPage(name: crossPuzzleScreen, page: () => const CrossPuzzleScreen()),
   ];
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controller/server_update_controller.dart';
 import '../../../widgets/button/dark_blue_button.dart';
+import '../../../widgets/text/bullet_light_text_body.dart';
+import '../../../widgets/text/bullet_note_light_text_body.dart';
 import '../../../widgets/text/light_text_body.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../../widgets/dialogs/phishingsteps/phishing_three_dialog.dart';
@@ -48,30 +50,33 @@ class _PhishingStepThreeState extends State<PhishingStepThree>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 20,
+                  height: 8,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "Step 3 : Attachments or URL links in the email body",
+                    data: "Step-3: Attachment or URL Links",
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: LightTextBody(data: 'phishingThree'.tr),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: BulletLightTextBody(
+                      data:
+                          'Check if email has an attachment (pdf, word or other common formats) OR a URL Link that the email prods you to click.'),
                 ),
-                const SizedBox(
-                  height: 8,
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: BulletLightTextBody(
+                      data:
+                          'Do not click the URL link or attachment in such emails. If you accidently do, close browser and delete any downloaded files from your device.'),
                 ),
-                const LightTextSubHead(data: "NOTE :"),
-                const SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: LightTextBody(data: "phishingThreeNote".tr),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: BulletNoteLightTextBody(
+                      data:
+                          'Unless you initiated or requested something, no legit company will send an email with an attachment or URL Link.'),
                 ),
                 const SizedBox(
                   height: 5,
@@ -81,19 +86,18 @@ class _PhishingStepThreeState extends State<PhishingStepThree>
                   padding: EdgeInsets.all(8.0),
                   child: LightTextBody(
                       data:
-                          "1. If an email subject line conveys urgency, importance or attention and it has a URL link or attachment – be careful. It might be a phishing email"),
+                          "1. If an email subject line conveys urgency, importance or attention and has a URL or attachment – be careful. It might be a phishing email"),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
                   child: LightTextBody(
                       data:
-                          "2. If email seems suspicious, check sender’s email address by clicking or hovering over it"),
+                          "2. If email seems suspicious, check sender’s email address"),
                 ),
                 const Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: LightTextBody(
-                      data:
-                          "3. Always check URL link by hovering over it to see if the domain contains"),
+                      data: "3. Always check URL link, if the domain contains"),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(left: 12, bottom: 10),

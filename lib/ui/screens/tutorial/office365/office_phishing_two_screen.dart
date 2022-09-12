@@ -1,3 +1,5 @@
+import 'package:PhishSim/ui/widgets/text/bullet_light_text_body.dart';
+
 import '../../../../ui/widgets/dialogs/office365/office_two_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_utils/src/extensions/internacionalization.dart';
@@ -45,82 +47,51 @@ class _OfficePhishingTwoScreenState extends State<OfficePhishingTwoScreen>
           child: Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 10,
                 ),
                 const Center(
                   child: LightTextHead(
-                    data: "2. Non-delivered Emails",
+                    data: "2. Subject contains : Non-delivered Emails",
                   ),
                 ),
                 const SizedBox(
                   height: 15,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "Subject line that says “Your messages have not been delivered” or “Last email message was not delivered”",
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data:
+                        "Email body would indicate “Microsoft Office found several undelivered messages”. Body contains “Send Again”, “Resend Message” or such other button",
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: BulletLightTextBody(
+                    data: "Steps to detect Scam",
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 5),
                   child: LightTextBody(
-                    data: "nondeliveredEmailsOne".tr,
+                    data:
+                        "i. Check the Sender’s Email address for “microsoft.com” at the end",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 15.0, top: 10),
                   child: LightTextBody(
-                    data: "nondeliveredEmailsTwo".tr,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: LightTextBody(
-                    data: "nondeliveredEmailsThree".tr,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12.0, top: 10),
-                  child: RichText(
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        const TextSpan(
-                          text: "\u2022",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 22,
-                              fontFamily: Fonts.poppins,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        TextSpan(
-                          text: "nondeliveredEmailsFour".tr,
-                          style: const TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12.0, top: 5),
-                  child: RichText(
-                    text: TextSpan(
-                      children: <TextSpan>[
-                        const TextSpan(
-                          text: "\u2022",
-                          style: TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 22,
-                              fontFamily: Fonts.poppins,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        TextSpan(
-                          text: "nondeliveredEmailsFive".tr,
-                          style: const TextStyle(
-                              fontStyle: FontStyle.normal,
-                              fontSize: 14,
-                              color: Colors.white),
-                        ),
-                      ],
-                    ),
+                    data:
+                        "ii. Check the button URL in the email for “microsoft.com” at the end",
                   ),
                 ),
                 const SizedBox(
