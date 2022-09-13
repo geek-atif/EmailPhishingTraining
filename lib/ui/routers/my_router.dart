@@ -15,6 +15,7 @@ import '../screens/tutorial/phishingsteps/phishing_step_three.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_two.dart';
 import '../screens/quiz/quiz_screen.dart';
 import '../screens/quiz/score_screen.dart';
+import '../screens/webview/my_web_view.dart';
 
 class MyRouter {
   static var expandableScreen = "/expandableScreen";
@@ -33,8 +34,8 @@ class MyRouter {
   static var officePhishingThreeScreen = "/officePhishingThreeScreen";
   static var officePhishingFourScreen = "/officePhishingFourScreen";
   static var emailPhishingScreen = "/emailPhishingScreen";
-
   static var crossPuzzleScreen = "/crossPuzzleScreen";
+  static var myWebView = "/myWebView";
 
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -59,5 +60,6 @@ class MyRouter {
         page: () => const OfficePhishingFourScreen()),
     GetPage(name: emailPhishingScreen, page: () => EmailPhishingScreen()),
     GetPage(name: crossPuzzleScreen, page: () => const CrossPuzzleScreen()),
+    GetPage(name: myWebView, page: () => const MyWebView()),
   ];
 }

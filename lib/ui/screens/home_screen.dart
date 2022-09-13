@@ -263,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
           flex: 2,
           child: InkWell(
             onTap: () => Get.toNamed(
-              MyRouter.crossPuzzleScreen,
+              MyRouter.myWebView,
             ),
             child: myCard(isRolePlayGameDone, "Puzzle", Icons.games),
           ),
