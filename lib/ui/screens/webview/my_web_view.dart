@@ -15,7 +15,7 @@ class MyWebView extends StatefulWidget {
 }
 
 class _MyWebViewState extends State<MyWebView> {
-  String webUrl = "http://demo.whitehax.com/whlite/puzzleGame.html/id=213";
+  String webUrl = "https://demo.whitehax.com/whlite/puzzleGame.html/id=213";
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   bool isLoading = true;
