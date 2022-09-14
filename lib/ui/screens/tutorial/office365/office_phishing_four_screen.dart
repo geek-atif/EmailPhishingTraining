@@ -112,30 +112,6 @@ class _OfficePhishingFourScreenState extends State<OfficePhishingFourScreen>
                   ),
                 ),
                 const SizedBox(
-                  height: 15,
-                ),
-                const LightTextSubHead(data: "Best Practice"),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15.0, top: 5),
-                  child: BulletLightTextBody(
-                    data:
-                        "Do not click the URL link or attachment in any email before verifying the sender address and URL Link.",
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15.0, top: 2),
-                  child: BulletLightTextBody(
-                    data: "Verify with the sender if a document is shared.",
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15.0, top: 2),
-                  child: BulletLightTextBody(
-                    data:
-                        "If you accidently do click the link, close the browser and delete any downloaded files from your device.",
-                  ),
-                ),
-                const SizedBox(
                   height: 40,
                 ),
                 InkWell(
@@ -143,7 +119,7 @@ class _OfficePhishingFourScreenState extends State<OfficePhishingFourScreen>
                       context, keyLoader, _serverUpdateController),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
-                    child: DarkBlueButton(buttonText: "Done"),
+                    child: DarkBlueButton(buttonText: "Next"),
                   ),
                 ),
                 const SizedBox(

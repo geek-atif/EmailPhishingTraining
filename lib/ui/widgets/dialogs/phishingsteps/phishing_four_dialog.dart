@@ -10,7 +10,7 @@ import '../../../styles/my_app_theme.dart';
 import '../../button/dark_blue_button.dart';
 import '../../loading.dart';
 
-class PhishingThreeDialog {
+class PhishingFourDialog {
   static Future<void> showLoadingDialog(BuildContext context, GlobalKey key,
       ServerUpdateController serverUpdateController) async {
     return showDialog<void>(
@@ -42,16 +42,33 @@ class PhishingThreeDialog {
                 const SizedBox(
                   height: 25,
                 ),
+                Obx(
+                  () => serverUpdateController.isLoading.value
+                      ? const Loading(
+                          loadingMessage: '',
+                        )
+                      : InkWell(
+                          onTap: () {
+                            Utility.saveBolValue(
+                                TUTORIAL_STEP_ATTEMPT_Done, true);
+                            serverUpdateController.updateTutorial("3StepsDoc");
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 50, right: 50),
+                            child: DarkBlueButton(buttonText: "Done"),
+                          ),
+                        ),
+                ),
                 const SizedBox(
                   height: 15,
                 ),
                 InkWell(
                   onTap: () => Get.toNamed(
-                    MyRouter.phishingStepFour,
+                    MyRouter.phishingStepOne,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 50, right: 50),
-                    child: DarkBlueButton(buttonText: "NEXT"),
+                    child: DarkBlueButton(buttonText: "Start Again !"),
                   ),
                 ),
               ],

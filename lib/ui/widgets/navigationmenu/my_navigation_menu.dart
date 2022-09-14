@@ -100,6 +100,15 @@ class MyNavigationMenu extends StatelessWidget {
               arguments: "phishingEmailGame"),
           child: const LightTextBody(data: "Role Play"),
         ),
+        const SizedBox(
+          height: 10,
+        ),
+        InkWell(
+          onTap: () => Get.toNamed(
+            MyRouter.myWebView,
+          ),
+          child: const LightTextBody(data: "Puzzle"),
+        ),
       ],
       iconColor: Colors.white,
       leading: const Icon(

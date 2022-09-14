@@ -3,6 +3,7 @@ import '../../ui/screens/splash_screen.dart';
 import '../screens/games/crossword/cross_puzzle_screen.dart';
 import '../screens/games/emailphishing/email_phishing_screen.dart';
 import '../screens/games/word/word_game_screen.dart';
+import '../screens/tutorial/office365/office_phishing_five_screen.dart';
 import '../screens/tutorial/office365/office_phishing_four_screen.dart';
 import '../screens/tutorial/office365/office_phishing_one.dart';
 import '../screens/getting_started_screen.dart';
@@ -10,6 +11,7 @@ import '../screens/home_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../screens/tutorial/office365/office_phishing_three_screen.dart';
 import '../screens/tutorial/office365/office_phishing_two_screen.dart';
+import '../screens/tutorial/phishingsteps/phishing_step_four.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_one.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_three.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_two.dart';
@@ -36,6 +38,8 @@ class MyRouter {
   static var emailPhishingScreen = "/emailPhishingScreen";
   static var crossPuzzleScreen = "/crossPuzzleScreen";
   static var myWebView = "/myWebView";
+  static var phishingStepFour = "/phishingStepFour";
+  static var officePhishingFiveScreen = "/officePhishingFiveScreen";
 
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -60,6 +64,10 @@ class MyRouter {
         page: () => const OfficePhishingFourScreen()),
     GetPage(name: emailPhishingScreen, page: () => EmailPhishingScreen()),
     GetPage(name: crossPuzzleScreen, page: () => const CrossPuzzleScreen()),
+    GetPage(name: phishingStepFour, page: () => const PhishingStepFour()),
+    GetPage(
+        name: officePhishingFiveScreen,
+        page: () => const OfficePhishingFiveScreen()),
     GetPage(name: myWebView, page: () => const MyWebView()),
   ];
 }

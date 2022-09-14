@@ -15,103 +15,109 @@ class WordGame {
       "id": 1,
       "question": "hipshing",
       "answer": "phishing",
-      "hint": "phishing",
+      "hint": "the most widely used email-based cyber attack technique",
     },
     {
       "id": 2,
       "question": "sender-email",
       "answer": "mender-smail",
-      "hint": "mender-smail"
+      "hint": "the quickest way to identify phishing email is to check ___"
     },
     {
       "id": 3,
       "question": "password",
       "answer": "password",
-      "hint": "password",
+      "hint": "the primary purpose of Phishing is to steal __",
     },
     {
       "id": 4,
       "question": "https",
       "answer": "https",
-      "hint": "https",
+      "hint":
+          "Look for ___ in the URL to check if website is encrypted before entering any data like username or password",
     },
     {
       "id": 5,
       "question": "fake-website",
       "answer": "fake-website",
-      "hint": "fake-website",
+      "hint": "How do Phishing emails obtain your personal information?",
     },
     {
       "id": 6,
       "question": "click-links",
       "answer": "click-links",
-      "hint": "click-links",
+      "hint": "What should you not do if an email looks suspicious?",
     },
     {
       "id": 7,
       "question": "check-sender",
       "answer": "check-sender",
-      "hint": "check-sender",
+      "hint": "What should you do if an email look suspicious?",
     },
     {
       "id": 8,
       "question": "never",
       "answer": "never",
-      "hint": "never",
+      "hint":
+          "If the sender’s email address has unrecognizable domain, is that email ever legit?",
     },
     {
       "id": 9,
       "question": "urgency",
       "answer": "urgency",
-      "hint": "urgency",
+      "hint": "Phishing email’s subject typically conveys ____",
     },
     {
       "id": 10,
       "question": "importance",
       "answer": "importance",
-      "hint": "importance",
+      "hint": "Phishing email’s subject typically conveys ____",
     },
     {
       "id": 11,
       "question": "attention",
       "answer": "attention",
-      "hint": "attention",
+      "hint": "Phishing email’s subject typically conveys ____",
     },
     {
       "id": 12,
       "question": "subject",
       "answer": "subject",
-      "hint": "subject",
+      "hint":
+          "Invariably, the email address in phishing email will not have domain name that reflects the email’s ____",
     },
     {
       "id": 13,
       "question": "verify",
       "answer": "verify",
-      "hint": "verify",
+      "hint":
+          "You receive an email from Microsoft that your account is expired, ___ with your IT Admin first before clicking any links",
     },
     {
       "id": 14,
       "question": "attachment",
       "answer": "attachment",
-      "hint": "attachment",
+      "hint": "Phishing email language prods you to click the ___ in the email",
     },
     {
       "id": 15,
       "question": "smishing",
       "answer": "smishing",
-      "hint": "smishing",
+      "hint": "Text message from IRS or your bank, is a form of ___",
     },
     {
       "id": 16,
       "question": "domain",
       "answer": "domain",
-      "hint": "domain",
+      "hint":
+          "Smishing is the same as phishing email with a bad URL, so check the ____ before clicking the URL",
     },
     {
       "id": 17,
       "question": "hover",
       "answer": "hover",
-      "hint": "hover",
+      "hint":
+          "To see the full email address of the sender, click once or on some systems click twice or __",
     },
   ];
 }

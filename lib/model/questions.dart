@@ -82,7 +82,7 @@ const List phishingQuiz = [
       'Immediately reply with whatever details you can provide',
       'Take a copy of the human resource form you filled out that has relevant info & send it'
     ],
-    "answer_index": 2,
+    "answer_index": 0,
   },
   {
     "id": 4,
@@ -93,7 +93,7 @@ const List phishingQuiz = [
       'True',
       'False',
     ],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 5,
@@ -104,7 +104,7 @@ const List phishingQuiz = [
       'Check the sender’s full email address including the domain',
       'Check date and timestamp of the email'
     ],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 6,
@@ -135,7 +135,7 @@ const List phishingQuiz = [
     "question": "Is this a Phishing Email ?",
     "image": Images.phisingemail,
     "options": ['Phishing Email', 'Real Email', 'No Answer'],
-    "answer_index": 2,
+    "answer_index": 0,
   },
   {
     "id": 9,
@@ -163,7 +163,7 @@ const List phishingQuiz = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 0,
   },
   {
     "id": 12,
@@ -173,7 +173,7 @@ const List phishingQuiz = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 13,
@@ -183,7 +183,7 @@ const List phishingQuiz = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 0,
   },
   {
     "id": 13,
@@ -193,7 +193,7 @@ const List phishingQuiz = [
       'Yes',
       'No',
     ],
-    "answer_index": 2,
+    "answer_index": 0,
   },
 ];
 

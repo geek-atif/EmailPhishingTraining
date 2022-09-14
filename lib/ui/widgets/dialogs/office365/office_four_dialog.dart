@@ -41,32 +41,13 @@ class OfficeFourDialog {
                 const SizedBox(
                   height: 25,
                 ),
-                Obx(
-                  () => serverUpdateController.isLoading.value
-                      ? const Loading(
-                          loadingMessage: '',
-                        )
-                      : InkWell(
-                          onTap: () =>
-                              serverUpdateController.updateTutorial("365Doc"),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 50, right: 50),
-                            child: DarkBlueButton(buttonText: "Quiz Time !"),
-                          ),
-                        ),
+                InkWell(
+                  onTap: () => Get.toNamed(MyRouter.officePhishingFiveScreen),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 50, right: 50),
+                    child: DarkBlueButton(buttonText: "Next"),
+                  ),
                 ),
-                // const SizedBox(
-                //   height: 15,
-                // ),
-                // InkWell(
-                //   onTap: () => Get.toNamed(
-                //     MyRouter.officePhishingOne,
-                //   ),
-                //   child: Padding(
-                //     padding: const EdgeInsets.only(left: 50, right: 50),
-                //     child: DarkBlueButton(buttonText: "Start Again !"),
-                //   ),
-                // ),
               ],
             ),
           );

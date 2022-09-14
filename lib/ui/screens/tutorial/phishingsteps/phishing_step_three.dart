@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controller/server_update_controller.dart';
 import '../../../widgets/button/dark_blue_button.dart';
+import '../../../widgets/dialogs/phishingsteps/phishing_four_dialog.dart';
+import '../../../widgets/dialogs/phishingsteps/phishing_two_dialog.dart';
 import '../../../widgets/text/bullet_light_text_body.dart';
 import '../../../widgets/text/bullet_note_light_text_body.dart';
 import '../../../widgets/text/light_text_body.dart';
@@ -77,43 +79,6 @@ class _PhishingStepThreeState extends State<PhishingStepThree>
                   child: BulletNoteLightTextBody(
                       data:
                           'Unless you initiated or requested something, no legit company will send an email with an attachment or URL Link.'),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                const LightTextSubHead(data: "RECAP :"),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: LightTextBody(
-                      data:
-                          "1. If an email subject line conveys urgency, importance or attention and has a URL or attachment – be careful. It might be a phishing email"),
-                ),
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: LightTextBody(
-                      data:
-                          "2. If email seems suspicious, check sender’s email address"),
-                ),
-                const Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: LightTextBody(
-                      data: "3. Always check URL link, if the domain contains"),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 12, bottom: 10),
-                  child: LightTextBody(data: "a) https at the start;"),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 12, bottom: 10),
-                  child: LightTextBody(
-                      data:
-                          "b) matches the sender company domain (if it’s from a 3 rd party) and"),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 12, bottom: 10),
-                  child: LightTextBody(
-                      data:
-                          "c) does not have excess characters before or after company name"),
                 ),
                 const SizedBox(
                   height: 20,

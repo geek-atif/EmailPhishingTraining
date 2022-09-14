@@ -126,6 +126,7 @@ class _WordEditCardState extends State<WordEditCard> {
                 triggerMode: TooltipTriggerMode.manual,
                 showDuration: const Duration(seconds: 2),
                 message: widget.wordHint,
+                margin: const EdgeInsets.only(left: 20, right: 20),
                 //textAlign: TextAlign.justify,
                 preferBelow: false,
                 child: InkWell(

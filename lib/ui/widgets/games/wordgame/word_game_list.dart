@@ -16,16 +16,17 @@ class WordGameList extends StatelessWidget {
         controller: wordGameController.pageController,
         onPageChanged: wordGameController.updateTheQnNum,
         itemCount: wordGameController.wordGames.length,
-        itemBuilder: (context, index) => WordDraggableCard(
-          index: index,
-          wordGame: wordGameController.wordGames[index],
-          wordGameController: wordGameController,
-        ),
-        // WordEditCard(
-        //     index: index,
-        //     wordGame: wordGameController.wordGames[index],
-        //     wordGameController: wordGameController,
-        //     wordHint: wordGameController.wordGames[index].hint),
+        itemBuilder: (context, index) => 
+        // WordDraggableCard(
+        //   index: index,
+        //   wordGame: wordGameController.wordGames[index],
+        //   wordGameController: wordGameController,
+        // ),
+        WordEditCard(
+            index: index,
+            wordGame: wordGameController.wordGames[index],
+            wordGameController: wordGameController,
+            wordHint: wordGameController.wordGames[index].hint),
       ),
     );
   }

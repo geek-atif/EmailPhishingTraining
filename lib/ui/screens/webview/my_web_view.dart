@@ -23,9 +23,6 @@ class _MyWebViewState extends State<MyWebView> {
   @override
   void initState() {
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: MyAppTheme.primaryColorSecond),
-    );
 
     // webUrl = Get.arguments;
     // Enable virtual display.
