@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.whitehax.training.threattraining">
+    package="com.whitehax.phishSim">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="PhishSim"
+        android:label="WhitehaxPhishSim"
         android:icon="@mipmap/ic_launcher">
         <activity
         

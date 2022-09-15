@@ -65,6 +65,7 @@ class ServerUpdateController extends GetxController {
       if (!userLogin.errorStatus) {
         if (tutorialName == "365Doc") {
           Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz");
+          Utility.saveBolValue(TUTORIAL_OFFICE_DONE, true);
         } else {
           Get.offAndToNamed(MyRouter.homeScreen);
         }

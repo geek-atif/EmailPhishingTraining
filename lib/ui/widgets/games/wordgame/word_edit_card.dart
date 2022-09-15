@@ -27,7 +27,7 @@ class WordEditCard extends StatefulWidget {
 }
 
 class _WordEditCardState extends State<WordEditCard> {
-  String acceptedData = "";
+  String acceptedData = " ";
   late List<String> words;
   late List<String> questions;
   final _formKey = GlobalKey<FormState>();
@@ -44,11 +44,6 @@ class _WordEditCardState extends State<WordEditCard> {
   }
 
   _submit(String words) {
-    if (!_formKey.currentState!.validate()) {
-      return;
-    }
-    _formKey.currentState!.save();
-
     widget.wordGameController.checkAns(words, acceptedData, widget.index);
   }
 
@@ -145,7 +140,9 @@ class _WordEditCardState extends State<WordEditCard> {
                 ? const Text("")
                 : widget.wordGameController.ansStatus == 1
                     ? LightTextBodyGreen(data: "Correct")
-                    : const LightTextBodyRed(data: "In-Correct "),
+                    : widget.wordGameController.ansStatus == 3
+                        ? const Text("")
+                        : const LightTextBodyRed(data: "In-Correct "),
           ),
         ),
         InkWell(

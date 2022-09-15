@@ -44,6 +44,8 @@ const String Quiz_PHISHING_DONE = "quizPhishingDone";
 //Tutorial Details
 const String TUTORIAL_OFFICE_TOTAL = "tutorialOfficeTotal";
 const String TUTORIAL_OFFICE_ATTEMPT = "tutorialOfficeAttempt";
+const String TUTORIAL_OFFICE_DONE = "tutorialOfficeDone";
+
 const String TUTORIAL_STEP_TOTAL = "tutorialStepTotal";
 const String TUTORIAL_STEP_ATTEMPT = "tutorialStepAttempt";
 const String TUTORIAL_STEP_ATTEMPT_Done = "tutorialStepAttemptDone";

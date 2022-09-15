@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var isWordGameDone = false;
   var isRolePlayGameDone = false;
   var isPhishingScore = false;
+  var isTutortialOfficeDone = false;
 
   late List<ChartData> gameScoreChart = List.empty(growable: true);
   late List<ChartData> quizScoreChart = List.empty(growable: true);
@@ -224,7 +225,8 @@ class _HomeScreenState extends State<HomeScreen> {
           flex: 2,
           child: InkWell(
             onTap: () => Get.toNamed(MyRouter.officePhishingOne),
-            child: myCard(false, "Office365 Risks", Icons.read_more),
+            child: myCard(
+                isTutortialOfficeDone, "Office365 Risks", Icons.read_more),
           ),
         ),
         Expanded(
@@ -265,7 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: () => Get.toNamed(
               MyRouter.myWebView,
             ),
-            child: myCard(isRolePlayGameDone, "Puzzle", Icons.games),
+            child: myCard(false, "Puzzle", Icons.games),
           ),
         ),
       ],
@@ -350,6 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     isQuizScore = Utility.getBolValue(Quiz_PHISHING_DONE);
     isPhishingScore = Utility.getBolValue(TUTORIAL_STEP_ATTEMPT_Done);
+    isTutortialOfficeDone = Utility.getBolValue(TUTORIAL_OFFICE_DONE);
   }
 }
 

@@ -1,4 +1,4 @@
-package com.whitehax.training.whitehax_phishsim
+package com.whitehax.phishSim
 
 import io.flutter.embedding.android.FlutterActivity
 

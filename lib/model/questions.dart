@@ -56,7 +56,7 @@ const List phishingQuiz = [
     "image": "",
     "options": [
       'Annoy You',
-      'Steal your personal information such as password, SSN and credit cards<',
+      'Steal your personal information such as password, SSN and credit cards',
       'Flood your inbox so you can’t get any legitimate email'
     ],
     "answer_index": 1,
@@ -75,18 +75,6 @@ const List phishingQuiz = [
   {
     "id": 3,
     "question":
-        "An email from human resources asking to provide your detailed name, DOB, SNN and other personal information right away. What will you do?",
-    "image": "",
-    "options": [
-      'Verify first if the email is legit by checking senders email & then reaching out to human resources department to ensure it’s really them asking forit',
-      'Immediately reply with whatever details you can provide',
-      'Take a copy of the human resource form you filled out that has relevant info & send it'
-    ],
-    "answer_index": 0,
-  },
-  {
-    "id": 4,
-    "question":
         "All legitimate large companies send out emails asking for client’s personal information all the time, True or False?",
     "image": "",
     "options": [
@@ -96,7 +84,7 @@ const List phishingQuiz = [
     "answer_index": 1,
   },
   {
-    "id": 5,
+    "id": 4,
     "question": "What is quickest way to identify phishing email?",
     "image": "",
     "options": [
@@ -107,9 +95,9 @@ const List phishingQuiz = [
     "answer_index": 1,
   },
   {
-    "id": 6,
+    "id": 5,
     "question":
-        "What to do if you fall for a phishing scam an provide your email and password?",
+        "What to do if you fall for a phishing scam and provide your email and password?",
     "image": "",
     "options": [
       'Delete the email',
@@ -119,9 +107,9 @@ const List phishingQuiz = [
     "answer_index": 2,
   },
   {
-    "id": 7,
+    "id": 6,
     "question":
-        "An email from human resources asking to provide your detailed name, DOB, SNN and other personal information right away. What will you do?",
+        "An email from human resources asking to provide your detailed name, DOB, SSN and other personal information right away. What will you do?",
     "image": "",
     "options": [
       'Verify first if the email is legit by checking senders email & then reaching out to human resources department to ensure it’s really them asking forit',
@@ -131,21 +119,14 @@ const List phishingQuiz = [
     "answer_index": 2,
   },
   {
-    "id": 8,
+    "id": 7,
     "question": "Is this a Phishing Email ?",
     "image": Images.phisingemail,
     "options": ['Phishing Email', 'Real Email', 'No Answer'],
     "answer_index": 0,
   },
   {
-    "id": 9,
-    "question": "Is this a Phishing Email ?",
-    "image": Images.phisingemail,
-    "options": ['Phishing Email', 'Real Email', 'No Answer'],
-    "answer_index": 2,
-  },
-  {
-    "id": 10,
+    "id": 8,
     "question": "What are some of the signs of a phishing scam ?",
     "image": Images.pr1,
     "options": [
@@ -156,7 +137,7 @@ const List phishingQuiz = [
     "answer_index": 1,
   },
   {
-    "id": 11,
+    "id": 9,
     "question": "Is this a Phishing Email ?",
     "image": Images.ebay,
     "options": [
@@ -166,7 +147,7 @@ const List phishingQuiz = [
     "answer_index": 0,
   },
   {
-    "id": 12,
+    "id": 10,
     "question": "Is this a Phishing Email ?",
     "image": Images.hsbc,
     "options": [
@@ -176,7 +157,7 @@ const List phishingQuiz = [
     "answer_index": 1,
   },
   {
-    "id": 13,
+    "id": 11,
     "question": "Is this a Phishing Email ?",
     "image": Images.twitter,
     "options": [
@@ -186,7 +167,7 @@ const List phishingQuiz = [
     "answer_index": 0,
   },
   {
-    "id": 13,
+    "id": 12,
     "question": "Is this a Phishing Email ?",
     "image": Images.americanair,
     "options": [

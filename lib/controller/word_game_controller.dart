@@ -83,11 +83,15 @@ class WordGameController extends GetxController
 
     _selectedAns = index;
 
-    if (correctAns == enterAns) {
+    if (enterAns.isEmpty == true || enterAns == " ") {
+      ansStatus.value = 3;
+      print("checkAns() correctAns $correctAns is empty ");
+    } else if (correctAns == enterAns) {
       _numOfCorrectAns++;
       ansStatus.value = 1;
       Utility.updateGameWordAttempt(_numOfCorrectAns);
     } else {
+      print("checkAns() else  correctAns $correctAns ");
       ansStatus.value = 2;
     }
 
