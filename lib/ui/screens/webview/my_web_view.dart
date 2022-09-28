@@ -7,6 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:get/get.dart';
 
+import '../../widgets/my_app_bar.dart';
+
 class MyWebView extends StatefulWidget {
   const MyWebView({Key? key}) : super(key: key);
 
@@ -33,6 +35,8 @@ class _MyWebViewState extends State<MyWebView> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: const MyAppBar(),
+
         // appBar: AppBar(
         //   backgroundColor: Colors.transparent,
         //   elevation: 0,

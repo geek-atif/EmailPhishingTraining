@@ -18,4 +18,12 @@ class Images {
   static const String sharept = "assets/images/sharept.png";
   static const String sharedoc = "assets/images/sharedoc.png";
   static const String laptop = "assets/images/laptop.png";
+
+  static const String first = "assets/images/first.jpg";
+  static const String second = "assets/images/second.jpg";
+  static const String third = "assets/images/third.jpg";
+  static const String fourth = "assets/images/fourth.jpg";
+  static const String fifth = "assets/images/fifth.jpg";
+
+  static const String laptopComp = "assets/images/bg_comp.png";
 }

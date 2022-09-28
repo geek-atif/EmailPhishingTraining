@@ -2,7 +2,15 @@ import '../../../ui/screens/auth/login_screen.dart';
 import '../../ui/screens/splash_screen.dart';
 import '../screens/games/crossword/cross_puzzle_screen.dart';
 import '../screens/games/emailphishing/email_phishing_screen.dart';
+import '../screens/games/role_play/role_play_sub_home_screen.dart';
+import '../screens/games/role_play/role_play_sub_screen/bank_of_america_screen.dart';
+import '../screens/games/role_play/role_play_sub_screen/emma_screen.dart';
+import '../screens/games/role_play/role_play_sub_screen/mark_speckhardt_screen.dart';
+import '../screens/games/role_play/role_play_sub_screen/paypal_screen.dart';
+import '../screens/games/role_play/role_play_sub_screen/zoom_meeting_reminder_screen.dart';
 import '../screens/games/word/word_game_screen.dart';
+import '../screens/simple_login/simple_login_screen.dart';
+import '../screens/test_screen.dart';
 import '../screens/tutorial/office365/office_phishing_five_screen.dart';
 import '../screens/tutorial/office365/office_phishing_four_screen.dart';
 import '../screens/tutorial/office365/office_phishing_one.dart';
@@ -40,6 +48,13 @@ class MyRouter {
   static var myWebView = "/myWebView";
   static var phishingStepFour = "/phishingStepFour";
   static var officePhishingFiveScreen = "/officePhishingFiveScreen";
+  static var simpleLoginScreen = "/simpleLoginScreen";
+  static var rolePlaySubHome = "/rolePlaySubHome";
+  static var markSpeckhardtScreen = "/markSpeckhardtScreen";
+  static var zoomMeetingReminderScreen = "/zoomMeetingReminderScreen";
+  static var emmaScreen = "/emmaScreen";
+  static var bankOfAmericaScreen = "/bankOfAmericaScreen";
+  static var payPalScreen = "/payPalScreen";
 
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -69,5 +84,15 @@ class MyRouter {
         name: officePhishingFiveScreen,
         page: () => const OfficePhishingFiveScreen()),
     GetPage(name: myWebView, page: () => const MyWebView()),
+    GetPage(name: simpleLoginScreen, page: () => const SimpleLoginScreen()),
+    GetPage(name: rolePlaySubHome, page: () => const RolePlaySubHomeScreen()),
+    GetPage(
+        name: markSpeckhardtScreen, page: () => const MarkSpeckhardtScreen()),
+    GetPage(
+        name: zoomMeetingReminderScreen,
+        page: () => const ZoomMeetingReminderScreen()),
+    GetPage(name: emmaScreen, page: () => const EmmaScreen()),
+    GetPage(name: bankOfAmericaScreen, page: () => const BankOfAmericaScreen()),
+    GetPage(name: payPalScreen, page: () => const PayPalScreen()),
   ];
 }

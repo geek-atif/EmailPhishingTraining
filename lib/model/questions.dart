@@ -116,7 +116,7 @@ const List phishingQuiz = [
       'Immediately reply with whatever details you can provide',
       'Take a copy of the human resource form you filled out that has relevant info & send it'
     ],
-    "answer_index": 2,
+    "answer_index": 0,
   },
   {
     "id": 7,
@@ -182,54 +182,50 @@ const List phishingEmailGame = [
   {
     "id": 1,
     "question": "Is this a Phishing Email ?",
-    "image": Images.phisingemail,
-    "options": ['Phishing Email', 'Real Email'],
-    "answer_index": 1,
-  },
-  {
-    "id": 2,
-    "question": "Is this a Phishing Email ?",
-    "image": Images.phisingemail,
-    "options": ['Phishing Email', 'Real Email'],
-    "answer_index": 1,
-  },
-  {
-    "id": 3,
-    "question": "Is this a Phishing Email ?",
-    "image": Images.ebay,
+    "image": Images.first,
     "options": [
-      'Yes',
-      'No',
+      'Phishing Email',
+      'Real Email',
     ],
     "answer_index": 0,
   },
   {
+    "id": 2,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.second,
+    "options": [
+      'Phishing Email',
+      'Real Email',
+    ],
+    "answer_index": 0,
+  },
+  {
+    "id": 3,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.third,
+    "options": [
+      'Phishing Email',
+      'Real Email',
+    ],
+    "answer_index": 1,
+  },
+  {
     "id": 4,
     "question": "Is this a Phishing Email ?",
-    "image": Images.hsbc,
+    "image": Images.fourth,
     "options": [
-      'Yes',
-      'No',
+      'Phishing Email',
+      'Real Email',
     ],
     "answer_index": 1,
   },
   {
     "id": 5,
     "question": "Is this a Phishing Email ?",
-    "image": Images.twitter,
+    "image": Images.fifth,
     "options": [
-      'Yes',
-      'No',
-    ],
-    "answer_index": 1,
-  },
-  {
-    "id": 6,
-    "question": "Is this a Phishing Email ?",
-    "image": Images.americanair,
-    "options": [
-      'Yes',
-      'No',
+      'Phishing Email',
+      'Real Email',
     ],
     "answer_index": 0,
   },

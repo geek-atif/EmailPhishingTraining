@@ -130,6 +130,26 @@ class ApiBaseHelper {
     return apiResponse;
   }
 
+  // Simple Login
+  Future<dynamic> getSimpleLogin(String url) async {
+    var responseJson;
+    try {
+      var urlURi = Uri.parse(simpleLoginBaseURL + url);
+      log('ApiBaseHelper get url : ${simpleLoginBaseURL + url}');
+      final response = await http.get(urlURi, headers: {
+        // 'Content-Type': 'application/json',
+        'Authentication':
+            'paasdoarginrruixqcygkwjynuxfuudefkwkzfsrsgxgpuxauuwgorpebksc'
+      });
+      responseJson = _returnResponse(response);
+    } on SocketException {
+      print('No net');
+      throw FetchDataException('Please check your Internet Connection');
+    }
+    print('api get recieved!');
+    return responseJson;
+  }
+
   dynamic _returnResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:

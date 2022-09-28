@@ -27,7 +27,8 @@ class MyNavigationMenu extends StatelessWidget {
             tutorialWidg(),
             quizWidg(),
             gameWidg(screenSize),
-            logoutWidg(screenSize)
+            //simpleLogin(screenSize),
+            logoutWidg(screenSize),
           ],
         ),
       ),
@@ -47,6 +48,9 @@ class MyNavigationMenu extends StatelessWidget {
         ),
         Center(
           child: LightTextBody(data: Utility.getEmailAddress()),
+        ),
+        Center(
+          child: LightTextBody(data: Utility.getCompanyName()),
         ),
       ],
     );
@@ -166,6 +170,29 @@ class MyNavigationMenu extends StatelessWidget {
       iconColor: Colors.white,
       leading: const Icon(
         Icons.read_more,
+        color: Colors.white,
+        size: 25,
+      ),
+    );
+  }
+
+  ExpansionTile simpleLogin(Size screenSize) {
+    return ExpansionTile(
+      collapsedIconColor: Colors.white,
+      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+      childrenPadding: const EdgeInsets.only(bottom: 10),
+      title: const LightTextSubHead(
+        data: "Simple Login",
+      ),
+      children: <Widget>[
+        InkWell(
+          onTap: () => Get.toNamed(MyRouter.simpleLoginScreen),
+          child: const LightTextBody(data: "Simple login"),
+        ),
+      ],
+      iconColor: Colors.white,
+      leading: const Icon(
+        Icons.games,
         color: Colors.white,
         size: 25,
       ),

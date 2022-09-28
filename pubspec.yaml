@@ -92,7 +92,12 @@ flutter:
     - assets/images/sharedoc.png
     - assets/sound/correct.mp3
     - assets/sound/incorrect.mp3
-    - assets/images/laptop.png
+    - assets/images/first.jpg
+    - assets/images/second.jpg
+    - assets/images/third.jpg
+    - assets/images/fourth.jpg
+    - assets/images/fifth.jpg
+    - assets/images/bg_comp.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

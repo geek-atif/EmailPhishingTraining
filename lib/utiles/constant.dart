@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const baseUrl = "https://demo.whitehax.com/whlite/";
+const simpleLoginBaseURL = "https://app.simplelogin.io/api";
 const kSecondaryColor = Color(0xFF8B94BC);
 const kGreenColor = Color(0xFF6AC259);
 const kRedColor = Color(0xFFE92E30);
@@ -20,6 +21,7 @@ const String USER_NAME = "userName";
 const String USER_EMAIL_ADDRESS = "userEmailAddress";
 const String USER_ID = "userId";
 const String USER_ADMIN_ID = "adminId";
+const String USER_COMPANY_NAME = "userCompnayName";
 
 // Game Details
 const String GAME_TOTAL_PRE = "gameTotalPre";
@@ -49,3 +51,6 @@ const String TUTORIAL_OFFICE_DONE = "tutorialOfficeDone";
 const String TUTORIAL_STEP_TOTAL = "tutorialStepTotal";
 const String TUTORIAL_STEP_ATTEMPT = "tutorialStepAttempt";
 const String TUTORIAL_STEP_ATTEMPT_Done = "tutorialStepAttemptDone";
+
+//Get Storage
+//const String LOGIN_CONTAINER = "loginContainer";

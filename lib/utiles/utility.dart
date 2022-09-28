@@ -37,15 +37,34 @@ class Utility {
     return (formatted);
   }
 
-  static saveloginData(
-      LoginResponse userLogin, String userName, String emailAddress) {
+  static saveloginData(LoginResponse userLogin, String userName,
+      String emailAddress, String companyName) {
     final getStorage = GetStorage();
     getStorage.write(USER_LOGIN_STATUS, true);
-    getStorage.write(USER_EMAIL_ADDRESS, emailAddress);
-    getStorage.write(USER_NAME, userName);
     getStorage.write(USER_ID, userLogin.userId);
     getStorage.write(USER_ADMIN_ID, userLogin.adminId);
+    getStorage.write(USER_EMAIL_ADDRESS, emailAddress);
+    getStorage.write(USER_NAME, userName);
+    getStorage.write(USER_COMPANY_NAME, companyName);
     Get.offAndToNamed(MyRouter.homeScreen);
+  }
+
+  static getLoginInfo() {
+    final getStorage = GetStorage();
+    var userName =
+        getStorage.hasData(USER_NAME) ? getStorage.read(USER_NAME) : "";
+    var userEmail = getStorage.hasData(USER_EMAIL_ADDRESS)
+        ? getStorage.read(USER_EMAIL_ADDRESS)
+        : "";
+    var userCompanyName = getStorage.hasData(USER_COMPANY_NAME)
+        ? getStorage.read(USER_COMPANY_NAME)
+        : "";
+
+    return {
+      USER_NAME: userName,
+      USER_EMAIL_ADDRESS: userEmail,
+      USER_COMPANY_NAME: userCompanyName
+    };
   }
 
   static saveIntValue(String keyName, int value) {
@@ -78,13 +97,6 @@ class Utility {
     return getStorage.hasData(keyName) ? getStorage.read(keyName) : false;
   }
 
-  // static saveLoginDetail(String userName, String emailAddress) {
-  //   final getStorage = GetStorage();
-  //   getStorage.write(USER_LOGIN_STATUS, true);
-  //   getStorage.write(USER_EMAIL_ADDRESS, emailAddress);
-  //   getStorage.write(USER_NAME, userName);
-  // }
-
   static String getUserName() {
     final getStorage = GetStorage();
     return getStorage.hasData(USER_NAME) ? getStorage.read(USER_NAME) : "";
@@ -97,10 +109,45 @@ class Utility {
         : "";
   }
 
+  static String getCompanyName() {
+    final getStorage = GetStorage();
+    return getStorage.hasData(USER_COMPANY_NAME)
+        ? getStorage.read(USER_COMPANY_NAME)
+        : "";
+  }
+
   static logout() {
     final getStorage = GetStorage();
-    getStorage.erase();
-    //getStorage.write(USER_LOGIN_STATUS, false);
+    getStorage.write(USER_LOGIN_STATUS, false);
+    getStorage.write(USER_ID, 0);
+    getStorage.write(USER_ADMIN_ID, 0);
+
+    getStorage.write(GAME_TOTAL_PRE, 0.0);
+    getStorage.write(GAME_TOTAL, 0.0);
+
+    getStorage.write(GAME_WORD_TOTAL, 0.0);
+    getStorage.write(GAME_WORD_ATTEMPT, 0.0);
+    getStorage.write(GAME_WORD_DONE, false);
+
+    getStorage.write(GAME_ROLE_PLAY_TOTAL, 0.0);
+    getStorage.write(GAME_ROLE_PLAY_ATTEMPT, 0.0);
+    getStorage.write(GAME_WORD_DONE, false);
+
+    getStorage.write(QUIZ_TOTAL_PRE, 0.0);
+    getStorage.write(QUIZ_TOTAL, 0.0);
+
+    getStorage.write(QUIZ_PHISHING_TOTAL, 0.0);
+    getStorage.write(QUIZ_PHISHING_ATTEMPT, 0.0);
+    getStorage.write(Quiz_PHISHING_DONE, false);
+
+    getStorage.write(TUTORIAL_OFFICE_TOTAL, 0.0);
+    getStorage.write(TUTORIAL_OFFICE_ATTEMPT, 0.0);
+    getStorage.write(TUTORIAL_OFFICE_DONE, false);
+
+    getStorage.write(TUTORIAL_STEP_TOTAL, 0.0);
+    getStorage.write(TUTORIAL_STEP_ATTEMPT, 0.0);
+    getStorage.write(TUTORIAL_STEP_ATTEMPT_Done, false);
+
     Get.offAndToNamed(MyRouter.loginScreen);
   }
 

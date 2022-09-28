@@ -256,8 +256,11 @@ class _HomeScreenState extends State<HomeScreen> {
         Expanded(
           flex: 2,
           child: InkWell(
-            onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
-                arguments: "phishingEmailGame"),
+            // onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
+            //     arguments: "phishingEmailGame"),
+            onTap: () => Get.toNamed(
+              MyRouter.rolePlaySubHome,
+            ),
             child: myCard(isRolePlayGameDone, "Role Play", Icons.games),
           ),
         ),

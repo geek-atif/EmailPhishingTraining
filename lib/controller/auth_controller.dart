@@ -19,12 +19,10 @@ class AuthController extends GetxController {
     super.onClose();
   }
 
-  login(String userName, String emailAddress) async {
+  login(String userName, String emailAddress, String companyName) async {
     print("login  userName ${userName}  emailAddress ${emailAddress}");
     isLoading.value = true;
-    dynamic body = {
-      'user_mail': emailAddress,
-    };
+    dynamic body = {'user_mail': emailAddress, 'company_name': companyName};
 
     try {
       final response = await _helper.post("getuserid", body);
@@ -32,7 +30,7 @@ class AuthController extends GetxController {
       LoginResponse userLogin = LoginResponse.fromJson(response);
       isLoading.value = false;
       if (!userLogin.errorStatus) {
-        Utility.saveloginData(userLogin, userName, emailAddress);
+        Utility.saveloginData(userLogin, userName, emailAddress, companyName);
       } else {
         Utility.showError(userLogin.errorMessage);
       }
