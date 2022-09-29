@@ -3,16 +3,24 @@ import '../../../../../ui/widgets/text/dark_text_body.dart';
 import '../../../../../ui/widgets/text/light_text_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../../utiles/constant.dart';
+import '../../../../routers/my_router.dart';
 import '../../../../styles/images.dart';
 import '../../../../styles/my_app_theme.dart';
 import '../../../../widgets/button/green_button.dart';
 import '../../../../widgets/button/red_button.dart';
 import '../../../../widgets/text/dark_text_head.dart';
+import '../role_play_progress_bar.dart';
 
 class PayPalScreen extends StatelessWidget {
   const PayPalScreen({super.key});
 
-  _submit(bool input) {}
+  _submit(bool input) {
+    if (input)
+      Get.toNamed(MyRouter.rolePlaySucessScreen);
+    else
+      Get.toNamed(MyRouter.rolePlayWrongScreen);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +31,11 @@ class PayPalScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
+              const SizedBox(height: kDefaultPadding),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: RolePlayProgressBar(),
+              ),
               SizedBox(
                 height: Get.height * 0.02,
               ),
@@ -102,7 +115,7 @@ class PayPalScreen extends StatelessWidget {
                 height: 20,
               ),
               InkWell(
-                onTap: () => _submit(false),
+                onTap: () => _submit(true),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 15.0, right: 15),
                   child: GreenButton(

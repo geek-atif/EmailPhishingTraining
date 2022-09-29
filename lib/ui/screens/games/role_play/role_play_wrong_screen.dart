@@ -9,14 +9,14 @@ import '../../../styles/images.dart';
 import '../../../styles/my_app_theme.dart';
 import '../../../widgets/text/light_text_sub_head.dart';
 
-class RolePlaySucessScreen extends StatefulWidget {
-  const RolePlaySucessScreen({super.key});
+class RolePlayWrongScreen extends StatefulWidget {
+  const RolePlayWrongScreen({super.key});
 
   @override
-  State<RolePlaySucessScreen> createState() => _RolePlaySucessScreenState();
+  State<RolePlayWrongScreen> createState() => _RolePlayWrongScreenState();
 }
 
-class _RolePlaySucessScreenState extends State<RolePlaySucessScreen>
+class _RolePlayWrongScreenState extends State<RolePlayWrongScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late AudioPlayer player;
@@ -31,7 +31,7 @@ class _RolePlaySucessScreenState extends State<RolePlaySucessScreen>
 
   void playSound() async {
     if (!GetPlatform.isWindows) {
-      await player.setAsset(SoundConstant.claps);
+      await player.setAsset(SoundConstant.ohNo);
       player.play();
     }
   }
@@ -93,7 +93,7 @@ class _RolePlaySucessScreenState extends State<RolePlaySucessScreen>
                         SizedBox(
                           height: Get.height * 0.045,
                         ),
-                        Lottie.asset(checkmarkJson),
+                        Lottie.asset(ohNoJson),
                       ],
                     ),
                   )

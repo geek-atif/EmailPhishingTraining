@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 const baseUrl = "https://demo.whitehax.com/whlite/";
 const simpleLoginBaseURL = "https://app.simplelogin.io/api";
+
+String checkmarkJson = "assets/json/checkmark.json";
+String ohNoJson = "assets/json/oh_no.json";
+
 const kSecondaryColor = Color(0xFF8B94BC);
 const kGreenColor = Color(0xFF6AC259);
 const kRedColor = Color(0xFFE92E30);

@@ -8,6 +8,8 @@ import '../screens/games/role_play/role_play_sub_screen/emma_screen.dart';
 import '../screens/games/role_play/role_play_sub_screen/mark_speckhardt_screen.dart';
 import '../screens/games/role_play/role_play_sub_screen/paypal_screen.dart';
 import '../screens/games/role_play/role_play_sub_screen/zoom_meeting_reminder_screen.dart';
+import '../screens/games/role_play/role_play_sucess_screen.dart';
+import '../screens/games/role_play/role_play_wrong_screen.dart';
 import '../screens/games/word/word_game_screen.dart';
 import '../screens/simple_login/simple_login_screen.dart';
 import '../screens/test_screen.dart';
@@ -55,6 +57,8 @@ class MyRouter {
   static var emmaScreen = "/emmaScreen";
   static var bankOfAmericaScreen = "/bankOfAmericaScreen";
   static var payPalScreen = "/payPalScreen";
+  static var rolePlaySucessScreen = "/rolePlaySucessScreen";
+  static var rolePlayWrongScreen = "/rolePlayWrongScreen";
 
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -86,13 +90,14 @@ class MyRouter {
     GetPage(name: myWebView, page: () => const MyWebView()),
     GetPage(name: simpleLoginScreen, page: () => const SimpleLoginScreen()),
     GetPage(name: rolePlaySubHome, page: () => const RolePlaySubHomeScreen()),
-    GetPage(
-        name: markSpeckhardtScreen, page: () => const MarkSpeckhardtScreen()),
+    GetPage(name: markSpeckhardtScreen, page: () => MarkSpeckhardtScreen()),
     GetPage(
         name: zoomMeetingReminderScreen,
-        page: () => const ZoomMeetingReminderScreen()),
-    GetPage(name: emmaScreen, page: () => const EmmaScreen()),
-    GetPage(name: bankOfAmericaScreen, page: () => const BankOfAmericaScreen()),
-    GetPage(name: payPalScreen, page: () => const PayPalScreen()),
+        page: () => ZoomMeetingReminderScreen()),
+    GetPage(name: emmaScreen, page: () => EmmaScreen()),
+    GetPage(name: bankOfAmericaScreen, page: () => BankOfAmericaScreen()),
+    GetPage(name: payPalScreen, page: () => PayPalScreen()),
+    GetPage(name: rolePlaySucessScreen, page: () => RolePlaySucessScreen()),
+    GetPage(name: rolePlayWrongScreen, page: () => RolePlayWrongScreen()),
   ];
 }
