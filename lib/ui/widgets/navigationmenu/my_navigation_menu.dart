@@ -27,6 +27,7 @@ class MyNavigationMenu extends StatelessWidget {
             tutorialWidg(),
             quizWidg(),
             gameWidg(screenSize),
+            report(screenSize),
             //simpleLogin(screenSize),
             logoutWidg(screenSize),
           ],
@@ -197,5 +198,31 @@ class MyNavigationMenu extends StatelessWidget {
         size: 25,
       ),
     );
+  }
+
+  ExpansionTile report(Size screenSize) {
+    return ExpansionTile(
+        collapsedIconColor: Colors.white,
+        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+        childrenPadding: const EdgeInsets.only(bottom: 10),
+        title: InkWell(
+          onTap: () => Get.toNamed(MyRouter.mainReportScreen),
+          child: const LightTextSubHead(
+            data: "Report",
+          ),
+        ),
+        children: <Widget>[]
+        //   InkWell(
+        //     onTap: () => Get.toNamed(MyRouter.simpleLoginScreen),
+        //     child: const LightTextBody(data: "Simple login"),
+        //   ),
+        // ],
+        // iconColor: Colors.white,
+        // leading: const Icon(
+        //   Icons.games,
+        //   color: Colors.white,
+        //   size: 25,
+        // ),
+        );
   }
 }

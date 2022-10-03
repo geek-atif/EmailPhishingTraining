@@ -28,9 +28,14 @@ class MyAppTheme {
   static const Color whitehaxButtonColor = Color(0xFF00ACEB);
   static const Color whitehaxBackgroundColor = Color(0xFF18222E);
   static const Color whitehaxSubColor = Color(0xFF808080);
+
   static const Color whitehaxdialog = Color(0xFF1C2B3A);
 
   static const Color whitehaxBoxSmall = Color(0xFFDCDCDC);
 
   static const Color whitehaxRolePlay = Color(0xFFf5f5dc);
+
+  static const Color whitehaxReportError = Color(0xFFB71C1C);
+
+  static const Color whitehaxReportYellow = Color(0xFFe4ba00);
 }

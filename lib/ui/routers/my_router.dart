@@ -11,6 +11,7 @@ import '../screens/games/role_play/role_play_sub_screen/zoom_meeting_reminder_sc
 import '../screens/games/role_play/role_play_sucess_screen.dart';
 import '../screens/games/role_play/role_play_wrong_screen.dart';
 import '../screens/games/word/word_game_screen.dart';
+import '../screens/reports/main_report_screen.dart';
 import '../screens/simple_login/simple_login_screen.dart';
 import '../screens/test_screen.dart';
 import '../screens/tutorial/office365/office_phishing_five_screen.dart';
@@ -59,6 +60,7 @@ class MyRouter {
   static var payPalScreen = "/payPalScreen";
   static var rolePlaySucessScreen = "/rolePlaySucessScreen";
   static var rolePlayWrongScreen = "/rolePlayWrongScreen";
+  static var mainReportScreen = "/mainReportScreen";
 
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -99,5 +101,6 @@ class MyRouter {
     GetPage(name: payPalScreen, page: () => PayPalScreen()),
     GetPage(name: rolePlaySucessScreen, page: () => RolePlaySucessScreen()),
     GetPage(name: rolePlayWrongScreen, page: () => RolePlayWrongScreen()),
+    GetPage(name: mainReportScreen, page: () => MainReportScreen()),
   ];
 }
