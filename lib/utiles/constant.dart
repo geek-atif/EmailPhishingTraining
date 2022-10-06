@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const baseUrl = "https://demo.whitehax.com/whlite/";
+const baseUrl = "https://staging.whitehax.com/whlite/";
 const simpleLoginBaseURL = "https://app.simplelogin.io/api";
 
 String checkmarkJson = "assets/json/checkmark.json";

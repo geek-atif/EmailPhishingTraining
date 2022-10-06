@@ -4,11 +4,37 @@ import '../../../utiles/utility.dart';
 import 'package:get/get.dart';
 import '../api_base_helper/api_base_helper.dart';
 import '../model/tutorial_response.dart';
+import '../model/user_report.dart';
 import '../ui/routers/my_router.dart';
+import '../ui/screens/home_screen.dart';
 
 class ServerUpdateController extends GetxController {
   var isLoading = false.obs;
   final ApiBaseHelper _helper = ApiBaseHelper();
+  var userInfo = UserInfo(
+          companyQuizReadiness: '',
+          userName: '',
+          userGroup: '',
+          phishingReadiness: '',
+          tutorialReadiness: '',
+          score: 0,
+          companyReadiness: '',
+          tutorialTimeTaken: '',
+          quizTimeTaken: '',
+          phishingEmailRisk: [],
+          quizReadiness: '',
+          userid: '')
+      .obs;
+
+  List<ChartData> phishingReadinessUser =
+      List<ChartData>.empty(growable: true).obs;
+  List<ChartData> phishingReadinessCompany =
+      List<ChartData>.empty(growable: true).obs;
+
+  List<ChartData> quizReadinessUser = List<ChartData>.empty(growable: true).obs;
+  List<ChartData> quizReadinessCompnay =
+      List<ChartData>.empty(growable: true).obs;
+
   // called immediately after the widget is allocated memory
   @override
   void onInit() {
@@ -71,6 +97,40 @@ class ServerUpdateController extends GetxController {
         }
       } else {
         Utility.showInfo(userLogin.errorMessage);
+      }
+    } catch (e) {
+      Utility.showError("Failed To Update");
+      e.printError();
+      isLoading.value = false;
+    }
+  }
+
+  getUserReport() async {
+    isLoading.value = true;
+    dynamic body = {
+      "user_id": Utility.getIntValue(USER_ID).toString(),
+      "admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
+    };
+
+    try {
+      final response = await _helper.post("user_report", body);
+      log("response ${response}");
+      UserReport userReport = UserReport.fromJson(response);
+      isLoading.value = false;
+      if (userReport.errorStatus) {
+        userInfo.value = userReport.userInfo;
+        phishingReadinessUser.add(
+            ChartData("Game", double.parse(userInfo.value.phishingReadiness)));
+        phishingReadinessCompany.add(
+            ChartData("Game", double.parse(userInfo.value.companyReadiness)));
+
+        quizReadinessUser
+            .add(ChartData("Quiz", double.parse(userInfo.value.quizReadiness)));
+
+        quizReadinessCompnay.add(ChartData(
+            "Quiz", double.parse(userInfo.value.companyQuizReadiness)));
+      } else {
+        Utility.showInfo(userReport.errorMessage);
       }
     } catch (e) {
       Utility.showError("Failed To Update");

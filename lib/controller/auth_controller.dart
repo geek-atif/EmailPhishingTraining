@@ -22,7 +22,10 @@ class AuthController extends GetxController {
   login(String userName, String emailAddress, String companyName) async {
     print("login  userName ${userName}  emailAddress ${emailAddress}");
     isLoading.value = true;
-    dynamic body = {'user_mail': emailAddress, 'company_name': companyName};
+    dynamic body = {
+      'user_mail': emailAddress.trim(),
+      'company_name': companyName.trim()
+    };
 
     try {
       final response = await _helper.post("getuserid", body);
