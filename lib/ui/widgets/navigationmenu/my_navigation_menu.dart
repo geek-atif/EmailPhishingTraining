@@ -29,7 +29,9 @@ class MyNavigationMenu extends StatelessWidget {
             gameWidg(screenSize),
             report(screenSize),
             //simpleLogin(screenSize),
+            debugWid(screenSize),
             logoutWidg(screenSize),
+
           ],
         ),
       ),
@@ -212,17 +214,23 @@ class MyNavigationMenu extends StatelessWidget {
           ),
         ),
         children: <Widget>[]
-        //   InkWell(
-        //     onTap: () => Get.toNamed(MyRouter.simpleLoginScreen),
-        //     child: const LightTextBody(data: "Simple login"),
-        //   ),
-        // ],
-        // iconColor: Colors.white,
-        // leading: const Icon(
-        //   Icons.games,
-        //   color: Colors.white,
-        //   size: 25,
-        // ),
+
         );
+  }
+
+  ExpansionTile debugWid(Size screenSize) {
+    return ExpansionTile(
+        collapsedIconColor: Colors.white,
+        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+        childrenPadding: const EdgeInsets.only(bottom: 10),
+        title: InkWell(
+          onTap: () => Get.toNamed(MyRouter.debugScreen),
+          child: const LightTextSubHead(
+            data: "Debug",
+          ),
+        ),
+        children: <Widget>[]
+
+    );
   }
 }

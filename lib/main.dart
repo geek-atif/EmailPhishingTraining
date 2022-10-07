@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'controller/binding_controller.dart';
+import 'ui/native_code/platform_channel_handler.dart';
 import 'ui/routers/my_router.dart';
 import 'ui/styles/locale_string.dart';
 import 'ui/styles/my_app_theme.dart';

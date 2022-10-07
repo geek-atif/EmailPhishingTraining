@@ -29,6 +29,7 @@ import '../screens/tutorial/phishingsteps/phishing_step_two.dart';
 import '../screens/quiz/quiz_screen.dart';
 import '../screens/quiz/score_screen.dart';
 import '../screens/webview/my_web_view.dart';
+import '../screens/debug_screen.dart';
 
 class MyRouter {
   static var expandableScreen = "/expandableScreen";
@@ -61,6 +62,7 @@ class MyRouter {
   static var rolePlaySucessScreen = "/rolePlaySucessScreen";
   static var rolePlayWrongScreen = "/rolePlayWrongScreen";
   static var mainReportScreen = "/mainReportScreen";
+  static var debugScreen = "/debugScreen";
 
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
@@ -102,5 +104,8 @@ class MyRouter {
     GetPage(name: rolePlaySucessScreen, page: () => RolePlaySucessScreen()),
     GetPage(name: rolePlayWrongScreen, page: () => RolePlayWrongScreen()),
     GetPage(name: mainReportScreen, page: () => MainReportScreen()),
+    GetPage(name: debugScreen, page: () => DebugScreen()),
+
+
   ];
 }
