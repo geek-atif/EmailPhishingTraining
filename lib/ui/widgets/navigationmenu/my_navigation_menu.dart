@@ -29,9 +29,8 @@ class MyNavigationMenu extends StatelessWidget {
             gameWidg(screenSize),
             report(screenSize),
             //simpleLogin(screenSize),
-            debugWid(screenSize),
+            // debugWid(screenSize),
             logoutWidg(screenSize),
-
           ],
         ),
       ),
@@ -213,9 +212,7 @@ class MyNavigationMenu extends StatelessWidget {
             data: "Report",
           ),
         ),
-        children: <Widget>[]
-
-        );
+        children: <Widget>[]);
   }
 
   ExpansionTile debugWid(Size screenSize) {
@@ -229,8 +226,6 @@ class MyNavigationMenu extends StatelessWidget {
             data: "Debug",
           ),
         ),
-        children: <Widget>[]
-
-    );
+        children: <Widget>[]);
   }
 }

@@ -1,10 +1,16 @@
+import 'package:flutter/services.dart';
+//import 'package:flutter_js/flutter_js.dart';
+//import 'package:flutter_js/javascript_runtime.dart';
+
 import '../../../../model/login_response.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import '../../ui/routers/my_router.dart';
 import 'package:intl/intl.dart';
+import '../ui/native_code/platform_channel_handler.dart';
 import 'constant.dart';
+import 'package:otp/otp.dart';
 
 class Utility {
   static bool isLoginRequired() {
@@ -305,5 +311,28 @@ class Utility {
 
     result[QUIZ_TOTAL] = result[QUIZ_PHISHING_TOTAL]!;
     return result;
+  }
+
+  // static getTotp() async {
+  //   return OTP
+  //       .generateTOTPCode('EHFHEOFJOIEJFOIJIOSFJIOSJIOFIOFR', 5551600,
+  //           algorithm: Algorithm.SHA1, interval: 300)
+  //       .toString();
+
+  //   // return OTP.generateTOTPCodeString('EHFHEOFJOIEJFOIJIOSFJIOSJIOFIOFR',
+  //   //     DateTime.now().millisecondsSinceEpoch,
+  //   //     interval: 30, algorithm: Algorithm.SHA1, length: 6, isGoogle: false);
+  // }
+
+  static getTotp() async {
+    var totp = "";
+    try {
+      final _platformChannelHandler = PlatformChannelHandler();
+      totp = await _platformChannelHandler.getTotp();
+      //totp = Utility.getTotp();
+    } on PlatformException catch (e) {
+      Get.snackbar("Error", e.message.toString());
+    }
+    return totp.toString();
   }
 }

@@ -17,12 +17,10 @@ public class JavaUtil {
     @TargetApi(Build.VERSION_CODES.FROYO)
     public static String getOtp() {
 
-
         String secretKey = "EHFHEOFJOIEJFOIJIOSFJIOSJIOFIOFR";
-        long timestamp = System.currentTimeMillis() / 60000;
+        // long timestamp = System.currentTimeMillis() / 60000;
         // Log.d("time stamp is - ", timestamp + "");
-
-
+        long timestamp = 300000L;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
         try {
@@ -35,7 +33,6 @@ public class JavaUtil {
         ByteBuffer bb = ByteBuffer.wrap(timStampBytes);
         bb.order(ByteOrder.BIG_ENDIAN);
         byte[] bigEndianBytes = bb.array();
-
 
         ByteArrayOutputStream secretBaos = new ByteArrayOutputStream();
         DataOutputStream secretDos = new DataOutputStream(secretBaos);
@@ -50,10 +47,8 @@ public class JavaUtil {
         base32.encode(secretBytes);
         byte[] base64Bytes = Base64.encode(secretBytes, Base64.NO_WRAP);
 
-
-
         try {
-            Mac mac = Mac.getInstance("HmacSHA1");
+            Mac mac = Mac.getInstance("HmacSHA1"); // Hmac
             SecretKeySpec secret = new SecretKeySpec(base64Bytes, mac.getAlgorithm());
             mac.init(secret);
             byte[] hmacValue = mac.doFinal(bigEndianBytes);
@@ -61,7 +56,6 @@ public class JavaUtil {
                 // Log.e("values", values + "");
             }
             int offset = hmacValue[hmacValue.length - 1] & 0xf;
-
 
             int code = ((hmacValue[offset] & 0x7f) << 24) |
                     ((hmacValue[offset + 1] & 0xff) << 16) |

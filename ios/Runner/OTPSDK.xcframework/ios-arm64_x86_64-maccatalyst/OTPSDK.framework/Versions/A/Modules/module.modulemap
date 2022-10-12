@@ -1,0 +1,11 @@
+framework module OTPSDK {
+  umbrella header "OTPSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module OTPSDK.Swift {
+    header "OTPSDK-Swift.h"
+    requires objc
+}

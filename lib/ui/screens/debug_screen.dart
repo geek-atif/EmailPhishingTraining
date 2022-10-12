@@ -16,30 +16,36 @@ class DebugScreen extends StatefulWidget {
 
 class _DebugScreenState extends State<DebugScreen> {
   final _platformChannelHandler = PlatformChannelHandler();
-  getTotp() async  {
+  getTotp() async {
     var totp = "";
     try {
-        totp = await _platformChannelHandler.getTotp();
+      totp = await _platformChannelHandler.getTotp();
+      //totp = Utility.getTotp();
     } on PlatformException catch (e) {
       Get.snackbar("Error", e.message.toString());
     }
     Utility.showInfo(totp.toString());
-
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          backgroundColor: MyAppTheme.whitehaxBackgroundColor,
-          body: Column(children: [
-            SizedBox(height: Get.height*0.02,),
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: InkWell(
-            onTap: ()=>getTotp(),
-            child: DarkBlueButton(buttonText: "Get TOTP"),),
+      backgroundColor: MyAppTheme.whitehaxBackgroundColor,
+      body: Column(
+        children: [
+          SizedBox(
+            height: Get.height * 0.02,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () => getTotp(),
+              child: DarkBlueButton(buttonText: "Get TOTP"),
+            ),
+          ),
+        ],
       ),
-    ],),));
+    ));
   }
 }
