@@ -11,7 +11,7 @@ class PlatformChannelHandler {
   static const platform = MethodChannel('sampleChannel');*/
 
   static const platform = const MethodChannel('sampleChannel');
-  Future<String> getTotp() async {
+  String getTotp() async {
     var totp = "";
     try {
       totp = await platform.invokeMethod('test');
