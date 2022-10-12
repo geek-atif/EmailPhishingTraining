@@ -335,4 +335,16 @@ class Utility {
     }
     return totp.toString();
   }
+
+  static String getOS() {
+    var os = "";
+    if (GetPlatform.isAndroid) {
+      os = "android";
+    } else if (GetPlatform.isIOS) {
+      os = "ios";
+    }
+
+    print("os ${os}");
+    return os;
+  }
 }

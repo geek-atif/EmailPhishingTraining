@@ -49,7 +49,7 @@ class ServerUpdateController extends GetxController {
 
   updateQuiz(var quizName, var quizScore) async {
     isLoading.value = true;
-    var otp = Utility.getTotp();
+    var otp = await Utility.getTotp();
     print("updateQuiz otp ${otp} ");
     dynamic body = {
       "user_id": Utility.getIntValue(USER_ID).toString(),
@@ -57,7 +57,8 @@ class ServerUpdateController extends GetxController {
       "time_taken": Utility.getCurrentTime().toString(),
       "quiz_name": quizName.toString(),
       "score": quizScore.toString(),
-      "otp": otp
+      "otp": otp,
+      'source': Utility.getOS()
     };
 
     try {
@@ -79,14 +80,15 @@ class ServerUpdateController extends GetxController {
 
   updateTutorial(var tutorialName) async {
     isLoading.value = true;
-    var otp = Utility.getTotp();
+    var otp = await Utility.getTotp();
     print("updateTutorial otp ${otp} ");
     dynamic body = {
       "user_id": Utility.getIntValue(USER_ID).toString(),
       "admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
       "visited_time": Utility.getCurrentTime().toString(),
       "tutorial_name": tutorialName.toString(),
-      "otp": otp
+      "otp": otp,
+      'source': Utility.getOS()
     };
 
     try {
@@ -113,12 +115,13 @@ class ServerUpdateController extends GetxController {
 
   getUserReport() async {
     isLoading.value = true;
-    var otp = Utility.getTotp();
+    var otp = await Utility.getTotp();
     print("getUserReport otp ${otp} ");
     dynamic body = {
       "user_id": Utility.getIntValue(USER_ID).toString(),
       "admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
-      "otp": otp
+      "otp": otp,
+      'source': Utility.getOS()
     };
 
     try {

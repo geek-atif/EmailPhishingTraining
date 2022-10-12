@@ -23,11 +23,12 @@ class AuthController extends GetxController {
     print("login  userName ${userName}  emailAddress ${emailAddress}");
     isLoading.value = true;
     var otp = await Utility.getTotp();
+
     dynamic body = {
       'user_mail': emailAddress.trim(),
       'company_name': companyName.trim(),
       'otp': otp,
-      'source': 'ios'
+      'source': Utility.getOS()
     };
 
     try {
