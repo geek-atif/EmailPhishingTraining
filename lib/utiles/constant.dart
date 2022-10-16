@@ -56,5 +56,7 @@ const String TUTORIAL_STEP_TOTAL = "tutorialStepTotal";
 const String TUTORIAL_STEP_ATTEMPT = "tutorialStepAttempt";
 const String TUTORIAL_STEP_ATTEMPT_Done = "tutorialStepAttemptDone";
 
+const String TUTORIAL_PHISHING_FACT_Done = "phishingFactdone";
+
 //Get Storage
 //const String LOGIN_CONTAINER = "loginContainer";

@@ -108,6 +108,11 @@ flutter:
     - assets/json/oh_no.json
     - assets/js/jsOTP.js
     - assets/js/sha_dev.js
+    - assets/images/fact1.jpg
+    - assets/images/fact2.png
+    - assets/images/fact3.jpg
+    - assets/images/fact4.png
+    - assets/images/fact5.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

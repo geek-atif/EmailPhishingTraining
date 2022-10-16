@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   var isRolePlayGameDone = false;
   var isPhishingScore = false;
   var isTutortialOfficeDone = false;
+  var isPhishingFactDone = false;
 
   late List<ChartData> gameScoreChart = List.empty(growable: true);
   late List<ChartData> quizScoreChart = List.empty(growable: true);
@@ -94,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: LightTextSubHead(data: "Your Score"),
             ),
             Expanded(
-              flex: 2,
+              flex: 3,
               child: scoreCard(),
             ),
             Expanded(
@@ -104,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 6,
               child: actionCard(),
             ),
             Spacer(flex: 2),
@@ -203,6 +204,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: actionTwo(),
               ),
             ),
+            Expanded(
+              flex: 2,
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: actionThree(),
+              ),
+            ),
           ],
         ),
       ),
@@ -232,9 +240,9 @@ class _HomeScreenState extends State<HomeScreen> {
         Expanded(
           flex: 2,
           child: InkWell(
-            onTap: () =>
-                Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz"),
-            child: myCard(isQuizScore, "Quizz", Icons.quiz_outlined),
+            onTap: () => Get.toNamed(MyRouter.phishingFactsFirstScreen),
+            child:
+                myCard(isPhishingFactDone, "Phishing Facts", Icons.read_more),
           ),
         ),
       ],
@@ -249,6 +257,14 @@ class _HomeScreenState extends State<HomeScreen> {
         Expanded(
           flex: 2,
           child: InkWell(
+            onTap: () =>
+                Get.toNamed(MyRouter.quizScreen, arguments: "phishingQuiz"),
+            child: myCard(isQuizScore, "Quizz", Icons.quiz_outlined),
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: InkWell(
             onTap: () => Get.toNamed(MyRouter.wordGameScreen),
             child: myCard(isWordGameDone, "Word Scrabble", Icons.games),
           ),
@@ -256,21 +272,10 @@ class _HomeScreenState extends State<HomeScreen> {
         Expanded(
           flex: 2,
           child: InkWell(
-            // onTap: () => Get.toNamed(MyRouter.emailPhishingScreen,
-            //     arguments: "phishingEmailGame"),
             onTap: () => Get.toNamed(
               MyRouter.rolePlaySubHome,
             ),
             child: myCard(isRolePlayGameDone, "Role Play", Icons.games),
-          ),
-        ),
-        Expanded(
-          flex: 2,
-          child: InkWell(
-            onTap: () => Get.toNamed(
-              MyRouter.myWebView,
-            ),
-            child: myCard(false, "Puzzle", Icons.games),
           ),
         ),
       ],
@@ -356,6 +361,33 @@ class _HomeScreenState extends State<HomeScreen> {
     isQuizScore = Utility.getBolValue(Quiz_PHISHING_DONE);
     isPhishingScore = Utility.getBolValue(TUTORIAL_STEP_ATTEMPT_Done);
     isTutortialOfficeDone = Utility.getBolValue(TUTORIAL_OFFICE_DONE);
+    isPhishingFactDone = Utility.getBolValue(TUTORIAL_PHISHING_FACT_Done);
+  }
+
+  actionThree() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          flex: 2,
+          child: InkWell(
+            onTap: () => Get.toNamed(
+              MyRouter.myWebView,
+            ),
+            child: myCard(false, "Puzzle", Icons.games),
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: Text(""),
+        ),
+        Expanded(
+          flex: 2,
+          child: Text(""),
+        ),
+      ],
+    );
   }
 }
 

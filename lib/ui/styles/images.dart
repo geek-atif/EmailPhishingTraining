@@ -26,4 +26,10 @@ class Images {
   static const String fifth = "assets/images/fifth.jpg";
 
   static const String laptopComp = "assets/images/bg_comp.png";
+
+  static const String fact1 = "assets/images/fact1.jpg";
+  static const String fact2 = "assets/images/fact2.png";
+  static const String fact3 = "assets/images/fact3.jpg";
+  static const String fact4 = "assets/images/fact4.png";
+  static const String fact5 = "assets/images/fact5.jpg";
 }

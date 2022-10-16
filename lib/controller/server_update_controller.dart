@@ -129,7 +129,7 @@ class ServerUpdateController extends GetxController {
       log("response ${response}");
       UserReport userReport = UserReport.fromJson(response);
       isLoading.value = false;
-      if (userReport.errorStatus) {
+      if (!userReport.errorStatus) {
         userInfo.value = userReport.userInfo;
         phishingReadinessUser.add(
             ChartData("Game", double.parse(userInfo.value.phishingReadiness)));

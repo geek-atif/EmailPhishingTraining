@@ -67,6 +67,7 @@ class _MainReportScreenState extends State<MainReportScreen>
   }
 
   Padding homeContiner(UserInfo userInfo) {
+    print("homeContiner() ${userInfo.userName}");
     return Padding(
       padding: const EdgeInsets.only(
         left: 5.0,
@@ -156,6 +157,7 @@ class _MainReportScreenState extends State<MainReportScreen>
     int second,
     int three,
   ) {
+    print("tableBody()  first $first second : $second , three : $three");
     return Padding(
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Table(
@@ -216,6 +218,7 @@ class _MainReportScreenState extends State<MainReportScreen>
 
   SizedBox readinessScoreCard(UserInfo userInfo, String title,
       List<ChartData> userRedi, List<ChartData> companyRedi) {
+    print("tableBody()  userInfo ${userInfo.userName} title : $title ");
     return SizedBox(
       height: Get.height * 0.28,
       width: Get.width,

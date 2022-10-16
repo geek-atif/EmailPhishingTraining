@@ -22,6 +22,10 @@ import '../screens/home_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import '../screens/tutorial/office365/office_phishing_three_screen.dart';
 import '../screens/tutorial/office365/office_phishing_two_screen.dart';
+import '../screens/tutorial/phishing_facts/phishing_facts_first_screen.dart';
+import '../screens/tutorial/phishing_facts/phishing_facts_home_screen.dart';
+import '../screens/tutorial/phishing_facts/phishing_facts_second_screen.dart';
+import '../screens/tutorial/phishing_facts/phishing_facts_three_screen.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_four.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_one.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_three.dart';
@@ -63,7 +67,10 @@ class MyRouter {
   static var rolePlayWrongScreen = "/rolePlayWrongScreen";
   static var mainReportScreen = "/mainReportScreen";
   static var debugScreen = "/debugScreen";
-
+  static var phishingFactsHomeScreen = "/phishingFactsHomeScreen";
+  static var phishingFactsFirstScreen = "/phishingFactsFirstScreen";
+  static var phishingFactsSecondScreen = "/phishingFactsSecondScreen";
+  static var phishingFactsThreeScreen = "/phishingFactsThreeScreen";
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
     GetPage(name: loginScreen, page: () => const LoginScreen()),
@@ -105,7 +112,14 @@ class MyRouter {
     GetPage(name: rolePlayWrongScreen, page: () => RolePlayWrongScreen()),
     GetPage(name: mainReportScreen, page: () => MainReportScreen()),
     GetPage(name: debugScreen, page: () => DebugScreen()),
-
-
+    GetPage(
+        name: phishingFactsHomeScreen, page: () => PhishingFactsHomeScreen()),
+    GetPage(
+        name: phishingFactsFirstScreen, page: () => PhishingFactsFirstScreen()),
+    GetPage(
+        name: phishingFactsSecondScreen,
+        page: () => PhishingFactsSecondScreen()),
+    GetPage(
+        name: phishingFactsThreeScreen, page: () => PhishingFactsThreeScreen()),
   ];
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
+import '../ui/routers/my_router.dart';
 // We use get package for our state management
 
 class RolePlayController extends GetxController
@@ -39,11 +40,14 @@ class RolePlayController extends GetxController
   }
 
   void nextQuestion() {
+    print(" RolePlayController nextQuestion()");
     // Reset the counter
     _animationController.reset();
 
     // Then start it again
     // Once timer is finish go to the next qn
     _animationController.forward().whenComplete(nextQuestion);
+
+    Get.toNamed(MyRouter.rolePlayWrongScreen);
   }
 }
