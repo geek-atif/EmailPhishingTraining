@@ -32,4 +32,10 @@ class Images {
   static const String fact3 = "assets/images/fact3.jpg";
   static const String fact4 = "assets/images/fact4.png";
   static const String fact5 = "assets/images/fact5.jpg";
+
+  static const String msOffice1 = "assets/images/msOffice1.jpg";
+  static const String msOffice2 = "assets/images/msOffice2.jpg";
+  static const String msOffice3 = "assets/images/msOffice3.jpg";
+  static const String msOffice4 = "assets/images/msOffice4.jpg";
+  static const String msOffice5 = "assets/images/msOffice5.jpg";
 }

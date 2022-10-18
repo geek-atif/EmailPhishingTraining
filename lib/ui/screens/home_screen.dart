@@ -2,10 +2,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import '../../controller/server_update_controller.dart';
 import '../../utiles/constant.dart';
 import '../../utiles/utility.dart';
 import '../routers/my_router.dart';
 import '../styles/my_app_theme.dart';
+import '../widgets/loading.dart';
 import '../widgets/navigationmenu/my_navigation_menu.dart';
 import 'package:flutter/material.dart';
 import '../widgets/text/blue_text_body.dart';
@@ -32,11 +34,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   late List<ChartData> gameScoreChart = List.empty(growable: true);
   late List<ChartData> quizScoreChart = List.empty(growable: true);
+  final ServerUpdateController _serverUpdateController =
+      Get.find<ServerUpdateController>();
   @override
   void initState() {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     loadScore();
+    loadData();
     super.initState();
+  }
+
+  void loadData() {
+    _serverUpdateController.getUserReport();
   }
 
   void loadScore() {
@@ -94,9 +103,17 @@ class _HomeScreenState extends State<HomeScreen> {
               flex: 0,
               child: LightTextSubHead(data: "Your Score"),
             ),
-            Expanded(
-              flex: 3,
-              child: scoreCard(),
+            Obx(
+              () => _serverUpdateController.isLoading.value
+                  ? const Loading(
+                      loadingMessage: '',
+                    )
+                  : Expanded(
+                      flex: 3,
+                      child: scoreCard(
+                        _serverUpdateController.quizReadinessUser,
+                      ),
+                    ),
             ),
             Expanded(
               flex: 0,
@@ -115,11 +132,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Row scoreCard() {
+  Row scoreCard(List<ChartData> quizReadinessUser) {
     return Row(
       children: [
         displayGraphScore("Game", gameScoreChart, gameScore[GAME_TOTAL]),
-        displayGraphScore("Quiz", quizScoreChart, quizScore[QUIZ_TOTAL]),
+        displayGraphScore("Quiz", quizReadinessUser, quizScore[QUIZ_TOTAL]),
       ],
     );
   }

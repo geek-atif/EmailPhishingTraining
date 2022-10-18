@@ -113,6 +113,11 @@ flutter:
     - assets/images/fact3.jpg
     - assets/images/fact4.png
     - assets/images/fact5.jpg
+    - assets/images/msOffice1.jpg
+    - assets/images/msOffice2.jpg
+    - assets/images/msOffice3.jpg
+    - assets/images/msOffice4.jpg
+    - assets/images/msOffice5.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,15 +1,12 @@
-import 'package:PhishSim/ui/routers/my_router.dart';
+import '../../../../ui/routers/my_router.dart';
 import 'package:PhishSim/utiles/utility.dart';
 import 'package:get/get.dart';
-
 import '../../../../ui/widgets/button/dark_blue_button.dart';
 import '../../../../ui/widgets/text/light_text_body.dart';
 import 'package:zoom_pinch_overlay/zoom_pinch_overlay.dart';
-
 import '../../../../ui/styles/my_app_theme.dart';
 import '../../../../ui/widgets/text/light_text_head.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../utiles/constant.dart';
 import '../../../styles/images.dart';
 import '../../../widgets/my_app_bar.dart';

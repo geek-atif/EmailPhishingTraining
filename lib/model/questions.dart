@@ -65,7 +65,7 @@ const List phishingQuiz = [
   {
     "id": 2,
     "question": "Is this a Phishing Email ?",
-    "image": Images.hsbc,
+    "image": Images.msOffice1,
     "options": [
       'Yes',
       'No',
@@ -87,7 +87,7 @@ const List phishingQuiz = [
   {
     "id": 4,
     "question": "Is this a Phishing Email ?",
-    "image": Images.hsbc,
+    "image": Images.msOffice2,
     "options": [
       'Yes',
       'No',
@@ -108,7 +108,7 @@ const List phishingQuiz = [
   {
     "id": 6,
     "question": "Is this a Phishing Email ?",
-    "image": Images.hsbc,
+    "image": Images.msOffice3,
     "options": [
       'Yes',
       'No',
@@ -131,7 +131,7 @@ const List phishingQuiz = [
   {
     "id": 8,
     "question": "Is this a Phishing Email ?",
-    "image": Images.hsbc,
+    "image": Images.msOffice4,
     "options": [
       'Yes',
       'No',
@@ -165,7 +165,7 @@ const List phishingQuiz = [
   {
     "id": 11,
     "question": "Is this a Phishing Email ?",
-    "image": Images.twitter,
+    "image": Images.msOffice5,
     "options": [
       'Yes',
       'No',
