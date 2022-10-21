@@ -49,23 +49,30 @@ class UserInfo {
   late final String tutorialTimeTaken;
   late final String quizTimeTaken;
   late final String companyQuizReadiness;
-  late final List<PhishingEmailRisk> phishingEmailRisk;
+  List<PhishingEmailRisk> phishingEmailRisk = [];
 
   UserInfo.fromJson(Map<String, dynamic> json) {
-    userid = json['userid'];
-    userName = json['user_name'];
-    userGroup = json['user_group'];
-    phishingReadiness = json['phishing_readiness'];
-    tutorialReadiness = json['tutorial_readiness'];
-    quizReadiness = json['quiz_readiness'];
-    score = json['score'];
-    companyReadiness = json['company_readiness'];
-    tutorialTimeTaken = json['tutorial_time_taken'];
-    quizTimeTaken = json['quiz_time_taken'];
-    companyQuizReadiness = json['company_quiz_readiness'];
-    phishingEmailRisk = List.from(json['phishing_email_risk'])
+    userid = json['userid'] ?? "";
+    userName = json['user_name'] ?? "";
+    userGroup = json['user_group'] ?? "";
+    phishingReadiness = json['phishing_readiness'] ?? "";
+    tutorialReadiness = json['tutorial_readiness'] ?? "";
+    quizReadiness = json['quiz_readiness'] ?? "";
+    score = json['score'] ?? "";
+    companyReadiness = json['company_readiness'] ?? "";
+    tutorialTimeTaken = json['tutorial_time_taken'] ?? "";
+    quizTimeTaken = json['quiz_time_taken'] ?? "";
+    companyQuizReadiness = json['company_quiz_readiness'] ?? "";
+    json['phishing_email_risk'] = List.from(json['phishing_email_risk'])
         .map((e) => PhishingEmailRisk.fromJson(e))
         .toList();
+    // if (json['phishing_email_risk'] == null) {
+    //   phishingEmailRisk = [];
+    // } else {
+    //   List.from(json['phishing_email_risk'])
+    //       .map((e) => PhishingEmailRisk.fromJson(e))
+    //       .toList();
+    // }
   }
 
   Map<String, dynamic> toJson() {
@@ -82,7 +89,7 @@ class UserInfo {
     _data['quiz_time_taken'] = quizTimeTaken;
     _data['company_quiz_readiness'] = companyQuizReadiness;
     _data['phishing_email_risk'] =
-        phishingEmailRisk.map((e) => e.toJson()).toList();
+        phishingEmailRisk?.map((e) => e.toJson()).toList();
     return _data;
   }
 }

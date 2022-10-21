@@ -8,8 +8,8 @@ class BindingController extends Bindings {
     Get.lazyPut<AuthController>(
       () => AuthController(),
     );
-    Get.lazyPut<ServerUpdateController>(
-      () => ServerUpdateController(),
-    );
+    // Get.lazyPut<ServerUpdateController>(
+    //   () => ServerUpdateController(),
+    // );
   }
 }

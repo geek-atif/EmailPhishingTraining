@@ -28,7 +28,7 @@ class _MainReportScreenState extends State<MainReportScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   final ServerUpdateController _serverUpdateController =
-      Get.find<ServerUpdateController>();
+      Get.put(ServerUpdateController());
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _MainReportScreenState extends State<MainReportScreen>
   }
 
   void loadData() {
-    _serverUpdateController.getUserReport();
+    _serverUpdateController.getUserReport_();
   }
 
   @override
@@ -54,7 +54,7 @@ class _MainReportScreenState extends State<MainReportScreen>
         appBar: const MyAppBar(),
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,
         body: Obx(
-          () => _serverUpdateController.isLoading.value
+          () => _serverUpdateController.isLoading_.value
               ? const Loading(
                   loadingMessage: '',
                 )
@@ -122,25 +122,25 @@ class _MainReportScreenState extends State<MainReportScreen>
                 _serverUpdateController.quizReadinessUser,
                 _serverUpdateController.quizReadinessCompnay,
               )),
-          userInfo.phishingEmailRisk.length == 0
-              ? Text("")
-              : SizedBox(
-                  height: Get.height * 0.02,
-                ),
-          userInfo.phishingEmailRisk.length == 0 ? Text("") : tableHead(),
-          userInfo.phishingEmailRisk.length == 0
-              ? Text("")
+          // userInfo.phishingEmailRisk??
+          //      const Text("")
+          //     : SizedBox(
+          //         height: Get.height * 0.02,
+          //       ),
+          userInfo.phishingEmailRisk!.isEmpty ? const Text("") : tableHead(),
+          userInfo.phishingEmailRisk!.isEmpty
+              ? const Text("")
               : SizedBox(
                   height: Get.height * 0.3,
                   child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     //physics: const NeverScrollableScrollPhysics(),
-                    itemCount: userInfo.phishingEmailRisk.length,
+                    itemCount: userInfo.phishingEmailRisk?.length,
                     itemBuilder: (BuildContext context, int index) => tableBody(
-                      userInfo.phishingEmailRisk[index].name,
-                      userInfo.phishingEmailRisk[index].totalEmailSend,
-                      userInfo.phishingEmailRisk[index].totalEmailVisited,
+                      userInfo.phishingEmailRisk![index].name,
+                      userInfo.phishingEmailRisk![index].totalEmailSend,
+                      userInfo.phishingEmailRisk![index].totalEmailVisited,
                     ),
                   ),
                 ),

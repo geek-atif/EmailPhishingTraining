@@ -35,12 +35,11 @@ class _HomeScreenState extends State<HomeScreen> {
   late List<ChartData> gameScoreChart = List.empty(growable: true);
   late List<ChartData> quizScoreChart = List.empty(growable: true);
   final ServerUpdateController _serverUpdateController =
-      Get.find<ServerUpdateController>();
+      Get.put(ServerUpdateController());
   @override
   void initState() {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-    loadScore();
-    loadData();
+
     super.initState();
   }
 
@@ -58,6 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void didChangeDependencies() {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     super.didChangeDependencies();
+    loadData();
+    loadScore();
   }
 
   @override

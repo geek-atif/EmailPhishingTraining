@@ -182,7 +182,7 @@ const List phishingQuiz = [
       'Verify first if the email is legit by checking senders email &amp; then reaching out to human resources department to ensure it’s really them asking for it',
       'Take a copy of the payroll bank information form you filled out that has relevant info & send it'
     ],
-    "answer_index": 2,
+    "answer_index": 1,
   },
   {
     "id": 13,

@@ -10,6 +10,7 @@ import '../ui/screens/home_screen.dart';
 
 class ServerUpdateController extends GetxController {
   var isLoading = false.obs;
+  var isLoading_ = false.obs;
   final ApiBaseHelper _helper = ApiBaseHelper();
   var userInfo = UserInfo(
           companyQuizReadiness: '',
@@ -72,7 +73,7 @@ class ServerUpdateController extends GetxController {
         Utility.showInfo(userLogin.errorMessage);
       }
     } catch (e) {
-      Utility.showError("Failed To Update");
+      Utility.showError("Something went wrong");
       e.printError();
       isLoading.value = false;
     }
@@ -107,7 +108,7 @@ class ServerUpdateController extends GetxController {
         Utility.showInfo(userLogin.errorMessage);
       }
     } catch (e) {
-      Utility.showError("Failed To Update");
+      Utility.showError("Something went wrong");
       e.printError();
       isLoading.value = false;
     }
@@ -131,23 +132,97 @@ class ServerUpdateController extends GetxController {
       isLoading.value = false;
       if (!userReport.errorStatus) {
         userInfo.value = userReport.userInfo;
-        phishingReadinessUser.add(
-            ChartData("Game", double.parse(userInfo.value.phishingReadiness)));
-        phishingReadinessCompany.add(
-            ChartData("Game", double.parse(userInfo.value.companyReadiness)));
 
-        quizReadinessUser
-            .add(ChartData("Quiz", double.parse(userInfo.value.quizReadiness)));
+        if (userInfo.value.phishingReadiness?.isNotEmpty ?? true) {
+          phishingReadinessUser.add(ChartData(
+              "Game", double.parse(userInfo.value.phishingReadiness)));
+        } else {
+          phishingReadinessUser.add(ChartData("Game", 0.0));
+        }
 
-        quizReadinessCompnay.add(ChartData(
-            "Quiz", double.parse(userInfo.value.companyQuizReadiness)));
+        if (userInfo.value.companyReadiness?.isNotEmpty ?? true) {
+          phishingReadinessCompany.add(
+              ChartData("Game", double.parse(userInfo.value.companyReadiness)));
+        } else {
+          phishingReadinessCompany.add(ChartData("Game", 0.0));
+        }
+
+        if (userInfo.value.quizReadiness?.isNotEmpty ?? true) {
+          quizReadinessUser.add(
+              ChartData("Quiz", double.parse(userInfo.value.quizReadiness)));
+        } else {
+          quizReadinessUser.add(ChartData("Quiz", 0.0));
+        }
+
+        if (userInfo.value.companyQuizReadiness?.isNotEmpty ?? true) {
+          quizReadinessCompnay.add(ChartData(
+              "Quiz", double.parse(userInfo.value.companyQuizReadiness)));
+        } else {
+          quizReadinessCompnay.add(ChartData("Quiz", 0.0));
+        }
       } else {
         Utility.showInfo(userReport.errorMessage);
       }
     } catch (e) {
-      Utility.showError("Failed To Update");
+      Utility.showError("Something went wrong");
       e.printError();
       isLoading.value = false;
+    }
+  }
+
+  getUserReport_() async {
+    isLoading_.value = true;
+    var otp = await Utility.getTotp();
+    print("getUserReport otp ${otp} ");
+    dynamic body = {
+      "user_id": Utility.getIntValue(USER_ID).toString(),
+      "admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
+      "otp": otp,
+      'source': Utility.getOS()
+    };
+
+    try {
+      final response = await _helper.post("user_report", body);
+      log("response ${response}");
+      UserReport userReport = UserReport.fromJson(response);
+      isLoading_.value = false;
+      if (!userReport.errorStatus) {
+        userInfo.value = userReport.userInfo;
+
+        if (userInfo.value.phishingReadiness?.isNotEmpty ?? true) {
+          phishingReadinessUser.add(ChartData(
+              "Game", double.parse(userInfo.value.phishingReadiness)));
+        } else {
+          phishingReadinessUser.add(ChartData("Game", 0.0));
+        }
+
+        if (userInfo.value.companyReadiness?.isNotEmpty ?? true) {
+          phishingReadinessCompany.add(
+              ChartData("Game", double.parse(userInfo.value.companyReadiness)));
+        } else {
+          phishingReadinessCompany.add(ChartData("Game", 0.0));
+        }
+
+        if (userInfo.value.quizReadiness?.isNotEmpty ?? true) {
+          quizReadinessUser.add(
+              ChartData("Quiz", double.parse(userInfo.value.quizReadiness)));
+        } else {
+          quizReadinessUser.add(ChartData("Quiz", 0.0));
+        }
+
+        if (userInfo.value.companyQuizReadiness?.isNotEmpty ?? true) {
+          quizReadinessCompnay.add(ChartData(
+              "Quiz", double.parse(userInfo.value.companyQuizReadiness)));
+        } else {
+          quizReadinessCompnay.add(ChartData("Quiz", 0.0));
+        }
+      } else {
+        Utility.showInfo(userReport.errorMessage);
+      }
+    } catch (e) {
+      Utility.showError("Something went wrong");
+      e.printError();
+      isLoading_.value = false;
     }
   }
 }
