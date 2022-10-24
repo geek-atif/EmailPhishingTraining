@@ -1,3 +1,5 @@
+import 'package:PhishSim/utiles/utility.dart';
+
 import '../../../ui/widgets/text/light_text_head.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -98,7 +100,9 @@ class _MainReportScreenState extends State<MainReportScreen>
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const LightTextBody(data: "Tutorial Taken Time  : "),
-                LightTextBody(data: userInfo.tutorialTimeTaken)
+                LightTextBody(
+                    data:
+                        "${Utility.convertToLocalDateTime(userInfo.tutorialTimeTaken)}")
               ],
             ),
           ),
@@ -109,7 +113,9 @@ class _MainReportScreenState extends State<MainReportScreen>
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const LightTextBody(data: "Quiz Taken Time  : "),
-                LightTextBody(data: userInfo.quizTimeTaken)
+                LightTextBody(
+                    data:
+                        "${Utility.convertToLocalDateTime(userInfo.quizTimeTaken)}")
               ],
             ),
           ),

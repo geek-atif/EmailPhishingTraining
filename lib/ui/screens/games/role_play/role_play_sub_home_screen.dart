@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../../ui/styles/my_app_theme.dart';
 import 'package:flutter/material.dart';
 import '../../../styles/images.dart';
+import '../../../widgets/my_app_bar.dart';
 
 class RolePlaySubHomeScreen extends StatefulWidget {
   const RolePlaySubHomeScreen({super.key});
@@ -18,6 +19,7 @@ class _RolePlaySubHomeScreenState extends State<RolePlaySubHomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: const MyAppBar(),
         backgroundColor: MyAppTheme.whitehaxBackgroundColor,
         body: SingleChildScrollView(
           child: Column(

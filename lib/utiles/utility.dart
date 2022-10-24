@@ -347,4 +347,10 @@ class Utility {
     print("os ${os}");
     return os;
   }
+
+  static String convertToLocalDateTime(String dateUtc) {
+    var dateTime = DateFormat("yyyy-MM-ddTHH:mm:ssZ").parse(dateUtc, true);
+    var dateLocal = dateTime.toLocal();
+    return "${dateLocal.year}-${dateLocal.month}-${dateLocal.day} ${dateLocal.hour}:${dateLocal.minute}:${dateLocal.second}";
+  }
 }
