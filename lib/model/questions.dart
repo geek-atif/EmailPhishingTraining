@@ -46,7 +46,7 @@ const List office365Qus = [
       'Call the Sender to check if he/she sent the email',
       'Click the URL, attachment or link in the email',
     ],
-    "answer_index": 1,
+    "answer_index": 2,
   },
   {
     "id": 4,

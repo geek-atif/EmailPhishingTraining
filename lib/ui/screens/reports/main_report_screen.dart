@@ -77,6 +77,7 @@ class _MainReportScreenState extends State<MainReportScreen>
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: Get.height * 0.02,
@@ -94,28 +95,28 @@ class _MainReportScreenState extends State<MainReportScreen>
             height: Get.height * 0.015,
           ),
           Padding(
-            padding: const EdgeInsets.all(6.0),
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const LightTextBody(data: "Tutorial Taken Time  : "),
                 LightTextBody(
                     data:
-                        "${Utility.convertToLocalDateTime(userInfo.tutorialTimeTaken)}")
+                        " ${Utility.convertToLocalDateTime(userInfo.tutorialTimeTaken)}")
               ],
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(6.0),
+            padding: const EdgeInsets.all(8.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 const LightTextBody(data: "Quiz Taken Time  : "),
                 LightTextBody(
                     data:
-                        "${Utility.convertToLocalDateTime(userInfo.quizTimeTaken)}")
+                        " ${Utility.convertToLocalDateTime(userInfo.quizTimeTaken)}")
               ],
             ),
           ),

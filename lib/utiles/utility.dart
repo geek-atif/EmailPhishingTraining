@@ -349,6 +349,14 @@ class Utility {
   }
 
   static String convertToLocalDateTime(String dateUtc) {
+    if (dateUtc.isEmpty) {
+      return "";
+    }
+
+    if (dateUtc == "00:00") {
+      return "";
+    }
+
     var dateTime = DateFormat("yyyy-MM-ddTHH:mm:ssZ").parse(dateUtc, true);
     var dateLocal = dateTime.toLocal();
     return "${dateLocal.year}-${dateLocal.month}-${dateLocal.day} ${dateLocal.hour}:${dateLocal.minute}:${dateLocal.second}";
