@@ -4,6 +4,7 @@ import '../../../../../ui/widgets/text/light_text_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../utiles/constant.dart';
+import '../../../../../utiles/utility.dart';
 import '../../../../routers/my_router.dart';
 import '../../../../styles/images.dart';
 import '../../../../styles/my_app_theme.dart';
@@ -16,10 +17,13 @@ class BankOfAmericaScreen extends StatelessWidget {
   const BankOfAmericaScreen({super.key});
 
   _submit(bool input) {
-    if (input)
+    if (input) {
+      Utility.saveBolValue(ROLE_PLAY_GAME4, true);
       Get.toNamed(MyRouter.rolePlaySucessScreen);
-    else
+    } else {
+      Utility.saveBolValue(ROLE_PLAY_GAME4, false);
       Get.toNamed(MyRouter.rolePlayWrongScreen);
+    }
   }
 
   @override

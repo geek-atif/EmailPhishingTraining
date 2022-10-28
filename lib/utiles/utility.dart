@@ -349,6 +349,7 @@ class Utility {
   }
 
   static String convertToLocalDateTime(String dateUtc) {
+    //return dateUtc;
     if (dateUtc.isEmpty) {
       return "";
     }
@@ -360,5 +361,36 @@ class Utility {
     var dateTime = DateFormat("yyyy-MM-ddTHH:mm:ssZ").parse(dateUtc, true);
     var dateLocal = dateTime.toLocal();
     return "${dateLocal.year}-${dateLocal.month}-${dateLocal.day} ${dateLocal.hour}:${dateLocal.minute}:${dateLocal.second}";
+  }
+
+  static int getRoleGameScore() {
+    int totalScore = 0;
+    var roleGame1 = getBolValue(ROLE_PLAY_GAME1);
+    var roleGame2 = getBolValue(ROLE_PLAY_GAME2);
+    var roleGame3 = getBolValue(ROLE_PLAY_GAME3);
+    var roleGame4 = getBolValue(ROLE_PLAY_GAME4);
+    var roleGame5 = getBolValue(ROLE_PLAY_GAME5);
+
+    if (roleGame1) {
+      totalScore = totalScore + 1;
+    }
+
+    if (roleGame2) {
+      totalScore = totalScore + 1;
+    }
+
+    if (roleGame3) {
+      totalScore = totalScore + 1;
+    }
+    if (roleGame4) {
+      totalScore = totalScore + 1;
+    }
+
+    if (roleGame5) {
+      totalScore = totalScore + 1;
+    }
+
+    var totalScore_ = ((totalScore / 5) * 100);
+    return totalScore_.toInt();
   }
 }

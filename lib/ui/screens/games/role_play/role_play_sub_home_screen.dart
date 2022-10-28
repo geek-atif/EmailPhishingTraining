@@ -1,3 +1,7 @@
+import 'package:PhishSim/ui/widgets/button/dark_blue_button.dart';
+import 'package:PhishSim/utiles/utility.dart';
+
+import '../../../../controller/server_update_controller.dart';
 import '../../../../ui/routers/my_router.dart';
 import '../../../../ui/widgets/text/dark_text_body.dart';
 import '../../../../ui/widgets/text/light_text_sub_head.dart';
@@ -5,6 +9,7 @@ import 'package:get/get.dart';
 import '../../../../ui/styles/my_app_theme.dart';
 import 'package:flutter/material.dart';
 import '../../../styles/images.dart';
+import '../../../widgets/loading.dart';
 import '../../../widgets/my_app_bar.dart';
 
 class RolePlaySubHomeScreen extends StatefulWidget {
@@ -15,6 +20,8 @@ class RolePlaySubHomeScreen extends StatefulWidget {
 }
 
 class _RolePlaySubHomeScreenState extends State<RolePlaySubHomeScreen> {
+  final ServerUpdateController _serverUpdateController =
+      Get.put(ServerUpdateController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -147,6 +154,32 @@ class _RolePlaySubHomeScreenState extends State<RolePlaySubHomeScreen> {
                           child: Divider(
                             height: 0.1,
                           ),
+                        ),
+                        SizedBox(
+                          height: Get.height * 0.02,
+                        ),
+                        Obx(
+                          () => _serverUpdateController.isLoading_.value
+                              ? const Loading(
+                                  loadingMessage: '',
+                                )
+                              : InkWell(
+                                  onTap: () {
+                                    int score = Utility.getRoleGameScore();
+                                    if (score == 0) {
+                                      Utility.showInfo(
+                                          "Please Play Game First");
+                                      return;
+                                    }
+                                    _serverUpdateController.updateGame(
+                                        "rolePlayGameDoc", score);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 15.0, right: 15.0),
+                                    child: DarkBlueButton(buttonText: "Submit"),
+                                  ),
+                                ),
                         ),
                       ],
                     ),

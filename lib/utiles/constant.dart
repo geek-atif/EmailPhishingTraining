@@ -58,5 +58,11 @@ const String TUTORIAL_STEP_ATTEMPT_Done = "tutorialStepAttemptDone";
 
 const String TUTORIAL_PHISHING_FACT_Done = "phishingFactdone";
 
+const String ROLE_PLAY_GAME1 = "rolePlayGame1";
+const String ROLE_PLAY_GAME2 = "rolePlayGame2";
+const String ROLE_PLAY_GAME3 = "rolePlayGame3";
+const String ROLE_PLAY_GAME4 = "rolePlayGame4";
+const String ROLE_PLAY_GAME5 = "rolePlayGame5";
+
 //Get Storage
 //const String LOGIN_CONTAINER = "loginContainer";

@@ -225,4 +225,35 @@ class ServerUpdateController extends GetxController {
       isLoading_.value = false;
     }
   }
+
+  updateGame(var gameName, var gameScore) async {
+    isLoading_.value = true;
+    var otp = await Utility.getTotp();
+    print("updateGame otp ${otp} ");
+    dynamic body = {
+      "user_id": Utility.getIntValue(USER_ID).toString(),
+      "admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
+      //"time_taken": Utility.getCurrentTime().toString(),
+      "game_name": gameName.toString(),
+      "score": gameScore.toString(),
+      "otp": otp,
+      'source': Utility.getOS()
+    };
+
+    try {
+      final response = await _helper.post("submitgame", body);
+      log("response ${response}");
+      TutorialResponse userLogin = TutorialResponse.fromJson(response);
+      isLoading_.value = false;
+      if (!userLogin.errorStatus) {
+        Get.offAndToNamed(MyRouter.homeScreen);
+      } else {
+        Utility.showInfo(userLogin.errorMessage);
+      }
+    } catch (e) {
+      Utility.showError("Something went wrong");
+      e.printError();
+      isLoading_.value = false;
+    }
+  }
 }

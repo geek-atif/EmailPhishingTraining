@@ -1,3 +1,5 @@
+import 'package:PhishSim/utiles/utility.dart';
+
 import '../../../../../ui/routers/my_router.dart';
 import '../../../../../controller/role_play_controller.dart';
 import '../../../../../ui/screens/games/role_play/role_play_progress_bar.dart';
@@ -19,10 +21,13 @@ class MarkSpeckhardtScreen extends StatelessWidget {
   final RolePlayController _rolePlayController = Get.put(RolePlayController());
 
   _submit(bool input) {
-    if (input)
+    if (input) {
+      Utility.saveBolValue(ROLE_PLAY_GAME1, true);
       Get.toNamed(MyRouter.rolePlaySucessScreen);
-    else
+    } else {
+      Utility.saveBolValue(ROLE_PLAY_GAME1, false);
       Get.toNamed(MyRouter.rolePlayWrongScreen);
+    }
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'package:PhishSim/utiles/utility.dart';
+
 import '../../../../../ui/widgets/my_app_bar.dart';
 import '../../../../../ui/widgets/text/dark_text_body.dart';
 import '../../../../../ui/widgets/text/light_text_body.dart';
@@ -16,10 +18,13 @@ class ZoomMeetingReminderScreen extends StatelessWidget {
   const ZoomMeetingReminderScreen({super.key});
 
   _submit(bool input) {
-    if (input)
+    if (input) {
+      Utility.saveBolValue(ROLE_PLAY_GAME2, true);
       Get.toNamed(MyRouter.rolePlaySucessScreen);
-    else
+    } else {
+      Utility.saveBolValue(ROLE_PLAY_GAME2, false);
       Get.toNamed(MyRouter.rolePlayWrongScreen);
+    }
   }
 
   @override
