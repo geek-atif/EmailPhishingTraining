@@ -349,6 +349,7 @@ class Utility {
   }
 
   static String convertToLocalDateTime(String dateUtc) {
+    try{
     //return dateUtc;
     if (dateUtc.isEmpty) {
       return "";
@@ -361,6 +362,11 @@ class Utility {
     var dateTime = DateFormat("yyyy-MM-ddTHH:mm:ssZ").parse(dateUtc, true);
     var dateLocal = dateTime.toLocal();
     return "${dateLocal.year}-${dateLocal.month}-${dateLocal.day} ${dateLocal.hour}:${dateLocal.minute}:${dateLocal.second}";
+    }catch (e){
+      e.printError();
+    }
+
+    return "";
   }
 
   static int getRoleGameScore() {

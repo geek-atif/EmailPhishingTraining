@@ -31,10 +31,10 @@ const List office365Qus = [
     "question": "Is this a Phishing Email ?",
     "image": Images.msOffice1,
     "options": [
-      'Yes',
-      'No',
+      'Phish',
+      'Real',
     ],
-    "answer_index": 1,
+    "answer_index": 0,
   },
   {
     "id": 3,
@@ -53,8 +53,8 @@ const List office365Qus = [
     "question": "Is this a Phishing Email ?",
     "image": Images.msOffice2,
     "options": [
-      'Yes',
-      'No',
+      'Phish',
+      'Real',
     ],
     "answer_index": 1,
   },
@@ -74,10 +74,10 @@ const List office365Qus = [
     "question": "Is this a Phishing Email ?",
     "image": Images.msOffice3,
     "options": [
-      'Yes',
-      'No',
+      'Phish',
+      'Real',
     ],
-    "answer_index": 1,
+    "answer_index": 0,
   },
   {
     "id": 7,
@@ -94,16 +94,6 @@ const List office365Qus = [
   },
   {
     "id": 8,
-    "question": "Is this a Phishing Email ?",
-    "image": Images.msOffice4,
-    "options": [
-      'Yes',
-      'No',
-    ],
-    "answer_index": 1,
-  },
-  {
-    "id": 9,
     "question":
         "An urgent email from Microsoft telling you your Office 365 account has been deleted. How do you determine it’s a phishing scam or legitimate email?",
     "image": "",
@@ -113,6 +103,16 @@ const List office365Qus = [
       'Report it to your administrator',
     ],
     "answer_index": 0,
+  },
+  {
+    "id": 9,
+    "question": "Is this a Phishing Email ?",
+    "image": Images.msOffice4,
+    "options": [
+      'Phish',
+      'Real',
+    ],
+    "answer_index": 1,
   },
   {
     "id": 10,
@@ -131,8 +131,8 @@ const List office365Qus = [
     "question": "Is this a Phishing Email ?",
     "image": Images.msOffice5,
     "options": [
-      'Yes',
-      'No',
+      'Phish',
+      'Real',
     ],
     "answer_index": 0,
   },
