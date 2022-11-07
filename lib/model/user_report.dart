@@ -46,8 +46,8 @@ class UserInfo {
   late final String quizReadiness;
   late final int score;
   late final String companyReadiness;
-  late final String tutorialTimeTaken;
-  late final String quizTimeTaken;
+  late final int tutorialTimeTaken;
+  late final int quizTimeTaken;
   late final String companyQuizReadiness;
   List<PhishingEmailRisk> phishingEmailRisk = [];
 

@@ -348,21 +348,28 @@ class Utility {
     return os;
   }
 
-  static String convertToLocalDateTime(String dateUtc) {
-    try{
-    //return dateUtc;
-    if (dateUtc.isEmpty) {
-      return "";
-    }
+  static String convertToLocalDateTime(int dateUtc) {
+    try {
+      //return dateUtc;
+      // if (dateUtc.isEmpty) {
+      //   return "";
+      // }
 
-    if (dateUtc == "00:00") {
-      return "";
-    }
+      // if (dateUtc == "00:00") {
+      //   return "";
+      // }
 
-    var dateTime = DateFormat("yyyy-MM-ddTHH:mm:ssZ").parse(dateUtc, true);
-    var dateLocal = dateTime.toLocal();
-    return "${dateLocal.year}-${dateLocal.month}-${dateLocal.day} ${dateLocal.hour}:${dateLocal.minute}:${dateLocal.second}";
-    }catch (e){
+      if (dateUtc == 0) {
+        return "";
+      }
+
+      // var dateTime = DateFormat("yyyy-MM-ddTHH:mm:ssZ").parse(dateUtc, true);
+      // var dateLocal = dateTime.toLocal();
+      // return "${dateLocal.year}-${dateLocal.month}-${dateLocal.day} ${dateLocal.hour}:${dateLocal.minute}:${dateLocal.second}";
+      var dateLocal = DateTime.fromMillisecondsSinceEpoch(dateUtc);
+      //var dateLocal = dateTime.toLocal();
+      return "${dateLocal.year}-${dateLocal.month}-${dateLocal.day} ${dateLocal.hour}:${dateLocal.minute}:${dateLocal.second}";
+    } catch (e) {
       e.printError();
     }
 

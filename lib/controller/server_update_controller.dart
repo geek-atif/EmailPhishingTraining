@@ -20,8 +20,8 @@ class ServerUpdateController extends GetxController {
           tutorialReadiness: '',
           score: 0,
           companyReadiness: '',
-          tutorialTimeTaken: '',
-          quizTimeTaken: '',
+          tutorialTimeTaken: 0,
+          quizTimeTaken: 0,
           phishingEmailRisk: [],
           quizReadiness: '',
           userid: '')

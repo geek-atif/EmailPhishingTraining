@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../../../../controller/word_game_controller.dart';
 import 'word_draggable_card.dart';
@@ -11,23 +13,28 @@ class WordGameList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: PageView.builder(
-        // Block swipe to next qn
-        physics: NeverScrollableScrollPhysics(),
-        controller: wordGameController.pageController,
-        onPageChanged: wordGameController.updateTheQnNum,
-        itemCount: wordGameController.wordGames.length,
-        itemBuilder: (context, index) => 
-        // WordDraggableCard(
-        //   index: index,
-        //   wordGame: wordGameController.wordGames[index],
-        //   wordGameController: wordGameController,
-        // ),
-        WordEditCard(
-            index: index,
-            wordGame: wordGameController.wordGames[index],
-            wordGameController: wordGameController,
-            wordHint: wordGameController.wordGames[index].hint),
-      ),
+          // Block swipe to next qn
+          physics: NeverScrollableScrollPhysics(),
+          controller: wordGameController.pageController,
+          onPageChanged: wordGameController.updateTheQnNum,
+          itemCount: wordGameController.wordGames.length,
+          itemBuilder: (context, index) {
+            // WordDraggableCard(
+            //   index: index,
+            //   wordGame: wordGameController.wordGames[index],
+            //   wordGameController: wordGameController,
+            // ),
+            final _random = Random();
+            return WordEditCard(
+                index: index,
+                wordGame: wordGameController.wordGames[
+                    _random.nextInt(wordGameController.wordGames.length)],
+                wordGameController: wordGameController,
+                wordHint: wordGameController
+                    .wordGames[
+                        _random.nextInt(wordGameController.wordGames.length)]
+                    .hint);
+          }),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../styles/fonts.dart';
@@ -62,8 +64,12 @@ class Body extends StatelessWidget {
                   controller: questionController.pageController,
                   onPageChanged: questionController.updateTheQnNum,
                   itemCount: questionController.questions.length,
-                  itemBuilder: (context, index) => QuestionCard(
-                      question: questionController.questions[index]),
+                  itemBuilder: (context, index) {
+                    final _random = Random();
+                    return QuestionCard(
+                        question: questionController.questions[_random
+                            .nextInt(questionController.questions.length)]);
+                  },
                 ),
               ),
             ],

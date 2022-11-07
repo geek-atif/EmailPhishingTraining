@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../controller/role_play_game_controller.dart';
@@ -60,15 +62,18 @@ class EmailPhishingBody extends StatelessWidget {
               const SizedBox(height: 10),
               Expanded(
                 child: PageView.builder(
-                  // Block swipe to next qn
-                  physics: NeverScrollableScrollPhysics(),
-                  controller: questionController.pageController,
-                  onPageChanged: questionController.updateTheQnNum,
-                  itemCount: questionController.questions.length,
-                  itemBuilder: (context, index) => EmailPhishingQuestionCard(
-                      question: questionController.questions[index],
-                      tooltipkey: tooltipkey),
-                ),
+                    // Block swipe to next qn
+                    physics: NeverScrollableScrollPhysics(),
+                    controller: questionController.pageController,
+                    onPageChanged: questionController.updateTheQnNum,
+                    itemCount: questionController.questions.length,
+                    itemBuilder: (context, index) {
+                      final _random = Random();
+                      return EmailPhishingQuestionCard(
+                          question: questionController.questions[_random
+                              .nextInt(questionController.questions.length)],
+                          tooltipkey: tooltipkey);
+                    }),
               ),
             ],
           ),

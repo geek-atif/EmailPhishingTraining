@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../api_base_helper/api_base_helper.dart';
@@ -76,6 +77,7 @@ class QuestionController extends GetxController
   }
 
   void setQuestion(typeOfQuiz) {
+    final _random = Random();
     print("setQuestion typeOfQuiz ${typeOfQuiz}");
     _quizType.value = typeOfQuiz;
     if (typeOfQuiz == "office365Qus") {
@@ -141,7 +143,7 @@ class QuestionController extends GetxController
     } else {
       // Get package provide us simple way to naviigate another page
       //Get.offAndToNamed(MyRouter.homeScreen);
-      log("${_quizType.value}");
+      // log("${_quizType.value}");
 
       var data = {
         "Total": _questions.length,
