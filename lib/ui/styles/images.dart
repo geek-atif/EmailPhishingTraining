@@ -38,4 +38,7 @@ class Images {
   static const String msOffice3 = "assets/images/msOffice3.jpg";
   static const String msOffice4 = "assets/images/msOffice4.jpg";
   static const String msOffice5 = "assets/images/msOffice5.jpg";
+  static const String smishingone = "assets/images/smishingone.jpg";
+  static const String smishing2 = "assets/images/smishing2.jpg";
+  static const String smishing3 = "assets/images/smishing3.jpg";
 }

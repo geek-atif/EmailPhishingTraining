@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import '../../../controller/server_update_controller.dart';
 import '../../../ui/styles/my_app_theme.dart';
 import '../../../ui/widgets/loading.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:get/get.dart';
 
+import '../../../utiles/constant.dart';
 import '../../widgets/my_app_bar.dart';
 
 class MyWebView extends StatefulWidget {
@@ -17,7 +19,9 @@ class MyWebView extends StatefulWidget {
 }
 
 class _MyWebViewState extends State<MyWebView> {
-  String webUrl = "https://demo.whitehax.com/whlite/puzzleGame.html/id=213";
+  final ServerUpdateController _serverUpdateController =
+      Get.put(ServerUpdateController());
+  //String webUrl = "${baseUrl}puzzleGame.html/id=213";
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
   bool isLoading = true;
@@ -29,6 +33,7 @@ class _MyWebViewState extends State<MyWebView> {
     // webUrl = Get.arguments;
     // Enable virtual display.
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
+    _serverUpdateController.getGameID(GAME_PUZZLE_GAME_DOC);
   }
 
   @override
@@ -57,34 +62,39 @@ class _MyWebViewState extends State<MyWebView> {
         //     onPressed: () => Get.back(),
         //   ),
         // ),
-        body: Stack(
-          children: [
-            WebView(
-              initialUrl: webUrl,
-              javascriptMode: JavascriptMode.unrestricted,
-              onWebViewCreated: (WebViewController webViewController) {
-                _controller.complete(webViewController);
-              },
-              onProgress: (int progress) {
-                print('WebView is loading (progress : $progress%)');
-                setState(() {
-                  if (progress == 100) {
-                    isLoading = false;
-                  }
-                });
-              },
-              javascriptChannels: <JavascriptChannel>{
-                _toasterJavascriptChannel(context),
-              },
-            ),
-            isLoading
-                ? const Center(
-                    child: Loading(
-                      loadingMessage: "",
+        body: Obx(
+          () => _serverUpdateController.isLoadingGame.value
+              ? Loading(loadingMessage: "")
+              : Stack(
+                  children: [
+                    WebView(
+                      initialUrl:
+                          "${baseUrl}puzzleGame.html/id=${_serverUpdateController.gameId}",
+                      javascriptMode: JavascriptMode.unrestricted,
+                      onWebViewCreated: (WebViewController webViewController) {
+                        _controller.complete(webViewController);
+                      },
+                      onProgress: (int progress) {
+                        print('WebView is loading (progress : $progress%)');
+                        setState(() {
+                          if (progress == 100) {
+                            isLoading = false;
+                          }
+                        });
+                      },
+                      javascriptChannels: <JavascriptChannel>{
+                        _toasterJavascriptChannel(context),
+                      },
                     ),
-                  )
-                : Stack(),
-          ],
+                    isLoading
+                        ? const Center(
+                            child: Loading(
+                              loadingMessage: "",
+                            ),
+                          )
+                        : Stack(),
+                  ],
+                ),
         ),
       ),
     );

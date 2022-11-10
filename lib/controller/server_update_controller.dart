@@ -5,12 +5,15 @@ import 'package:get/get.dart';
 import '../api_base_helper/api_base_helper.dart';
 import '../model/tutorial_response.dart';
 import '../model/user_report.dart';
+import '../model/get_game_id.dart';
 import '../ui/routers/my_router.dart';
 import '../ui/screens/home_screen.dart';
 
 class ServerUpdateController extends GetxController {
+  var isLoadingGame = false.obs;
   var isLoading = false.obs;
   var isLoading_ = false.obs;
+  var gameId = 0.obs;
   final ApiBaseHelper _helper = ApiBaseHelper();
   var userInfo = UserInfo(
           companyQuizReadiness: '',
@@ -229,12 +232,14 @@ class ServerUpdateController extends GetxController {
   updateGame(var gameName, var gameScore) async {
     isLoading_.value = true;
     var otp = await Utility.getTotp();
-    print("updateGame otp ${otp} ");
+    var gameID = await getGameID(gameName);
+    print("updateGame otp ${otp} getGameID ${getGameID} ");
     dynamic body = {
-      "user_id": Utility.getIntValue(USER_ID).toString(),
-      "admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
+      // "user_id": Utility.getIntValue(USER_ID).toString(),
+      //"admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
       //"time_taken": Utility.getCurrentTime().toString(),
-      "game_name": gameName.toString(),
+      //"game_name": gameName.toString(),
+      "id": gameID.toString(),
       "score": gameScore.toString(),
       "otp": otp,
       'source': Utility.getOS()
@@ -255,5 +260,38 @@ class ServerUpdateController extends GetxController {
       e.printError();
       isLoading_.value = false;
     }
+  }
+
+  getGameID(var gameName) async {
+    isLoadingGame.value = true;
+    int id = 0;
+    var otp = await Utility.getTotp();
+    print("updateGame otp ${otp} ");
+    dynamic body = {
+      "user_id": Utility.getIntValue(USER_ID).toString(),
+      "admin_id": Utility.getIntValue(USER_ADMIN_ID).toString(),
+      //"time_taken": Utility.getCurrentTime().toString(),
+      "game_name": gameName.toString(),
+      "otp": otp,
+      'source': Utility.getOS()
+    };
+
+    try {
+      final response = await _helper.post("getgameid", body);
+      log("response ${response}");
+      GetGameID getGameID = GetGameID.fromJson(response);
+      isLoadingGame.value = false;
+      if (!getGameID.errorStatus) {
+        id = getGameID.id;
+        gameId.value = getGameID.id;
+      } else {
+        Utility.showInfo(getGameID.errorMessage);
+      }
+    } catch (e) {
+      isLoadingGame.value = false;
+      Utility.showError("Something went wrong");
+      e.printError();
+    }
+    return id;
   }
 }

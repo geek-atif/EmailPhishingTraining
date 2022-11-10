@@ -2,6 +2,7 @@ import '../../../ui/screens/auth/login_screen.dart';
 import '../../ui/screens/splash_screen.dart';
 import '../screens/games/crossword/cross_puzzle_screen.dart';
 import '../screens/games/emailphishing/email_phishing_screen.dart';
+import '../screens/games/game_score_screen.dart';
 import '../screens/games/role_play/role_play_sub_home_screen.dart';
 import '../screens/games/role_play/role_play_sub_screen/bank_of_america_screen.dart';
 import '../screens/games/role_play/role_play_sub_screen/emma_screen.dart';
@@ -32,6 +33,9 @@ import '../screens/tutorial/phishingsteps/phishing_step_three.dart';
 import '../screens/tutorial/phishingsteps/phishing_step_two.dart';
 import '../screens/quiz/quiz_screen.dart';
 import '../screens/quiz/score_screen.dart';
+import '../screens/tutorial/smishing/phishing_step_one.dart';
+import '../screens/tutorial/smishing/smishing_step_three.dart';
+import '../screens/tutorial/smishing/smishing_step_two.dart';
 import '../screens/webview/my_web_view.dart';
 import '../screens/debug_screen.dart';
 
@@ -71,6 +75,10 @@ class MyRouter {
   static var phishingFactsFirstScreen = "/phishingFactsFirstScreen";
   static var phishingFactsSecondScreen = "/phishingFactsSecondScreen";
   static var phishingFactsThreeScreen = "/phishingFactsThreeScreen";
+  static var smishingStepOne = "/smishingStepOne";
+  static var smishingStepTwo = "/smishingStepTwo";
+  static var gameScoreScreen = "/gameScoreScreen";
+  static var smishingStepThree = "/smishingStepThree";
   static var route = [
     GetPage(name: splashScreen, page: () => const SplashScreen()),
     GetPage(name: loginScreen, page: () => const LoginScreen()),
@@ -121,5 +129,9 @@ class MyRouter {
         page: () => PhishingFactsSecondScreen()),
     GetPage(
         name: phishingFactsThreeScreen, page: () => PhishingFactsThreeScreen()),
+    GetPage(name: smishingStepOne, page: () => SmishingStepOne()),
+    GetPage(name: smishingStepTwo, page: () => SmishingStepTwo()),
+    GetPage(name: gameScoreScreen, page: () => GameScoreScreen()),
+    GetPage(name: smishingStepThree, page: () => SmishingStepThree()),
   ];
 }

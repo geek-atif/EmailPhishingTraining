@@ -174,6 +174,12 @@ class MyNavigationMenu extends StatelessWidget {
         InkWell(
             onTap: () => Get.toNamed(MyRouter.phishingFactsFirstScreen),
             child: const LightTextBody(data: "Phishing Facts")),
+        const SizedBox(
+          height: 10,
+        ),
+        InkWell(
+            onTap: () => Get.toNamed(MyRouter.smishingStepOne),
+            child: const LightTextBody(data: "Smishing")),
       ],
       iconColor: Colors.white,
       leading: const Icon(

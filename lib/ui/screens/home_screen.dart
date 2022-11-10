@@ -398,7 +398,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Expanded(
           flex: 2,
-          child: Text(""),
+          child: InkWell(
+            onTap: () => Get.toNamed(
+              MyRouter.smishingStepOne,
+            ),
+            child: myCard(false, "Smishing", Icons.read_more),
+          ),
         ),
         Expanded(
           flex: 2,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-//const baseUrl = "https://staging.whitehax.com/whlite/";
-const baseUrl = "https://cde1-103-46-200-202.in.ngrok.io/whlite/";
+const baseUrl = "https://staging.whitehax.com/whlite/";
+//const baseUrl = "https://cde1-103-46-200-202.in.ngrok.io/whlite/";
 const simpleLoginBaseURL = "https://app.simplelogin.io/api";
 
 String checkmarkJson = "assets/json/checkmark.json";
@@ -64,6 +64,10 @@ const String ROLE_PLAY_GAME2 = "rolePlayGame2";
 const String ROLE_PLAY_GAME3 = "rolePlayGame3";
 const String ROLE_PLAY_GAME4 = "rolePlayGame4";
 const String ROLE_PLAY_GAME5 = "rolePlayGame5";
+
+// Game Name
+const String GAME_ROLE_PLAY = "rolePlayGameDoc";
+const String GAME_PUZZLE_GAME_DOC = "puzzleGameDoc";
 
 //Get Storage
 //const String LOGIN_CONTAINER = "loginContainer";

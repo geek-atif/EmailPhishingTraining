@@ -125,9 +125,9 @@ class WordGameController extends GetxController
       var data = {
         "Total": _wordGames.length,
         "Ans": _numOfCorrectAns,
-        "quizName": ""
+        "gameName": "gameDoc"
       };
-      Get.offAndToNamed(MyRouter.scoreScreen, arguments: data);
+      Get.offAndToNamed(MyRouter.gameScoreScreen, arguments: data);
       Utility.saveBolValue(GAME_WORD_DONE, true);
     }
   }
